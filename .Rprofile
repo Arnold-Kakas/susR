@@ -1,1 +1,3 @@
-library(devtools)
+if (interactive()) {
+  suppressMessages(require(devtools))
+}
