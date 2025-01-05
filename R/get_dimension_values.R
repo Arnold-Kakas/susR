@@ -63,7 +63,7 @@ get_dimension_values <- function(table_code, dimension_code, lang = "en") {
   element_labels <- parsed$category$label |> unlist()
 
   # If this dimension has no elements, return an empty tibble
-  if (length(idx) == 0) {
+  if (length(element_idx) == 0) {
     return(dplyr::tibble(
       dimension_code  = dimension_code,
       dimension_label = dim_label,
