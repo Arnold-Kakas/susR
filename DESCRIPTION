@@ -1,12 +1,10 @@
 Package: susR
-Title: What the Package Does (One Line, Title Case)
+Title: Interface for Accessing the Open Data of Slovak Statistical Office via API
 Version: 0.0.0.9000
 Authors@R: 
-    person("Arnold", "Kakas", , "kakas@cleandata.sk", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+    person("Arnold", "Kakas", , "kakas@cleandata.sk", role = c("aut", "cre"))
+Description: This package provides an R interface to the Slovak Statistical Office (Statisticky Urad Slovenskej Republiky - SUSR) open data API, enabling users to effortlessly search for, retrieve, and parse publicly available statistical datasets and their metadata. By combining convenient helper functions and robust request handling, the package simplifies the tasks of discovering available tables, retrieving dimension codes, extracting valid dimension elements, and ultimately querying custom data selections. This ensures a reproducible, streamlined workflow for analyzing official Slovak statistical data right within R.
+License: GPL (>= 3)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
