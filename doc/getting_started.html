@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+
+<title>Getting started with susR</title>
+
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
+
+<style type="text/css">
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+
+<style type="text/css">
+code {
+white-space: pre;
+}
+.sourceCode {
+overflow: visible;
+}
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Getting started with susR</h1>
+
+
+
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>susR provides an R interface to the Slovak Statistical Office (SUSR)
+open data API, making it easier to:</p>
+<ul>
+<li>List available tables (and their dimension codes).</li>
+<li>Retrieve metadata for those tables (e.g., domain, subdomain).</li>
+<li>Fetch the data itself in JSON-stat format.</li>
+<li>Convert the data into user-friendly tibbles ready for analysis.</li>
+</ul>
+<p>This vignette guides you through a basic workflow: from installing
+susR to fetching data.</p>
+<p>Installation If you haven’t already installed susR, you can do so
+from GitHub:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;Arnold-Kakas/susR&quot;</span>)</span></code></pre></div>
+<p>Then load it:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="fu">library</span>(susR)</span></code></pre></div>
+</div>
+<div id="listing-available-tables" class="section level2">
+<h2>Listing Available Tables</h2>
+<p>There are two options how to retrieve available tables.</p>
+<p>First is calling <code>susr_domains()</code> functions which reads
+saved list of available tables, their names, domain and subdomains:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>susr_domains_table <span class="ot">&lt;-</span> <span class="fu">susr_domains</span>()</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="fu">head</span>(susr_domains_table)</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 × 4</span></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="co">#&gt;   table_code table_name                                         domain subdomain</span></span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;      &lt;chr&gt;                                              &lt;chr&gt;  &lt;chr&gt;    </span></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="co">#&gt; 1 as1001rs   Population and attributes of age                   Indic… Indicato…</span></span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="co">#&gt; 2 as1002rs   Participation of seniors in the labour market      Indic… Indicato…</span></span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a><span class="co">#&gt; 3 as1003rs   Net money income and expenditure of households by… Indic… Indicato…</span></span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a><span class="co">#&gt; 4 as1004rs   Expenditure of households on selected goods and s… Indic… Indicato…</span></span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a><span class="co">#&gt; 5 as1005rs   At-risk-of-poverty rate by selected age group and… Indic… Indicato…</span></span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a><span class="co">#&gt; 6 as1006rs   Social and pension security                        Indic… Indicato…</span></span></code></pre></div>
+<p>Second is to call the SUSR API:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>susr_tables <span class="ot">&lt;-</span> <span class="fu">susr_tables</span>()</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="fu">head</span>(susr_tables)</span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 × 6</span></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="co">#&gt;   class   href                           table_code label update dimension_names</span></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;   &lt;chr&gt;                          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;          </span></span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="co">#&gt; 1 dataset https://data.statistics.sk/ap… as1001rs   Popu… 2024-… as1001rs_rok:a…</span></span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="co">#&gt; 2 dataset https://data.statistics.sk/ap… as1002rs   Part… 2024-… as1002rs_rok:a…</span></span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="co">#&gt; 3 dataset https://data.statistics.sk/ap… as1003rs   Net … 2024-… as1003rs_rok:a…</span></span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a><span class="co">#&gt; 4 dataset https://data.statistics.sk/ap… as1004rs   Expe… 2024-… as1004rs_rok:a…</span></span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="co">#&gt; 5 dataset https://data.statistics.sk/ap… as1005rs   At-r… 2024-… as1005rs_rok:a…</span></span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a><span class="co">#&gt; 6 dataset https://data.statistics.sk/ap… as1006rs   Soci… 2024-… as1006rs_rok:a…</span></span></code></pre></div>
+<p>This returns a tibble with columns like table_code, href,
+dimension_names, label, and update.</p>
+<p>If you only want certain domains or subdomains, you can do it by
+passing one (or more) domains and/or subdomains from
+<code>susr_domains()</code> result:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="co"># Example: filter by domain = &quot;Demographic and social statistics&quot;</span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>domain_tables <span class="ot">&lt;-</span> <span class="fu">susr_tables</span>(<span class="at">domain =</span> <span class="st">&quot;Demographic and social statistics&quot;</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="fu">dim</span>(domain_tables)</span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="co">#&gt; [1] 231   9</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>subdomain_tables <span class="ot">&lt;-</span> <span class="fu">susr_tables</span>(<span class="at">domain =</span> <span class="st">&quot;Housing&quot;</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="fu">dim</span>(subdomain_tables)</span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="co">#&gt; [1] 2 9</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>multiple_subdomain_tables <span class="ot">&lt;-</span> <span class="fu">susr_tables</span>(<span class="at">domain =</span> <span class="fu">c</span>(<span class="st">&quot;Housing&quot;</span>, <span class="st">&quot;Energy&quot;</span>))</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="fu">dim</span>(multiple_subdomain_tables)</span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a><span class="co">#&gt; [1] 12  9</span></span></code></pre></div>
+<p>You can pass parameter <code>long = TRUE</code> in order to fetch
+data in long format where each row contain only one dimension.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>subdomain_tables_long <span class="ot">&lt;-</span> <span class="fu">susr_tables</span>(<span class="at">domain =</span> <span class="st">&quot;Housing&quot;</span>,</span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>                                     <span class="at">long =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a><span class="fu">dim</span>(subdomain_tables_long)</span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a><span class="co">#&gt; [1] 10  8</span></span></code></pre></div>
+</div>
+<div id="discovering-dimensions" class="section level2">
+<h2>Discovering Dimensions</h2>
+<p>You can see what valid dimension values by using
+<code>susr_dimension_values()</code>.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>dims <span class="ot">&lt;-</span> <span class="fu">susr_dimension_values</span>(<span class="at">table_code =</span> <span class="st">&quot;bv3001rr&quot;</span>,</span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>                              <span class="at">dimension_code =</span> <span class="st">&quot;bv3001rr_voda&quot;</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>dims</span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a><span class="co">#&gt; # A tibble: 4 × 6</span></span>
+<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a><span class="co">#&gt;   dimension_code dimension_label dimension_note element_index element_value</span></span>
+<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;          &lt;chr&gt;           &lt;chr&gt;                  &lt;int&gt; &lt;chr&gt;        </span></span>
+<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a><span class="co">#&gt; 1 bv3001rr_voda  bv3001rr_voda   Water supply               0 VODATOT      </span></span>
+<span id="cb9-9"><a href="#cb9-9" tabindex="-1"></a><span class="co">#&gt; 2 bv3001rr_voda  bv3001rr_voda   Water supply               1 VODA01       </span></span>
+<span id="cb9-10"><a href="#cb9-10" tabindex="-1"></a><span class="co">#&gt; 3 bv3001rr_voda  bv3001rr_voda   Water supply               2 VODA02       </span></span>
+<span id="cb9-11"><a href="#cb9-11" tabindex="-1"></a><span class="co">#&gt; 4 bv3001rr_voda  bv3001rr_voda   Water supply               3 VODA03       </span></span>
+<span id="cb9-12"><a href="#cb9-12" tabindex="-1"></a><span class="co">#&gt; # ℹ 1 more variable: element_label &lt;chr&gt;</span></span></code></pre></div>
+<p>You can map this function to <code>susr_tables()</code> output in
+long format.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a><span class="co">#&gt; Attaching package: &#39;dplyr&#39;</span></span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a><span class="co">#&gt; The following objects are masked from &#39;package:stats&#39;:</span></span>
+<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a><span class="co">#&gt;     filter, lag</span></span>
+<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a><span class="co">#&gt; The following objects are masked from &#39;package:base&#39;:</span></span>
+<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a><span class="co">#&gt;     intersect, setdiff, setequal, union</span></span>
+<span id="cb10-10"><a href="#cb10-10" tabindex="-1"></a><span class="fu">library</span>(purrr)</span>
+<span id="cb10-11"><a href="#cb10-11" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb10-12"><a href="#cb10-12" tabindex="-1"></a></span>
+<span id="cb10-13"><a href="#cb10-13" tabindex="-1"></a><span class="co"># 1) Get all tables in the &quot;Energy&quot; domain, in long format</span></span>
+<span id="cb10-14"><a href="#cb10-14" tabindex="-1"></a>energy_long <span class="ot">&lt;-</span> <span class="fu">susr_tables</span>(<span class="at">domain =</span> <span class="st">&quot;Energy&quot;</span>, <span class="at">long =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb10-15"><a href="#cb10-15" tabindex="-1"></a></span>
+<span id="cb10-16"><a href="#cb10-16" tabindex="-1"></a><span class="co"># Inspect the columns:</span></span>
+<span id="cb10-17"><a href="#cb10-17" tabindex="-1"></a><span class="co"># - table_code</span></span>
+<span id="cb10-18"><a href="#cb10-18" tabindex="-1"></a><span class="co"># - dimension_code</span></span>
+<span id="cb10-19"><a href="#cb10-19" tabindex="-1"></a><span class="co"># - plus other metadata (domain, subdomain, label, href, etc.)</span></span>
+<span id="cb10-20"><a href="#cb10-20" tabindex="-1"></a></span>
+<span id="cb10-21"><a href="#cb10-21" tabindex="-1"></a><span class="co"># 2) Map susr_dimension_values() across each row:</span></span>
+<span id="cb10-22"><a href="#cb10-22" tabindex="-1"></a><span class="co">#    We&#39;ll create a new list-column &#39;dim_info&#39; that stores the dimension values</span></span>
+<span id="cb10-23"><a href="#cb10-23" tabindex="-1"></a>energy_long_dim <span class="ot">&lt;-</span> energy_long <span class="sc">|&gt;</span> </span>
+<span id="cb10-24"><a href="#cb10-24" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb10-25"><a href="#cb10-25" tabindex="-1"></a>    <span class="at">dim_info =</span> <span class="fu">map2</span>(table_code, dimension_code, <span class="sc">~</span> <span class="fu">susr_dimension_values</span>(.x, .y))</span>
+<span id="cb10-26"><a href="#cb10-26" tabindex="-1"></a>  )</span>
+<span id="cb10-27"><a href="#cb10-27" tabindex="-1"></a></span>
+<span id="cb10-28"><a href="#cb10-28" tabindex="-1"></a><span class="co"># Now `energy_long_dim$dim_info` is a list of tibbles/data frames (one for each dimension).</span></span>
+<span id="cb10-29"><a href="#cb10-29" tabindex="-1"></a><span class="co"># Each entry holds columns like:</span></span>
+<span id="cb10-30"><a href="#cb10-30" tabindex="-1"></a><span class="co">#   dimension_code, dimension_label, dimension_note, element_code, element_label, etc.</span></span>
+<span id="cb10-31"><a href="#cb10-31" tabindex="-1"></a></span>
+<span id="cb10-32"><a href="#cb10-32" tabindex="-1"></a><span class="co"># 3) (Optional) Unnest into a single combined data frame</span></span>
+<span id="cb10-33"><a href="#cb10-33" tabindex="-1"></a><span class="co">#    If you&#39;d like a tall data frame where each row is a unique dimension element:</span></span>
+<span id="cb10-34"><a href="#cb10-34" tabindex="-1"></a>full_dim_info <span class="ot">&lt;-</span> energy_long_dim <span class="sc">|&gt;</span> </span>
+<span id="cb10-35"><a href="#cb10-35" tabindex="-1"></a>  <span class="fu">unnest</span>(<span class="at">cols =</span> dim_info, <span class="at">names_sep =</span> <span class="st">&quot;dim_&quot;</span>)</span>
+<span id="cb10-36"><a href="#cb10-36" tabindex="-1"></a></span>
+<span id="cb10-37"><a href="#cb10-37" tabindex="-1"></a><span class="co"># `full_dim_info` now contains columns:</span></span>
+<span id="cb10-38"><a href="#cb10-38" tabindex="-1"></a><span class="co">#   class, href, table_code, label, update, dimension_code, </span></span>
+<span id="cb10-39"><a href="#cb10-39" tabindex="-1"></a><span class="co">#   (optionally) domain/subdomain, </span></span>
+<span id="cb10-40"><a href="#cb10-40" tabindex="-1"></a><span class="co">#   and the un-nested dimension columns from susr_dimension_values().</span></span>
+<span id="cb10-41"><a href="#cb10-41" tabindex="-1"></a></span>
+<span id="cb10-42"><a href="#cb10-42" tabindex="-1"></a><span class="fu">head</span>(full_dim_info)</span>
+<span id="cb10-43"><a href="#cb10-43" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 × 14</span></span>
+<span id="cb10-44"><a href="#cb10-44" tabindex="-1"></a><span class="co">#&gt;   class   href           table_code label update dimension_code domain subdomain</span></span>
+<span id="cb10-45"><a href="#cb10-45" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;          &lt;chr&gt;  &lt;chr&gt;    </span></span>
+<span id="cb10-46"><a href="#cb10-46" tabindex="-1"></a><span class="co">#&gt; 1 dataset https://data.… en1001ms   Sour… 2024-… en1001ms_rok   Multi… Energy   </span></span>
+<span id="cb10-47"><a href="#cb10-47" tabindex="-1"></a><span class="co">#&gt; 2 dataset https://data.… en1001ms   Sour… 2024-… en1001ms_rok   Multi… Energy   </span></span>
+<span id="cb10-48"><a href="#cb10-48" tabindex="-1"></a><span class="co">#&gt; 3 dataset https://data.… en1001ms   Sour… 2024-… en1001ms_rok   Multi… Energy   </span></span>
+<span id="cb10-49"><a href="#cb10-49" tabindex="-1"></a><span class="co">#&gt; 4 dataset https://data.… en1001ms   Sour… 2024-… en1001ms_rok   Multi… Energy   </span></span>
+<span id="cb10-50"><a href="#cb10-50" tabindex="-1"></a><span class="co">#&gt; 5 dataset https://data.… en1001ms   Sour… 2024-… en1001ms_rok   Multi… Energy   </span></span>
+<span id="cb10-51"><a href="#cb10-51" tabindex="-1"></a><span class="co">#&gt; 6 dataset https://data.… en1001ms   Sour… 2024-… en1001ms_rok   Multi… Energy   </span></span>
+<span id="cb10-52"><a href="#cb10-52" tabindex="-1"></a><span class="co">#&gt; # ℹ 6 more variables: dim_infodim_dimension_code &lt;chr&gt;,</span></span>
+<span id="cb10-53"><a href="#cb10-53" tabindex="-1"></a><span class="co">#&gt; #   dim_infodim_dimension_label &lt;chr&gt;, dim_infodim_dimension_note &lt;chr&gt;,</span></span>
+<span id="cb10-54"><a href="#cb10-54" tabindex="-1"></a><span class="co">#&gt; #   dim_infodim_element_index &lt;int&gt;, dim_infodim_element_value &lt;chr&gt;,</span></span>
+<span id="cb10-55"><a href="#cb10-55" tabindex="-1"></a><span class="co">#&gt; #   dim_infodim_element_label &lt;chr&gt;</span></span></code></pre></div>
+</div>
+<div id="fetching-data" class="section level2">
+<h2>Fetching Data</h2>
+<p>Once you know the table code and dimension segments, use
+<code>fetch_susr_data()</code>. If you want to fetch data from multiple
+tables multiple pairs of table codes and dimension lists:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a>params <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a>  <span class="st">&quot;np3106rr&quot;</span>,</span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a>  <span class="fu">list</span>(<span class="st">&quot;SK021&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;2016&quot;</span>,<span class="st">&quot;2017&quot;</span>,<span class="st">&quot;2018&quot;</span>), <span class="st">&quot;E_PRIEM_HR_MZDA&quot;</span>, <span class="st">&quot;all&quot;</span>),</span>
+<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a>  <span class="st">&quot;as1001rs&quot;</span>,</span>
+<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a>  <span class="fu">list</span>(<span class="st">&quot;all&quot;</span>, <span class="st">&quot;all&quot;</span>, <span class="st">&quot;all&quot;</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a>)</span>
+<span id="cb11-7"><a href="#cb11-7" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" tabindex="-1"></a>multi_res <span class="ot">&lt;-</span> <span class="fu">fetch_susr_data</span>(params)</span>
+<span id="cb11-9"><a href="#cb11-9" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="#cb11-10" tabindex="-1"></a><span class="fu">names</span>(multi_res)</span>
+<span id="cb11-11"><a href="#cb11-11" tabindex="-1"></a><span class="co">#&gt; [1] &quot;np3106rr&quot; &quot;as1001rs&quot;</span></span>
+<span id="cb11-12"><a href="#cb11-12" tabindex="-1"></a></span>
+<span id="cb11-13"><a href="#cb11-13" tabindex="-1"></a><span class="fu">class</span>(multi_res<span class="sc">$</span>np3106rr)</span>
+<span id="cb11-14"><a href="#cb11-14" tabindex="-1"></a><span class="co">#&gt; [1] &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;</span></span></code></pre></div>
+<p>Each element in multi_res is a tibble for given table code.</p>
+</div>
+<div id="example-analysis" class="section level2">
+<h2>Example Analysis</h2>
+<p>Once you have the data, use dplyr and ggplot2 (or anything else) to
+analyze:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a>p <span class="ot">&lt;-</span> multi_res<span class="sc">$</span>as1001rs <span class="sc">|&gt;</span></span>
+<span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a>  <span class="fu">filter</span>(as1001rs_ukaz <span class="sc">==</span> <span class="st">&quot;Pre-productive population (aged 0 -14 years)&quot;</span>,</span>
+<span id="cb12-5"><a href="#cb12-5" tabindex="-1"></a>         as1001rs_poh <span class="sc">==</span> <span class="st">&quot;Total&quot;</span>) <span class="sc">|&gt;</span></span>
+<span id="cb12-6"><a href="#cb12-6" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb12-7"><a href="#cb12-7" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> as1001rs_rok, <span class="at">y =</span> value, <span class="at">group =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb12-8"><a href="#cb12-8" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Pre-productive population (aged 0 -14 years)&quot;</span>,</span>
+<span id="cb12-9"><a href="#cb12-9" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Year&quot;</span>,</span>
+<span id="cb12-10"><a href="#cb12-10" tabindex="-1"></a>       <span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb12-11"><a href="#cb12-11" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb12-12"><a href="#cb12-12" tabindex="-1"></a></span>
+<span id="cb12-13"><a href="#cb12-13" tabindex="-1"></a></span>
+<span id="cb12-14"><a href="#cb12-14" tabindex="-1"></a>p</span></code></pre></div>
+<p><img role="img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABIAAAAJACAMAAADCTu3mAAABL1BMVEUAAAAAADoAAGYAOjoAOmYAOpAAZpAAZrY6AAA6ADo6AGY6OgA6Ojo6OmY6ZmY6ZpA6ZrY6kLY6kNtNTU1NTW5NTY5NbqtNjshmAABmADpmOgBmOmZmZmZmkJBmkLZmkNtmtpBmtrZmtttmtv9uTU1uTW5uTY5ubo5ubqtuq8huq+SOTU2OTW6OTY6Obk2ObquOyP+QOgCQZgCQZjqQZmaQZraQkDqQkGaQkLaQttuQ27aQ2/+rbk2rbm6rbo6rjk2ryKur5OSr5P+2ZgC2Zjq2kDq2tpC2ttu229u22/+2/9u2///Ijk3I///bkDrbkGbbtmbbtpDb27bb29vb/7bb/9vb///kq27k///r6+v/tmb/yI7/25D/27b/29v/5Kv//7b//8j//9v//+T////Ab5FbAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAgAElEQVR4nO2dC3vcxnlGocSumKZpU68lq+49ll1Xlhuq98RyL1STNo2oOm0jyiRTiiL+/2/oAtj7ArsYzHwzLwbnffJkedGePfth8BrALsmiJISQRClSCxBCphsKiBCSLBQQISRZKCBCSLJQQISQZKGACCHJQgERQpKFAiKEJMvgAnpV1HnvJ0MB757db/369R/+cv69918P5a75W4w+2Ld/8FU/8sr8Nx8XxQ9+sf9PXqz+xdtH7U/zSF58MORehIwsvgVUFJ8MBHQV0KvvmBRQH2zPvX5t/vZRNYE5eSevitVze1EMKqDr7/XqQkLGneEF1Ox23xRDq+JQAYVISwEdyWXPR16bvyp+//W7nxU7vfXu34pi/S+GFdDGMRQh+ca3gMoX3/nlfId8VXznFzvnI28ffXB5Urz3Vb3Drr7/Xv39b+bf+I/5btyURLNDf1P/43fP5ocUH1Rfbx6gPoPZAq+55Yq4+VhLYvPRN98vint/uoFd32n+2c+/X31zkUWvLO7RGN37k/qLa4Gl+eIezYNtd/DbR/f+bHnedX3y56tTsMv6YHGuusVbPNpiRu/+Zv7pj+p7cghEJpAwBfTdk/mB0PVJdT5yb7nfvH30uyfN54vvX66+X5++vffxVgFdNt9cN8X1SbW/VnvtNnjNLVfEzcfaKqDFieInGwW0ulP9tY1zyOYBX62+uPjofrkhsDJfqNxfjGBzMm//7vXyws/8dn0NqPnoco7Z4VWP1szo189WRl0HiITkFP9TsGpXr05C3j2r/tP9q5ON6yP3q/OT9feLH1V73Pvz3fPeT8rfPCvub9XFfH/8pvp3y4s1zR5Y99sWeIu7Iq6/tllA757ND7zm+/v9TezyTvOP7r/euFxTP6P1PTYtlwLrr9W5PqlPvl7d2z1YWbbOi/dfb1yErovqRfXAS9760ZoZXZ/88HWju1drhOQY74vQ9aFEta8s98blfvP2UX1mUjdI8/1mv7r3VfMvm91uWReLe5cbV4tf1Yc293fBa+6auPlY26dg5f/8/G9Pio0CWt+p0VoXxIvFmdTiHpfF0nItsDavc6yALhfPYJHqaK46A9t6QotHW87ou3/8H8s57FEJyS6+BfSDXywvglyuGqn+1geLPe9VtadX32/OcKqd8nJ1jrFZQMszoVUBVftp9U/X4Pr7a+6auPtYK3ZzsrNdQMs7bV6AKleXclb3aAqg+vZa4HL77GingJrnvXasv71RQNWHVSdtPKHVoy0e/UX12e/VV4cuB7++SMho4n0NqDQroOr/qvMQjwKan5r97j/++/8+6l9A63v0KKD6gvL6ZGm3gF5ti9f/sDrMWvPWj7a8kv2rj5ev61NAZAIJV0DrCmnSnBZVpxbL72+fgtU76YvlWVDLKdi8An766P4eeM3dPQWrT2NWxHXbbF0D2jwFaymg9T02T8HW16lX5uu7tLy7qKOALos/f/RBucVbPtoG5L//ulhefick84QroHfP7v2kLH/zbH0NqHmTzPo4Z+Mi9I+qT6sCKv60+ai+CH39aHHpZ1kGf1TthDvgTe7GRejF1zaJddu8rl7z3sBuXoTeKqDmGtD6HlsXoRcCG+bNXaqH/bfd9wHtnXetB/U73/tq8wmtH215FPn78yO/n9WNxTUgMoGEK6DlmcVyb3z76LsnzenE8vurF58vVy9m73y0ePX7g1VlLU5GNsFr7ubL8OuvLYmLtqnTvCC/9zL8dgHVe/z2PRbXj9YCa9+FS1G0vRO6o4DmyO0ntH601TNePDivgpFJJGABldcfF8V3f7T86nzPm+/rv/eL7e83b0T81cfFe/9Z7/n/Nf8nv16+EbF+C97bj4v7v27usXyJfAu85q6Jm19bEutHrd90+JNqX15jr9dvRNwqoOZ8aH2P2qh5S+FaYG1eZ/3eyq10FdDy9bMVb/VoixnVb0T8Yf0R7wMiE4jdT8MP/CnMQdwgj9W6yy+uMweKw3Ud3glNphAKaJ3Lrasu1ye/9bp89yLkpeDffNz/B+f4WTAyhVBAG9n6afjN6zFBUl0w6n04xQEQmUQooE3M1u8DWl+PCZN5o/2w9z/m9wGRSYTfiEgISRYKiBCSLBQQISRZKCBCSLJQQISQZKGACCHJEq+Avh0BEUlhJJK6xOFICsgYiaQuEcn0SArIGImkLhHJ9EgKyBiJpC4RyfRICsgYiaQuEcn0SArIGImkLhHJ9EgKyBiJpC4RyfTIoQX0LSGEDI1vAQ2orBEQkRRGIqlL5BRMFomkLhHJ9EgKyBiJpC4RyfRICsgYiaQuEcn0SArIGImkLhHJ9EgKyBiJpC4RyfRICsgYiaQuEcn0SArIGImkLhHJ9EgKyBiJpC4RyfRICsgYiaQuEcn0SArIGImkLhHJ9EgKyBiJpC4RyfRICsgYiaQuEcn0SArIGImkLhHJ9EgKyBiJpC4RyfRICsgYiaQucYKSRZ2QxCYUkCoSSV3iRCSLjTTE8Hs9BaSKRFKXmLHkXulsE4MfBFFAqkgkdYmZSR4snV1i4B2fAlJFIqlLzEGyb+nsEcPu+RSQKhJJXeJYJXsf6hwkBj0No4BUkUjqEsck6Vs6+8SgOz8FpIpEUpc4Dsnwr5yvJMNRKSBVJJK6xDFIFoWlZLBio4BUkUjqEvUlq4KwlQxUABSQKhJJXaK6ZHN8YiwZpgEoIFUkkrpEcckiPLKNGOQ0jAJSRSKpS5SWXPWCvWSAEqCAVJFI6hKFJTcOSyJI+rcABaSKRFKXKCu5dVYUQ9L7NIwCUkUiqUsUldxpgziSnkVAAakikdQlakru7pKRJP2agAJSRSKpS1SU3D8ZiiXpdRpGAakikdQl6km2lUA8SY8yoIBUkUjqEtUk249BIkoObwMKSBWJpC5RTLJjX4wpOfg0jAJSRSKpS5SS7Nz340oOLAQKSBWJpC5RSPLAoUdkyWGNQAGpIpHUJcpIHjzziS3p8UsWB4QCMkYiqUtUkTz+K+TD5ghxyIUgCkgViaQuUUPy2P6eQNK9FSggVSSSukQFyeOHGykknWuBAlJFIqlLTC/Z52wniaTraRgFpIpEUpeYXLLX3pdI0q0ZKCBVJJK6xMSSPY8yUkk6VQMFpIpEUpeYVLL3SU4ySZfTMApIFYmkLjGhpOsfUg6a3sQIkhSQMRJJXWK6sxuX3S7pYVp4ZNcj3DyePTgvL2ZVTsvbL2YP35TtNwPDitRFIhmVGOn6bghi36r0LqDbp2flRVMvVw/f3D0/LS8+KltvhoYVqYtEMiIx2ivcYYjGV8qX+JvP35S3X56XTRVVH918dt56M/SRWJG6SCSjEd1/ziH1JG3fK7B/BFQd5NR19PSs9WbxgIQQ1xRFaoMBMZHeq7flBZ66YuZnYdUHrTdDqy51kSdCIqlLjC4Z9wfNwxGPe/ufgn16Vl49OG+6p8cRkHsE5pgCiaQuMbLkwF83qDBJux9YW5JXhzcvn8w/4xqQMBFJYWQ3Mf5vOw1JNPuR/d0joLuvq0Ocu+dPmte9Wm6GRmKO8ZFI6hIjSnr8zRuRSRr90qIV9mo2+/CsXJ5j8T4gXSKSwsgOYpI/uRWYePA58E5oVSSSusRYkn5/eV1mkia/N5YCMkYiqUuMI+lXP0qTtPjN+RSQMRJJXWIMSd/60Zpk55OhgFSRSOoSI0gG2L+kJhn8j5dRQMZIJHWJ5pL+hz97yBDxIXY8JQpIFYmkLtFYMkj96E0y7B+wp4CMkUjqEk0lA9WP4CTbnhgFpIpEUpdoKBmsfhQn2fLkKCBVJJK6RDvJkLuV4iT3nh8FpIpEUpdoJRnw8KcUneTuM6SAVJFI6hJtJMPWj+okd54lBaSKRFKXaCEZun50J7n1RCkgVSSSukQDpMH+JDvJzedKAakikdQlBkcWxQgkwxE3jvYoIFUkkrrEwMhqf5SXDEtc1QcFpIpEUpcYFNkcDohLBicu+4MCUkUiqUs02BO1JQ2Ii9MwCkgViaQuMRyy8D4S6I76JP2O/CggYySSusRgLwcFuBjbHflJFj5ICsgYiaQuMQyyCPJydHf0JzmfAAWkikRSlxjmLcHBiTsZwySHv/2AAjJGIqlLDIDcfeOzpKQ9kSMgWSSSukRv5P7PXQhKxiBSQLJIJHWJnsi2H/uSk4xDpIBkkUjqEv2QYX81aXfyniQFZIxEUpfogwz9y9m7k/ckKSBjJJK6RI/dJvifp+lO5pMMaXEwec8xIhHJ1EiLvxDanZwnSQGZI5HUJQ5EmvyN9JhIJUkKyBiJpC5xEPLwrzwUkYxNpIBkkUjqEgcgj/3GVQnJ+EQKSBaJpC7RGXn8Fz4LSKYgUkCySCR1ia7IHjtLeskkRApIFomkLtEN2evvXaSWTESkgGSRSOoSXZA9/9wOk3QMBWSMRFKX2B/Z+699MUnHUEDGSCR1ib2R/fcSJukYCsgYiaQusSfS5Y+dMknHUEDGSCR1ib2Qbn9rmUk6hgIyRiKpS+yDdNxBmKRjKCBjJJK6xONIt8OfPkT35DHJrlBAxkgkdYnHkM71wySdQwEZI5HUJR5GDqgfJukcCsgYiaQu8SBy2J7BJB1DARkjkdQlHkAOOvw5SByckU/ySCggYySSusRO5ND6YZLOGTrpbwnJNEWR2mAC8S2gAZU1AiKSwshYkl67BJN0DAVkjERSl9iGHH721UX0zVgn2S8UkDESSV3iPtKzfpikcyggYySSusRdpHf9MEnnUEDGSCR1iTvIEPsCk3QMBWSMRFKXuIUMcPhTMknnUEDGSCR1iRvIMPXDJJ1DARkjkdQlrpCh6odJOocCMkYiqUtcIgPuBBOfpHsoIGMkkrrEBhnu8Kec+CSHhAIyRiKpS6yQQetn0pMcFgrIGImkLrH8NnD9THiSQ+9IARkjkdQlGqz+qU6SAlJFIilLLIoRSI5ikhSQLhJJVWIxBkkTpJIkBWSMRFKUWIRHmhAzl6SAjJFIShKbq8/iklZIJUkKyBiJpCKxCI+0ImYuSQEZI5HUI65efFeWNEQqSVJAxkgk5YjrNS8saYlUkqSAjJFIqhE3lryupClSSZICMkYiqUXceu+zqqQxUkmSAjJGIilF3F7vopLWSCVJCsgYiaQQcfdHvyQl7ZFKkhSQMRJJHeLeYleUjIBUkqSAjJFIyhD317qgZAykkiQFZIxEUoTY9ps35CTjIJUkKSBjJJIaxNaFriYZCakkSQEZI5FUIHb84jEtyWhIJUkKyBiJpACxa5VLScZDKklSQMZIJJMTu3/vqpBkTKSSJAVkjEQyNfHAEteRjIpUkqSAjJFIJiYeWuEyknGRSpIUkDESyaTEw3/2QkQyNlJJkgIyRiKZknhkeWtIRkcqSVJAxkgk0xGP/tUvBckESCVJCsgYiWQy4vG1LSCZAqkkSQEZI5FMReyxtNNLJkEqSVJAxkgk0xB7/dHl1JKJkEqSFJAxEskkxH7rmkkmR1JAxkgkExB7Hf64IXsmt0maIykgYySS8Ym9FzWTTI6kgIyRSEYn9l/TTDI5kgIyRiIZmdj39MsB6ZCcJhkFSQEZI5GMS3Ra0EwyOZICMkYiGZPocvjTE+mWbCYZC0kBGSORjEh0Xc1MMjmSAjJGIhmP6LyYmWRy5Gqb3TyePTgvy7vnsw/PyvL2i9nDNx03sRUjEpEURh4jOp5+9UG6J4tJxkQuN9rt07PyYl4vL0/Lq4dv7p6flhcfla030RUjEpEURh4hDjmWZ5LJkcvNdvP5m/L2y/P5/6rPqpubz85bb6IrRiQiKYw8SBxw+HMMOSjjn2Rk5M4R0M3n/1ydgtV19PSs9WbxgITopEgtQByzW0CLCzw3j0+r9pmfhVVd03oztOryLvKIRCT3MvSlFCaZHLk6Bfv0rLx6cH7o0GfrCCiiYkQiksLITuKw06+DyMEZ9yQTIJfbbnF4c/vj5oZrQLpEJLfj8U4SJpkcuXMEVL0KNj/SuXv+pHndq+UmumJEIpLCyHbi8MOfTqRPRjzJNMjV5ruaLd8AVL0diPcB6RKR3IjfG2mZZHIk74Q2RiJpSPQ6/GlHemask0yGpICMkUjaEb0XL5NMjqSAjJFImhH91y6TTI6kgIyRSBoRfU+/WpABMsZJJkVSQMZIJG2IQRYuk0yOpICMkUhaEEMc/pRMUgBJARkjkTQghlq1TDI5kgIyRiIZnhhs0U5+kumRFJAxEsnQxECnX5vIcBnVJBWQFJAxEsnAxJArdtqTlEBSQMZIJIMSAx7+lNOepAiSAjJGIhmSGHi5TniSKkgKyBiJZEBi6NU63UnKICkgYySSwYhhT79qZGjgSCYZnEgBySKRDBWDpTrRSSpJUkDGSCQDpRiD5CgmKSVJARkjkQyTYgySo5ikliQFZIxEMkiKMUiaEDOXpICMkUiGSBGcWGeCk7QhUkCySCQDpAhObDK9SRoRKSBZJJL+KYITF5ncJK2IFJAsEknvFMGJy0xtkmZECkgWiaRvlktUWtKOmLkkBWSMRFKXiGR6JAVkjETSM6sVqixpSMxckgIyRiLpl/UCFZa0JGYuSQEZI5H0ysb61JU0JWYuSQEZI5H0yebylJW0JWYuSQEZI5H0yNbqVJU0JmYuSQEZI5Ecnu3FKSppTcxckgIyRiI5ODtrU1PSnJi5JAVkjERyaHaXpqSkPTFzSQrIGInkwOytTEXJCMTMJSkgYySSw7K/MAUlYxAzl6SAjJFIDkrLutSTjELMXJICMkYiOSRty1JOMg4xc0kKyBiJ5IC0rko1yUjEzCUpIGMkku5pX5RikrGImUtSQMZIJJ3TsSa1JKMRM5ekgIyRSLqma0lKScYjZi5JARkjkdQlIpkeSQEZI5F0TOeKVJKMSMxckgIyRiLplu4FKSQZk5i5JAVkjETSKQfWo45kVGLmkhSQMRJJlxxajjKScYmZS1JAxkgkHXJwNapIRiZmLjm0gL4lJHSK1AIkWnwLaEBljYCIZErkkbWoIRmdmLkkBWSMRLJvji1FCcn4xMwlKSBjJJI9c3QlKkgmIGYuSQEZI5Hsl+MLUUAyBTFzSQrIGIlkr/RYh+klkxAzl6SAjJFI9kmfZZhcMg0xc0kKyBiJZI/0WoWpJRMRM5ekgIyRSB5Pv0XIJHWJFJAsEsmj6bkGmaQukQKSRSJ5LH2XIJPUJVJAskgkj6T3CmSSukQKSBaJpC4RyfRICsgYieTh9F+ATFKXSAHJIpE8GIf1xyR1iRSQLBLJQ3FZfkxSl0gBySKRPBCn1cckdYkUkCwSye64LT4mqUukgGSRSHbGce0xSV0iBSSLRLIrrkuPSeoSKSBZJJIdcV55TFKXSAHJIpFsj/vCY5K6RApIFolkawasOyapS6SAZJFItmXIsmOSukQKSBaJZEsGrTomqUukgGSRSO5n2KJjkrpECkgWieReBq45JqlLpIBkkUjuZvBfAx94v6hIJB1DARkjkdzJ4BXHJHWJFJAsEkldIpLpkRSQMRLJ7QxfcExSl0gBySKR3IrHemOSukQKSBaJ5GZ8lhuT1CVSQLJIJDfitdqYpC6RApJFIrmO32JjkrpECkgWieQqnmuNSeoSKSBZJJLL+C41JqlLpIBkkUgu4r3SmKQukQKSRSLZxH+hMUldIgUki0SyToB1xiR1iRSQLBLJKiGWGZPUJVJAskgky0CrjEnqEikgWSSSoRYZk9QlUkCySCRDrTEmqUukgGSRSIZaYkxSl0gBySInLxlshU1+ksJECkgWiaQuEcn0SArIGDl1yXALbOqTVCZSQLLIiUsGXF8Tn6Q0MUAB3TyePTgvy4vZrLq9/WL28E3ZfhNbMSIRycDIkP99m/YktYn+BXT79Ky8mNfLy9Pqs7vnp+XFR+030RUjEpEMiwx6fD3pSYoT/Qvo5vM35e2X53dfn1WfzT8qbz47b72JrhiRiGRQZNjz+ylPUp0Y7AhofpY1m502dfT0rPVm8YCEHEmRWoDoZreAFhd4bj49K+dHQVcP665pvRladXkXeUTiWCRDv74x3UnqEwOcgs2b5+pBc3718vT4EVBExYhEJMMhg7++OtlJjoDoX0CbhzcvT7kGJEwch2T493dMdZJ5S+4cAVU9dPdP53fPnzSve7XcRFeMSEQyVIoxSI5ikplLrv5DdTWbfXhWvw+ouuF9QLrEMUgWY5AcxSRzl+Sd0MbISUoWY5A0QSLpGArIGDlJSQpIGqkkSQEZI6coWYRHmhCRTI+kgIyRE5QswiNtiEimR1JAxsjpSRbhkUZEJNMjKSBj5OQki/BIKyKS6ZEUkDFyapLLBSUtaYdE0jEUkDFyapIUkD5SSZICMkZOTHK1npQlDZFIOoYCMkZOS3K9nIQlLZFIOoYCMkZOSnJjNelKmiKRdAwFZIyckuTmYpKVtEUi6RgKyBg5IcmttaQqaYxE0jEUkDFyQpIUEJLOoYCMkdOR3F5KopLWSCQdQwEZIycjubOSNCXNkUg6hgIyRk5FcnchSUraI5F0DAVkjJyI5N46UpSMgETSMRSQMXIakvvLSFAyBhJJx1BAxshpSFJAZsTMJSkgY+QkJFtWkZ5kFCSSjqGAjJFTkGxbRHKScZBIOoYCMkZOQLJ1DalJRkIi6RgKyBiZv2T7EhKTjIVE0jEUkDEye8mOFaQlGQ2JpGMoIGNk9pIUkC0xc0kKyBiZu2TXApKSjIdE0jEUkDEyc8nO9aMkGRGJpGMoIGNk3pLdy0dIMiYSScdQQMbIrCUPrB4dyahIJB1DARkjc5Y8tHhkJOMikXQMBWSMzFjy4NpRkYyMRNIxFJAxMmNJCigGMXNJCsgYma/k4aUjIhkbiaRjKCBjZLaSR1aOhmR0JJKOoYCMkblKHls4EpLxkUg6hgIyRmYqeXTdKEgmQCLpGArIGJmn5PFlIyCZAomkYyggY2SekhRQNGLmkhSQMTJLyR6rJr1kEiSSjqGAjJE5SvZZNMkl0yCRdAwFZIzMULLXmkktmQiJpGMoIGNkfpL9lgyT1EUqSVJAxsjsJHuuGCapi1SSpICMkdlJUkBxiZlLUkDGyNwk+y4YJqmLVJIcWkDfkkmmSC1A8ohvAQ2orBEQkTyS/suFSeoilSQpIGNkVpIOq4VJ6iKVJCkgY2ROki6LhUnqIpUkKSBjZE6SFFACYuaSFJAxMiNJp7XCJHWRSpIUkDEyH0m3pcIkdZFKkhSQMTIbSceVwiR1kUqSFJAxMhdJ14XCJHWRSpIUkDEyE0nndcIkdZFKkhSQMTITSQooFTFzSQrIGJmHpPsyYZK6SCVJCsgYmYXkgFXCJHWRSpIUkDEyB8khi4RJ6iKVJCkgY2QGkoPWCJPURSpJUkDGyPFLDlsiTFIXqSRJARkjxy9JASUlZi5JARkjRy85cIUwSV2kkiQFZIwcu+TgX5k58H4xiUimR1JAxsiRSw5eH0xSF6kkSQEZI8ctOXx5MEldpJIkBWSMHLWkx+pgkrpIJUkKyBg5ZkmfxcEkdZFKkhSQMXLMkhSQADFzSQrIGDliSa+1wSR1kUqSFJAxcrySfkuDSeoilSQpIGPkaCU9VwaT1EUqSVJAxsixSvouDCapi1SSpICMkSOV9F4XTFIXqSRJARkjRypJAakQM5ekgIyR45T0XxZMUhepJEkBGSNHKRlgVTBJXaSSJAVkjByjZIhFwSR1kUqSFJAxcoSSQdYEk9RFKklSQMbI8UmGWRJMUhepJEkBGSPHJ0kBSREzl6SAjJGjkwy0IpikLlJJkgIyRo5NMtSCYJK6SCVJCsgYOTLJYOth8pMURipJUkDGyHFJhlsOU5+kMlJJkgIyRo5KMuBqmPgkpZFKkhSQMXJUkhSQHjFzSQrIGDkmyZCLYdqT1EYqSVJAxsgRSQZdC5OepDhSSZICMkaORzLsUpjyJNWRSpIUkDFyNJKBV8KEJymPVJKkgIyRY5EMvRCmO0l9pJIkBWSMHIskBSRKzFySAjJGjkQy+DqY7CRHgFSSXC28m8ezB+fVB3fPT8vy9ovZwzcdN7EVIxInKxn+v0NTnWRwYuaSy5V3+/SsvKjr5WJ2WpfQxUftN9EVIxKnKmlwHDzRSSLpmOXSu/n8TXn75fwQ6OYv/uq0/ujms/PWm+iKEYkTlSzGIDmKSSLpmt0joLuv/3V+oFPX0dOz1pvFA5JsUqQWINPLbgEtL/BcPKnOtK4e1l3TejO06vIu8ojE0MhiDJImRCTTI1enYJ+elVcPzudHOXe9joAiKkYkTlGyCE6sM8FJ2hAzl1wW0OLw5mJW5QnXgISJYZFFcGKT6U3SiJi55M4RUNm8DH/3/EnzulfLTXTFiMTpSRbBiYtMbpJWxMwlV9eArmazD+vTK94HJE4MiSyCE5eZ2iTNiJlL8k5oY6S05HLrS0vaEZFMj6SAjJHKkquNryxpSEQyPZICMkYKS663vbCkJRHJ9EgKyBipK7mx6XUlTYlIpkdSQMZIWcnNLS8raUtEMj2SAjJGqkpubXhVSWMikumRFJAxEkldIpLpkRSQMVJUcnu7i0paE5FMj6SAjJGakjubXVPSnIhkeiQFZIyUlNzd6pKS9kQk0yMpIGOkouTeRleUjEBEMj2SAjJGCkrub3NByRhEJNMjKSBjpJ5kyybXk4xCRDI9kgIyRspJtm1xOck4RCTTIykgY6SaZOsGV5OMREQyPZICMkaKSbZvbzHJWEQk0yMpIGOklmTH5taSjEZEMj2SAjJGSkl2bW0pyXhEJNMjKSBjpJJk58ZWkoxIRDI9kgIyRgpJdm9rIcmYRCTTIykgY6SO5IFNrSMZlYhkeiQFZIyUkTy0pWUk4xKRTI+kgIyRKpIHN7SKZGQikumRFJAxUkTy8HYWkYxNRDI9kgIyRmpIHtnMGpLRiUimR1JAxkgJyWNbWUIyPhHJ9EgKyBipIHl0IytIJiAimR5JARkjBSSPb2MByRREJNMjKSBjZHrJHps4vWQSIrAqXwIAAApdSURBVJLpkRSQMTK5ZJ8tnFwyDRHJ9EgKyBiZWrLXBk4tmYiIZHokBWSMTCzZb/sySV1i5pIUkDEyrWTPzcskdYmZS1JAxsikkn23LpPUJWYuSQEZI1NK9t64TFKXmLkkBWSMRFKXiGR6JAVkjEwo2X/bMkldYuaSFJAxMp2kw6ZlkrrEzCUpIGNkMkmXLcskdYmZS1JAxshUkk4blknqEjOXpICMkYkk3bYrk9QlZi5JARkj00g6blYmqUvMXJICMkYmkXTdqkxSl5i5JAVkjEwh6bxRmaQuMXNJCsgYmUDSfZsySV1i5pIUkDEyvuSATcokdYmZSw4toG+JaIrUAoQcj28BDaisERAzkBy0QZmkLjFzSQrIGBlZctj2ZJK6xMwlKSBjZFzJgZuTSeoSM5ekgIyRUSUHX9EbeL+oSCR1iRSQLDKm5OCNySR1iZlLUkDGyIiSw7clk9QlZi5JARkj40l6bEomqUvMXJICMkZGk/TZkkxSl5i5JAVkjIwl6bUhmaQuMXNJCsgYGUnSbzsySV1i5pIUkDEyjqTnZmSSusTMJSkgY2QUSd+tyCR1iZlLUkDGyBiS3huRSeoSM5ekgIyREST9tyGT1CVmLkkBGSPtJQNsQiapS8xckgIyRppLhtiCTFKXmLkkBWSMRFKXiGR6JAVkjLSWDLIBmaQuMXNJCsgYaSwZZvsxSV1i5pIUkDHSVjLQ5mOSusTMJSkgY6SpZKitxyR1iZlLUkDGSEvJYBtv8pMUJmYuSQEZIw0lw227qU9SmZi5JAVkjLSTDLjpJj5JaWLmkhSQMdJMMuSWm/YktYmZS8YroCL4QynNMSKxQQad5qQnKU7MXDLmEVBRhC0hpTlGJNbIsNttypNUJ2YuGfsULGQJKc0xIrFCBt5sE56kPDFzyRTXgEKVkNIcIxKrY8ngxOAZyST1iZlLproIHaKElOYYkVh+y9U0WSSSjkn5KphvCSnNMR4x8IW0OtOcJJICyNQvw/uUkNIc4xCbaYlLWiGR1CWOt4Bqh4ElpDRHe+J6SsKSlkgkdYnjLqAqQ0pIaY62xO3piEpaI5HUJY6/gKq4lpDSHO2I+1MRlIyBRFKXmEcBVXHpIKU52hDbK1lMMhYSSV1iPgVUOhwIKc0xPLF7DEKSMZFI6hKzKqAqvUpIaY5BicXhp68hGR2JpC4xuwKqcrSElOYYjNijetNLJkEiqUvMsoCqHNwdleYYhNjz5DPvFRmRiGR6pHgBVencLZXm6E10eAkw7xUZkYhkeuQICqhK6+6pNEcvouP7D/JekRGJSKZHjqSAquztpkpzHEwc8A7MvFdkRCKS6ZEjKqAqW7ur0hyHEI+82DUEOTBjn6QOEknHjKyAqqx2W6U5uhK1fgh3zJPUQiLpmBEWUJV6/1WaowtR79eQjHWSekgkHTPSAqpSLBKSab6xNX8Rm9KKjEhEMj1yxAW0JBZbCYIMmA2i7q+iVVqREYlIpkdmUEDb8asj05YMjAwYpRUZkYhkeuRqr7h5PHtwXpZXs/rm9ovZwzcdN7EVfYiudWQiObrzRE0kkrpE/wK6fXpWXjx8c/PZeXnxUXn3/LTzJrpiOOLxOvKTLNrjxWyJwCRTIJHUJfoX0M3nb8rbL8/rDz87rz7quomuaEVsa4keZ3UHYiAZB4mkLjFzyZ0joOrD+VFOXUdPz1pvFg+YWw70Smo1QrLLbgGtLvDcPP7wrLx6WHdN683Qqsu7yCMSkRRGIumY1SnYp/PaeVCfX3Ud+mwdAUVUjEhEUhiJpC7Rv4A2D29enk7iGlAcJJK6RCTTI3eOgBY9dPf8SfO6V8tNdMWIRCSFkUjqEgO8D+hqNvtwfgB00dzk8j6g9EgkdYlIpkdm905oNSSSukQk0yMpIGMkkrpEJNMjKSBjJJK6RCTTIykgYySSukQk0yMpIGMkkrpEJNMjKSBjJJK6RCTTIykgYySSukQk0yMpIGMkkrpEJNMjKSBjJJK6RCTTIykgYySSukQk0yMpIGMkkrpEJNMjKSBjJJK6RCTTIykgYySSukQk0yMpIGMkkrpEJNMjKSBjJJK6RCTTIykgYySSukQk0yMpIGMkkrpEJNMj4xUQIYTshAIihCQLBUQISRYKiBCSLBQQISRZKCBCSLJQQISQZKGACCHJQgERQpLFtIBuHs9mpxt/0vnms/ONm2DExRdDIq9mswdhJcvy7nlgyYuZh2Ur8e55/Ye5AyIrx+Fbp2tzD982Bsht4i4/HDLgjrP4LOSOs/jMecexLKDbp2flzadn1Y538VFZydVuV8M3ditx8cWQyHrX+Sgksaz6YvDGbke+HL54uolXg/ebruc9HNm5uS/CSt5+cTocuU3c5YdDBtxxFp+F3HEWn7nvOJYFdFWZvDy9/bLZo19++C9Vgy9uwhEXXwwqWXr856aDePMXfzW4MFqRd18PP1hpJ1afBUaWzUoNSLz5/I2HaDdyqOU2cYcfEBlwx1l8FnLH2WC5PW/ra0Dz7brevP6nYB1Ej0XeiRz+H7BW4t3X/+pxCtaGnB/7+hxBtxBvPv9nn1OwNmTpOciWp+11BNSK9CqgPeLOZ6GQZdAdZ+cmJFLnCKisLio8qY/AwxVQK7H6YljkzWOfPbGFePHE5xpQG7I6evY5CmohPj6td8aASN8l3kL0u7zShqxPwTy29zZx+7NgyDLojrMghtxxGpbrjmNbQLdfzJ2CHgG1EusvBpb0WT8txPlnXgXUIelxHahd0mu3aZUcflGpQ3Leu1ceV6HbJG8ez/5yeJVvE3f4wZBlyB1nQQy546xYbs/b+FWwavdYnw+HeBWshdh8MbCkx77dRmxeDRq8ueNI3v7Ya7dpl3zpscbbiJ4HF12THH5ZaZu4yw+GLAPuOAtiyB1ng+W0Ji0LaOFUHZo154XeBdRKDDHGHaTXIu962h5HQJ2Sd/80cJTtki99TsHakT4nie2b2+sIqBVZX1YaeqVqm7jHD4Ysw+04AftnB+m+41gW0PI9IOHeB9RK9HurSbvk/KuDrwl0PW2PAoolOf9s+MlNB9LjRKSdeOXxtLuRg08Ut4l7/HDIcDvO4rOQO87yM+c1yTuhCSHJQgERQpKFAiKEJAsFRAhJFgqIEJIsFBAhJFkoIBIk755955fzm+uT+6lNyJhCAZEwuT75YP7/L95/nVqEjCkUEAmUV/NDoOuTT1JrkFGFAiKB8vbR/fJFdQL27llRVOdj1ydFUXxQXv/239efErIfCoiEyuW9f7j3VdU/8xZ69f7rt48+qQ+LuCxEukMBkVCZH/lUl4Euq8Odefv8X3U16Pp7X3FaRrpDAZFgqaunfFXUmXfR5fzm3lfzDkotRmRDAZFgWRTQ4oWwt4/mJ2TVERAFRDpDAZFgaQro8l5TOJdVEV1yBEQOhQIiwdIU0Ltn8+aZF09VRNcnFBA5FAqIBEtTQPXL8NVR0Iv5zU8ffUIBke5QQISQZKGACCHJQgERQpKFAiKEJAsFRAhJFgqIEJIsFBAhJFkoIEJIslBAhJBkoYAIIcny/1gG1zj0gkUoAAAAAElFTkSuQmCC" width="100%" /></p>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

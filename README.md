@@ -63,8 +63,8 @@ head(dim_values)
 ```
 
 For more details on additional functions, usage examples, and how to
-retrieve the actual data, check out the package documentation and
-vignettes once susR is installed.
+retrieve the actual data, check out the package documentation and [view
+the vignette](./doc/getting_started.html).
 
 For bugs or feature requests, please open an issue on the GitHub repo.
 
