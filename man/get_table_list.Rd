@@ -4,30 +4,54 @@
 \alias{get_table_list}
 \title{Get the list of all available datasets (tables) from the Slovak Statistical Office}
 \usage{
-get_table_list()
+get_table_list(long = FALSE)
+}
+\arguments{
+\item{long}{Logical (default \code{FALSE}). If \code{TRUE}, the result is
+"long" with one row per dimension code.}
 }
 \value{
-A tibble with columns:
-\itemize{
-\item \strong{class}: The “class” of the item (usually "dataset").
-\item \strong{href}: A URL to the dataset endpoint.
-\item \strong{table_code}: The eight-digit table code extracted from the URL.
-\item \strong{label}: A descriptive label of the dataset.
-\item \strong{update}: The date of the most recent update (if present).
-\item \strong{dimension_names}: A semicolon-separated string of dimension identifiers.
+A tibble. If \code{long = FALSE}, columns include:
+\describe{
+\item{class}{The “class” of the item (usually "dataset")}
+\item{href}{The URL to the dataset endpoint}
+\item{table_code}{The 8-character table code extracted from the URL}
+\item{label}{A descriptive label of the dataset}
+\item{update}{The date of the most recent update (if present)}
+\item{dimension_names}{A single string with dimension codes, separated by ":"}
+}
+
+If \code{long = TRUE}, columns include:
+\describe{
+\item{class}{As above}
+\item{href}{As above}
+\item{table_code}{As above}
+\item{label}{As above}
+\item{update}{As above}
+\item{dimension_code}{One dimension code per row}
 }
 }
 \description{
 This function calls the SUSR open data API endpoint
 \code{https://data.statistics.sk/api/v2/collection?lang=en} and returns
-a flat data frame with essential metadata for each available dataset.
+either a "wide" or "long" data frame (depending on \code{long}).
+}
+\details{
+If \code{long = FALSE} (default), each row corresponds to a single dataset
+and the dimension codes are concatenated in the \code{dimension_names} column.
+
+If \code{long = TRUE}, the output "pivots" these dimension codes so each
+dimension code appears in its own row (under the \code{dimension_code} column).
 }
 \examples{
 \dontrun{
-  tbls <- get_table_list()
-  head(tbls)
+# Default (wide) usage:
+wide_tbls <- get_table_list()
+head(wide_tbls)
 
-  # Then pass table_code to get_dimensions():
-  get_dimensions(tbls$table_code[1])
+# Long usage:
+long_tbls <- get_table_list(long = TRUE)
+head(long_tbls)
 }
+
 }
