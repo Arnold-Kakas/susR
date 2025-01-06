@@ -164,10 +164,10 @@ Each element in multi_res is a tibble for given table code.
 
 Once you have the data, use dplyr and ggplot2 (or anything else) to analyze:
 
-```{r out.width="80%"}
+```{r out.width="100%", fig.width=12, fig.height=6}
 library(ggplot2)
 
-multi_res$as1001rs |>
+p <- multi_res$as1001rs |>
   filter(as1001rs_ukaz == "Pre-productive population (aged 0 -14 years)",
          as1001rs_poh == "Total") |>
   ggplot() +
@@ -177,4 +177,6 @@ multi_res$as1001rs |>
        y = NULL) +
   theme_minimal()
 
+
+p
 ```
