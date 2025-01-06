@@ -11,7 +11,9 @@ RoxygenNote: 7.3.2
 Suggests: 
     knitr,
     rmarkdown,
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    ggplot2,
+    tidyr
 Config/testthat/edition: 3
 Imports: 
     httr2,
@@ -19,6 +21,5 @@ Imports:
     purrr,
     readr,
     rjstat,
-    tidyr,
-    ggplot2
+    tibble
 VignetteBuilder: knitr
