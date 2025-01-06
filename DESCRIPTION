@@ -14,4 +14,8 @@ Config/testthat/edition: 3
 Imports: 
     httr2,
     dplyr,
-    purrr
+    purrr,
+    readr,
+    rjstat,
+    ggplot2,
+    tidyr

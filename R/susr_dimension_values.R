@@ -24,12 +24,12 @@
 #' @examples
 #' \dontrun{
 #' # For table code "as1001rs" and dimension "as1001rs_rok":
-#' dim_vals <- get_dimension_values("as1001rs", "as1001rs_rok")
+#' dim_vals <- susr_dimension_values("as1001rs", "as1001rs_rok")
 #' head(dim_vals)
 #' }
 #'
 #' @export
-get_dimension_values <- function(table_code, dimension_code, lang = "en") {
+susr_dimension_values <- function(table_code, dimension_code, lang = "en") {
 
   # Build the dimension API URL
   dim_url <- paste0(

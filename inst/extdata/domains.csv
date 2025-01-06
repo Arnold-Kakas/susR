@@ -1,0 +1,730 @@
+﻿table_code;table_name;domain_subdomain;domain;subdomain
+as1001rs;Population and attributes of age;Indicators - Indicators of active population ageing;Indicators;Indicators of active population ageing
+as1002rs;Participation of seniors in the labour market;Indicators - Indicators of active population ageing;Indicators;Indicators of active population ageing
+as1003rs;Net money income and expenditure of households by age of head of household;Indicators - Indicators of active population ageing;Indicators;Indicators of active population ageing
+as1004rs;Expenditure of households on selected goods and services by age of head of household per capita and year;Indicators - Indicators of active population ageing;Indicators;Indicators of active population ageing
+as1005rs;At-risk-of-poverty rate by selected age group and sex;Indicators - Indicators of active population ageing;Indicators;Indicators of active population ageing
+as1006rs;Social and pension security;Indicators - Indicators of active population ageing;Indicators;Indicators of active population ageing
+as1007rs;The most frequent causes of death of population;Indicators - Indicators of active population ageing;Indicators;Indicators of active population ageing
+as1008rs;Health life expectancy by selected age;Indicators - Indicators of active population ageing;Indicators;Indicators of active population ageing
+as1012rs;Use of the computers and Internet by individuals by selected age groups;Indicators - Indicators of active population ageing;Indicators;Indicators of active population ageing
+as1013rs;Participation rate in education and further professional training;Indicators - Indicators of active population ageing;Indicators;Indicators of active population ageing
+as1015rs;Seniors in elections to the bodies of self-governing regions deputies;Indicators - Indicators of active population ageing;Indicators;Indicators of active population ageing
+as1016rs;Mayors of towns and municipalities;Indicators - Indicators of active population ageing;Indicators;Indicators of active population ageing
+bv3001rr;Occupied dwellings by number of living rooms, access to running water and sanitation;Demographic and social statistics - Housing;Demographic and social statistics;Housing
+bv3002rr;Occupied dwellings by number of rooms and occupants;Demographic and social statistics - Housing;Demographic and social statistics;Housing
+cr1002rs;Occupancy of accommodation establishments – SR (countries);Sector statistics - Tourism;Sector statistics;Tourism
+cr1003rr;Occupancy and capacity of accommodation establishments – selected cities;Sector statistics - Tourism;Sector statistics;Tourism
+cr1004rs;Visitors in accommodation establishments of tourism by population density - yearly data;Sector statistics - Tourism;Sector statistics;Tourism
+cr1801rs;Participation in tourism with overnight stays - yearly;Sector statistics - Tourism;Sector statistics;Tourism
+cr1802rs;Non-participation in tourism and reasons for not participating in tourism - yearly;Sector statistics - Tourism;Sector statistics;Tourism
+cr1803rs;Number of trips - yearly;Sector statistics - Tourism;Sector statistics;Tourism
+cr1804rs;Number of nights spent - yearly;Sector statistics - Tourism;Sector statistics;Tourism
+cr1805rs;Average number of nights spent - yearly;Sector statistics - Tourism;Sector statistics;Tourism
+cr1806rs;Average expenditures per trip - yearly;Sector statistics - Tourism;Sector statistics;Tourism
+cr1807rs;Trips - by length of trip - yearly;Sector statistics - Tourism;Sector statistics;Tourism
+cr1808rs;Trips - by age group - yearly;Sector statistics - Tourism;Sector statistics;Tourism
+cr1809rs;Trips - by purpose - yearly;Sector statistics - Tourism;Sector statistics;Tourism
+cr1810rs;Trips - by type of destination - yearly;Sector statistics - Tourism;Sector statistics;Tourism
+cr1811rs;Trips - by main type of accommodation - yearly;Sector statistics - Tourism;Sector statistics;Tourism
+cr1812rs;Trips - by main mode of transport - yearly;Sector statistics - Tourism;Sector statistics;Tourism
+cr1813rs;Outbound trips - selected countries - yearly;Sector statistics - Tourism;Sector statistics;Tourism
+cr2001rs;Capacity and performances of accommodation establishments of tourism - yearly data;Sector statistics - Tourism;Sector statistics;Tourism
+cr2002rs;Organized tourism (Active and Passive) in the Slovak Republic - yearly data;Sector statistics - Tourism;Sector statistics;Tourism
+cr3001rr;Occupancy and capacity of accommodation establishments – SR, regions;Sector statistics - Tourism;Sector statistics;Tourism
+cr3002rr;Occupancy and capacity of accommodation establishments – districts;Sector statistics - Tourism;Sector statistics;Tourism
+cr3003qr;Capacity and performances of accommodation facilities by regions - quarterly data;Sector statistics - Tourism;Sector statistics;Tourism
+cr3801mr;Occupancy of accommodation establishments – SR, regions (6 categories);Sector statistics - Tourism;Sector statistics;Tourism
+cr3802mr;Occupancy of accommodation establishments – districts (3 categories);Sector statistics - Tourism;Sector statistics;Tourism
+cr3803mr;Occupancy of accommodation establishments – municipalities (inbound/domestic);Sector statistics - Tourism;Sector statistics;Tourism
+cr3804mr;Occupancy of accommodation establishments – districts (countries);Sector statistics - Tourism;Sector statistics;Tourism
+cr3805rs;Domestic trips - selected districts - yearly;Sector statistics - Tourism;Sector statistics;Tourism
+cr3806qr;Occupancy, turnover and capacity of accommodation establishments - SR, regions (6 categories, 9 variables);Sector statistics - Tourism;Sector statistics;Tourism
+cr3807qr;Occupancy, turnover and capacity of accommodation establishments - districts (3 categories, 9 variables);Sector statistics - Tourism;Sector statistics;Tourism
+cr3808qr;Occupancy, turnover and capacity of accommodation establishments - SR, regions, districts (13 variables);Sector statistics - Tourism;Sector statistics;Tourism
+cr3809qr;Occupancy, turnover and capacity of accommodation establishments - municipalities (13 variables);Sector statistics - Tourism;Sector statistics;Tourism
+do0002ms;Transport and Storage - Turnover (year-on-year index) - monthly;Sector statistics - Transport and postal services;Sector statistics;Transport and postal services
+do1001rs;Economic indicators for transport and storage by NACE Rev. 2;Sector statistics - Transport and postal services;Sector statistics;Transport and postal services
+do1002rs;Economic indicators for transport (2002 - 2008);Sector statistics - Transport and postal services;Sector statistics;Transport and postal services
+do1003rs;Total indicators for transport;Sector statistics - Transport and postal services;Sector statistics;Transport and postal services
+do1004rs;Infrastructure and the states of fleet in railway transport;Sector statistics - Transport and postal services;Sector statistics;Transport and postal services
+do1005rs;Railway transport - transport of goods and transport of passengers;Sector statistics - Transport and postal services;Sector statistics;Transport and postal services
+do1006rs;Railway transport - the indicators of performances and safety of operation;Sector statistics - Transport and postal services;Sector statistics;Transport and postal services
+do1007rs;Road transport - transport of goods and transport of passengers;Sector statistics - Transport and postal services;Sector statistics;Transport and postal services
+do1008rs;Inland waterway transport - transport of goods and transport of passengers;Sector statistics - Transport and postal services;Sector statistics;Transport and postal services
+do1009rs;Air transport - transport of goods and transport of passengers;Sector statistics - Transport and postal services;Sector statistics;Transport and postal services
+do1010rs;Air transport - the number of civil planes, airports performances, performances of general aviation;Sector statistics - Transport and postal services;Sector statistics;Transport and postal services
+do1011rs;Inland waterway transport - the infrastructure, vessels;Sector statistics - Transport and postal services;Sector statistics;Transport and postal services
+do1012rs;Road transport - the infrastructure, motor vehicles, traffic accidents;Sector statistics - Transport and postal services;Sector statistics;Transport and postal services
+do2002rs;Passengers transport;Sector statistics - Transport and postal services;Sector statistics;Transport and postal services
+do2003rs;Transport of goods of Freight transport;Sector statistics - Transport and postal services;Sector statistics;Transport and postal services
+do2007ms;Average monthly wage of employee in transport and storage - monthly data;Sector statistics - Transport and postal services;Sector statistics;Transport and postal services
+do2015rs;Performances of Freight transport of goods;Sector statistics - Transport and postal services;Sector statistics;Transport and postal services
+do2016rs;Performances of passenger transport;Sector statistics - Transport and postal services;Sector statistics;Transport and postal services
+do3701rr;Transport - cities;Selected tables of Eurostat database - City statistics;Selected tables of Eurostat database;City statistics
+do3801rr;Selected indicators of road transport;Sector statistics - Transport and postal services;Sector statistics;Transport and postal services
+do3802rr;Length of roads;Sector statistics - Transport and postal services;Sector statistics;Transport and postal services
+do3803rr;Number of motor vehicles;Sector statistics - Transport and postal services;Sector statistics;Transport and postal services
+do3804rr;Survey on infrastructure situated on the roads of the 1st, 2nd and 3rd class;Sector statistics - Transport and postal services;Sector statistics;Transport and postal services
+do3805rr;Local communications and objects on local communications;Sector statistics - Transport and postal services;Sector statistics;Transport and postal services
+do3806rr;Accident frequency;Sector statistics - Transport and postal services;Sector statistics;Transport and postal services
+do3807rr;Turnover in transport;Sector statistics - Transport and postal services;Sector statistics;Transport and postal services
+en1001ms;Sources of Electricity in GWh;Multi-domain statistics - Energy;Multi-domain statistics;Energy
+en1002ms;Sources of Selected Solid Fuels in Ths. Ton;Multi-domain statistics - Energy;Multi-domain statistics;Energy
+en2001rs;Balance of Electricity;Multi-domain statistics - Energy;Multi-domain statistics;Energy
+en2002rs;Balance of Renewables and Wastes;Multi-domain statistics - Energy;Multi-domain statistics;Energy
+en2003rs;Balance of Fuels, Electricity and Heat;Multi-domain statistics - Energy;Multi-domain statistics;Energy
+en2004rs;Balance of Gaseous Fuels;Multi-domain statistics - Energy;Multi-domain statistics;Energy
+en2005rs;Balance of Crude Oil and Petroleum Products;Multi-domain statistics - Energy;Multi-domain statistics;Energy
+en2006rs;Balance of Heat;Multi-domain statistics - Energy;Multi-domain statistics;Energy
+en2007rs;Balance of Solid Fuels;Multi-domain statistics - Energy;Multi-domain statistics;Energy
+en3001rr;Consumption of fuels, electricity, heat;Multi-domain statistics - Energy;Multi-domain statistics;Energy
+fp1801qs;Selected indicators of non financial organizations with 20 and more employees - quarterly data;Sector statistics - Cross-sectional statistics;Sector statistics;Cross-sectional statistics
+ik0002ms;Information and communication (Turnover) (year-on-year index) - monthly;Sector statistics - Information and communication;Sector statistics;Information and communication
+ik1001rs;Selected indicators for telecommunications;Sector statistics - Information and communication;Sector statistics;Information and communication
+ik1002rs;Economic indicators by NACE Rev. 2;Sector statistics - Information and communication;Sector statistics;Information and communication
+ik1003rs;Economic indicators (2003 - 2008);Sector statistics - Information and communication;Sector statistics;Information and communication
+ik2010rs;Main indicators of telecommunications as of Dec. 31th;Sector statistics - Information and communication;Sector statistics;Information and communication
+ik3801rr;Selected indicators of telecomunications;Sector statistics - Information and communication;Sector statistics;Information and communication
+ik5001rr;Number of post offices in the Slovak Republic;Sector statistics - Transport and postal services;Sector statistics;Transport and postal services
+is1001rs;ICT in households;Multi-domain statistics - Information society;Multi-domain statistics;Information society
+is1002rs;Internet commerce for private use;Multi-domain statistics - Information society;Multi-domain statistics;Information society
+is1003rs;ICT in enterprises;Multi-domain statistics - Information society;Multi-domain statistics;Information society
+kp0001ms;Economic Sentiment Indicator;Macroeconomic statistics - Business tendency surveys and consumer opinions;Macroeconomic statistics;Business tendency surveys and consumer opinions
+kp0003qs;Industrial confidence indicator (quarterly);Macroeconomic statistics - Business tendency surveys and consumer opinions;Macroeconomic statistics;Business tendency surveys and consumer opinions
+kp0012ms;Consumer Survey;Macroeconomic statistics - Business tendency surveys and consumer opinions;Macroeconomic statistics;Business tendency surveys and consumer opinions
+kp0013ms;Balances of questions for selected industries and according to NACE Rev.2 - monthly;Macroeconomic statistics - Business tendency surveys and consumer opinions;Macroeconomic statistics;Business tendency surveys and consumer opinions
+kp0014ms;Balances of questions for selected industries according by size of enterprises - monthly;Macroeconomic statistics - Business tendency surveys and consumer opinions;Macroeconomic statistics;Business tendency surveys and consumer opinions
+kp0015ms;Balances of questions for selected industries in construction according to NACE Rev. 2 - monthly;Macroeconomic statistics - Business tendency surveys and consumer opinions;Macroeconomic statistics;Business tendency surveys and consumer opinions
+kp0016ms;Balances of questions for selected industries in construction by size of enterprises - monthly;Macroeconomic statistics - Business tendency surveys and consumer opinions;Macroeconomic statistics;Business tendency surveys and consumer opinions
+kp0017ms;Balances of questions for selected industries in retail according to NACE Rev. 2 - monthly;Macroeconomic statistics - Business tendency surveys and consumer opinions;Macroeconomic statistics;Business tendency surveys and consumer opinions
+kp0018ms;Balances of questions for selected industries in retail by size of enterprises - monthly;Macroeconomic statistics - Business tendency surveys and consumer opinions;Macroeconomic statistics;Business tendency surveys and consumer opinions
+kp0019ms;Balances of questions for selected industries in services by sectors - monthly;Macroeconomic statistics - Business tendency surveys and consumer opinions;Macroeconomic statistics;Business tendency surveys and consumer opinions
+kp0020qs;Balances of questions and the composite services confidence indicator - quarterly;Macroeconomic statistics - Business tendency surveys and consumer opinions;Macroeconomic statistics;Business tendency surveys and consumer opinions
+kp0021ms;Balances of questions and the composite construction confidence indicator - monthly;Macroeconomic statistics - Business tendency surveys and consumer opinions;Macroeconomic statistics;Business tendency surveys and consumer opinions
+kp0022ms;Economic Sentiment Indicator;Macroeconomic statistics - Business tendency surveys and consumer opinions;Macroeconomic statistics;Business tendency surveys and consumer opinions
+ku1001rr;Botanical gardens;Demographic and social statistics - Culture;Demographic and social statistics;Culture
+ku1002rr;ZOO gardens;Demographic and social statistics - Culture;Demographic and social statistics;Culture
+ku3002rr;Repertory and attendance at theatres;Demographic and social statistics - Culture;Demographic and social statistics;Culture
+ku3003rr;Galleries;Demographic and social statistics - Culture;Demographic and social statistics;Culture
+ku3004rr;Museums;Demographic and social statistics - Culture;Demographic and social statistics;Culture
+ku3006rr;Libraries - number of volumes and loans;Demographic and social statistics - Culture;Demographic and social statistics;Culture
+ku3007rr;Cultural-educational institutions;Demographic and social statistics - Culture;Demographic and social statistics;Culture
+ku3008rr;Other cultural institutions;Demographic and social statistics - Culture;Demographic and social statistics;Culture
+ku3701rr;Culture and tourism - cities;Selected tables of Eurostat database - City statistics;Selected tables of Eurostat database;City statistics
+ku3801rr;Subjects of professional performing arts (since 2021) - yearly;Demographic and social statistics - Culture;Demographic and social statistics;Culture
+ku3802rr;Repertory and attendance of subjects of professional performing arts (since 2021) - yearly;Demographic and social statistics - Culture;Demographic and social statistics;Culture
+kz1001rs;Median equivalised net income;Indicators - Quality of life;Indicators;Quality of life
+kz1002rs;Inequality of income distribution;Indicators - Quality of life;Indicators;Quality of life
+kz1003rs;At-risk-of-poverty rate anchored at a fixed moment in time (2008);Indicators - Quality of life;Indicators;Quality of life
+kz1004rs;At risk of poverty rate by household type;Indicators - Quality of life;Indicators;Quality of life
+kz1005rs;Persistent at-risk-of-poverty rate;Indicators - Quality of life;Indicators;Quality of life
+kz1006rs;Severe material deprivation rate;Indicators - Quality of life;Indicators;Quality of life
+kz1007rs;Quality of housing - Leaking roof, damp walls and other;Indicators - Quality of life;Indicators;Quality of life
+kz1008rs;Ability to make ends meet;Indicators - Quality of life;Indicators;Quality of life
+kz1009rs;Self-perceived health by sex and selected age groups;Indicators - Quality of life;Indicators;Quality of life
+kz1010rs;People having a long-standing illness or health problem by sex and selected age groups;Indicators - Quality of life;Indicators;Quality of life
+kz1011rs;Body mass index (BMI) by sex and selected age group;Indicators - Quality of life;Indicators;Quality of life
+kz1012rs;Daily smokers of cigarettes by sex and selected age groups;Indicators - Quality of life;Indicators;Quality of life
+kz1013rs;Inability to face unexpected financial expenses;Indicators - Quality of life;Indicators;Quality of life
+kz1014rs;Financial burden of household;Indicators - Quality of life;Indicators;Quality of life
+kz1015rs;Pollution, grime or other environmental problems by household type and income poverty;Indicators - Quality of life;Indicators;Quality of life
+kz1016rs;Healthy Life Years and Life expectancy;Indicators - Quality of life;Indicators;Quality of life
+kz1017rs;Crime, violence or vandalism;Indicators - Quality of life;Indicators;Quality of life
+kz1018rs;Economic activity rate;Indicators - Quality of life;Indicators;Quality of life
+kz1019rs;Employment rate;Indicators - Quality of life;Indicators;Quality of life
+kz1020rs;Unemployment rate;Indicators - Quality of life;Indicators;Quality of life
+kz1022rs;Average rating of satisfaction with time use;Indicators - Quality of life;Indicators;Quality of life
+kz1023rs;Average rating of satisfaction with personal relationships;Indicators - Quality of life;Indicators;Quality of life
+kz1024rs;Frequency of getting together with relatives and with friends;Indicators - Quality of life;Indicators;Quality of life
+kz1025rs;Participation in activities of political parties or trade unions;Indicators - Quality of life;Indicators;Quality of life
+kz1026rs;Participation in activities of professional associations;Indicators - Quality of life;Indicators;Quality of life
+kz1027rs;Gender pay gap in unadjusted form;Indicators - Quality of life;Indicators;Quality of life
+kz1028rs;Overall life satisfaction;Indicators - Quality of life;Indicators;Quality of life
+kz1029rs;Assessing whether life is worthwhile;Indicators - Quality of life;Indicators;Quality of life
+kz1030rs;Education attainment level;Indicators - Quality of life;Indicators;Quality of life
+kz1031rs;Early leavers from education and training;Indicators - Quality of life;Indicators;Quality of life
+kz1032rs;Participation rate of young people in formal and non-formal education and training;Indicators - Quality of life;Indicators;Quality of life
+kz1033rs;Frequency of contacts with relatives and with friends;Indicators - Quality of life;Indicators;Quality of life
+kz1034rs;Participation in informal voluntary activities during the last year;Indicators - Quality of life;Indicators;Quality of life
+kz1035rs;Participation in activities of recreational groups or organisations during the last year;Indicators - Quality of life;Indicators;Quality of life
+kz1036rs;Help from others (having someone to rely on in case of need);Indicators - Quality of life;Indicators;Quality of life
+kz1037rs;Trust to others;Indicators - Quality of life;Indicators;Quality of life
+kz1038rs;Trust in institutions - legal system, political system, police;Indicators - Quality of life;Indicators;Quality of life
+kz1039rs;Frequency of being happy in the last 4 weeks;Indicators - Quality of life;Indicators;Quality of life
+np1101rr;Dynamics of labour costs;Demographic and social statistics - Labour cost;Demographic and social statistics;Labour cost
+np1102rs;Labour costs by economic activity;Demographic and social statistics - Labour cost;Demographic and social statistics;Labour cost
+np1105rs;Average wage in enterprises with 20 and more employees by economic activity;Demographic and social statistics - Labour cost;Demographic and social statistics;Labour cost
+np2008rs;Total labour costs (monthly, hourly) by economic activity (NACE Rev. 2);Demographic and social statistics - Labour cost;Demographic and social statistics;Labour cost
+np2014qs;Indexes of real wages by branches of economic activity (NACE Rev. 2);Demographic and social statistics - Labour cost;Demographic and social statistics;Labour cost
+np3101rr;Gross earnings by age;Demographic and social statistics - Labour cost;Demographic and social statistics;Labour cost
+np3102rr;Gross earnings by education;Demographic and social statistics - Labour cost;Demographic and social statistics;Labour cost
+np3103rr;Gross earnings and hours worked;Demographic and social statistics - Labour cost;Demographic and social statistics;Labour cost
+np3106rr;Gross earnings by occupation;Demographic and social statistics - Labour cost;Demographic and social statistics;Labour cost
+np3110rr;Wage by economic activity collected through workplace method;Demographic and social statistics - Labour cost;Demographic and social statistics;Labour cost
+np3112qr;Average wage in the economy of the SR;Demographic and social statistics - Labour cost;Demographic and social statistics;Labour cost
+nu0001qs;Flash estimate of GDP and Total employment according to ESA 2010;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu0002qs;Quarterly GDP data at curent prices;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu0003qs;Quarterly GDP data at constant prices on the base of previous year;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu0004qs;Quarterly GDP data at constant prices chain - linked volumes;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu0005qs;Quarterly GDP data by industry at current prices;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu0006qs;Quarterly GDP data by industry at constant prices chain - linked volumes;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu0007rs;Revised and preliminary annual data of GDP at current prices;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu0008rs;Revised and preliminary annual data of GDP at constant prices on the base of previous year;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu0009rs;Revised and preliminary annual data of GDP at constant prices chain-linked volumes;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1001qs;Transactions in assets - S13N;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1002qs;Transactions in liabilities - S13N;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1003qs;Stock of assets - S13N;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1004qs;Stocks of liabilitie - S13N;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1005qs;Transactions in assets - S13C;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1006qs;Transactions in liabilities - S13C;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1007qs;Stock of assets - S13C;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1008qs;Stocks of liabilitie - S13C;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1009qs;Transactions in assets - S1311C;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1010qs;Transactions in liabilities - S1311C;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1011qs;Stock of assets - S1311C;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1012qs;Stocks of liabilitie - S1311C;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1013qs;Transactions in assets - S1313C;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1014qs;Transactions in liabilities - S1313C;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1015qs;Stock of assets - S1313C;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1016qs;Stocks of liabilitie- S1313C;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1017qs;Transactions in assets - S1314C;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1018qs;Transactions in liabilities - S1314C;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1019qs;Stock of assets - S1314C;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1020qs;Stocks of liabilitie - S1314C;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1021rs;GDP by production approach at current prices;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1022rs;Compensation, wages and salaries of employees by industry A10;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1024rs;Population and employment - national concept;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1025rs;Employment by industry A10 - domestic concept;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1028rs;Accounts for individual institutional sectors;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1029rs;Exports of Goods (fob) and Services;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1030rs;Imports of Goods (fob) and Services;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1031rs;Disposable income - Saving and Net lending and net borrowing;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1032rs;Gross Capital Formation by Industry - data in current prices;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1034rs;Gross Capital Formation by Industry - Annual data at chain-linked volumes;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1035rs;Final consumption expenditure at current prices;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1036rs;GDP by expenditure approach at current prices;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1037rs;GDP by income approach at current prices;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1038rs;Financial accounts - stocks consolidated;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1039rs;Financial accounts - stocks non-consolidated;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1040rs;Financial accounts - transactions consolidated;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1041rs;Financial accounts - transactions non-consolidated;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1043rs;Gross national income;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1044rs;Export of goods (fob) and services, chain-linked volumes;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1045rs;Import of goods (fob) and services,chain-linked volumes;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1046rs;GDP by expenditure approach, chain-linked volumes;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1047rs;Final consumption expenditure, chain-linked volumes;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1048rs;GDP by production approach, chain-linked volumes;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1049rs;Reporting of government deficit, surplus and debt levels;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1054rs;Gross value added by industry A88 at current prices;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1055rs;Compensation, wages and salaries of employees by industry A88;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1056rs;Gross value added by industry A88, chain-linked volumes;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1057rs;Employment by industry A88 - domestic concept;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1061qs;Maastricht Debt for general government sector - Stocks of liabilities - S13C;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1801rs;Labour productivity according to NACE Rev.2 (the same period of the previous year=100) - annually;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1802qs;Labour productivity and unit labour costs - quarterly;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1803qs;Gross fixed capital formation by asset type at chain-linked volumes - quarterly;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1804qs;Disposable income of households per capita;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1806qs;Seasonally adjustment of GDP by expenditure components at current prices - quarterly data;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1807qs;Seasonally adjustment of GDP by expenditure components at chain-linked volumes - quarterly;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1808qs;Value added by branches of NACE Rev. 2 at current prices - seasonally adjusted data;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1809qs;Value added by branches of NACE Rev. 2 at chain-linked volumes - seasonally adjusted data;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1810qs;Gross fixed capital formation by asset type at current prices - seasonally adjusted data;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1811qs;Gross fixed capital formation by asset type at chain-linked volumes - seasonally adjusted data;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1812qs;Compensation of employees (ESA 2010) by branches of NACE Rev. 2 at current prices - seasonally adjusted data;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1813qs;Total employment (ESA 2010) by branches of NACE Rev. 2 - seasonally adjusted data;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1814qs;Total hours worked (ESA 2010) by branches of NACE Rev. 2 - seasonally adjusted data;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1815qs;Hours worked of employees (ESA 2010) by branches of NACE Rev. 2;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1816rs;Total hours worked by industry A88 - domestic concept;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu1817rs;Hours worked of employed persons by industry A10 - domestic concept;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu2002qs;Gross output by branches of NACE Rev. 2 at current prices;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu2008qs;Intermediate consumption by branches of NACE Rev. 2 at current prices;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu2010qs;Value added by branches of NACE Rev. 2 at current prices;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu2012qs;Gross fixed capital formation by branches of NACE Rev. 2 at current prices;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu2014qs;Gross fixed capital formation by classification of production at current prices;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu2016qs;Gross fixed capital formation by sectors at current prices;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu2020qs;Final consumption of households by Classification COICOP at current prices;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu2022qs;Final consumption of households by Classification COICOP at constant prices;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu2025qs;Generation and use of income in sector of households at current prices;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu2028qs;Gross Domestic Product per capita;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu2039qs;General government revenues in current prices - quarterly data;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu2040qs;General government expenditure in current prices - quarterly data;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu2042qs;Total employment (ESA 2010) by branches of NACE Rev. 2;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu2043qs;Seasonally adjustment of GDP by expenditure components at current prices - quarterly data;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu2044qs;Seasonally adjustment of GDP by expenditure components at chain-linked volumes with reference year 2015 - quarterly data;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu2046qs;Compensation of employees (ESA 2010) by branches of NACE Rev. 2 at current prices;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu2047qs;Hours worked of employed persons (ESA 2010) by branches of NACE Rev. 2;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu2051qs;Seasonally adjustment of GDP resources at current prices - quarterly data;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu2052qs;Seasonally adjustment of GDP resources at chain-linked volumes - quarterly;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu2054qs;Disposable income at current prices;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu2058qs;Export and import goods and services at current prices;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu2062rs;Gross fixed assets by economic activities (NACE Rev. 2) at replacement prices;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu2063qs;Generation and use of income in sector of households at current prices - quarterly data - seasonally adjusted;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu3001rr;Regional gross domestic product (in current prices);Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu3002rr;Regional gross domestic product per capita (at current prices);Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu3003rr;Regional employment and employees;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu3005rr;Allocation of primary income account of households;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu3006rr;Allocation of secundary income account of households;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu3007rr;Gross value added;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu3008rr;Gross fixed capital formation;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu3801rr;Regional labour productivity at current prices according to NACE Rev.2 - annually;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu3802rr;Regional labour productivity at chain-linked volumes (the same period of the previous year=100) - annually;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+nu3803rr;Regional Gross Domestic Product at constant prices chain - linked volumes with reference year 2015;Macroeconomic statistics - National accounts;Macroeconomic statistics;National accounts
+ob0002ms;Sale and repair of motor vehicles (Turnover);Sector statistics - Trade and food services;Sector statistics;Trade and food services
+ob0003ms;Wholesale trade except of motor vehicles (Turnover);Sector statistics - Trade and food services;Sector statistics;Trade and food services
+ob0004ms;Retail trade except of motor vehicles (Turnover);Sector statistics - Trade and food services;Sector statistics;Trade and food services
+ob0005ms;Accommodation (Turnover);Sector statistics - Trade and food services;Sector statistics;Trade and food services
+ob0006ms;Food and beverage service activities (Turnover);Sector statistics - Trade and food services;Sector statistics;Trade and food services
+ob1004qs;Receips of own output and goods in retail trade, hotels and restaurants - quarterly;Sector statistics - Trade and food services;Sector statistics;Trade and food services
+ob1801ms;Specific retail trade structures - monthly;Sector statistics - Trade and food services;Sector statistics;Trade and food services
+ob1802ms;Turnover on Internal Trade, Accommodation and Food Service Activities by SK NACE Rev. 2;Sector statistics - Trade and food services;Sector statistics;Trade and food services
+ob1803ms;Average of nominal wages of employee at retail trade and hotels and restaurants - monthly;Sector statistics - Trade and food services;Sector statistics;Trade and food services
+ob2009ms;Receips of own output and goods in retail trade, hotels and restaurants - monthly data;Sector statistics - Trade and food services;Sector statistics;Trade and food services
+od0007ms;Indices of employment in selected branches - monthly;Sector statistics - Cross-sectional statistics;Sector statistics;Cross-sectional statistics
+od0008ms;Average monthly wages in selected branches - monthly;Sector statistics - Cross-sectional statistics;Sector statistics;Cross-sectional statistics
+od0009ms;Indices of average nominal monthly wages in selected branches - monthly;Sector statistics - Cross-sectional statistics;Sector statistics;Cross-sectional statistics
+od0010ms;Indices of real monthly wages in selected branches - monthly;Sector statistics - Cross-sectional statistics;Sector statistics;Cross-sectional statistics
+od0011ms;Indices of turnover in selected sectors of economy - monthly;Sector statistics - Cross-sectional statistics;Sector statistics;Cross-sectional statistics
+og1001rs;Institutional units by ESA95 and economic activities of Dececember 31,;Business statistics - Business statistics;Business statistics;Business statistics
+og1002rs;Legal units by legal form and economic activities of December 31,;Business statistics - Business statistics;Business statistics;Business statistics
+og1003rs;Legal units by legal form ad size category by employees as of December 31,;Business statistics - Business statistics;Business statistics;Business statistics
+og1004rs;Institutional units by ESA95 and size category by employees as of December 31,;Business statistics - Business statistics;Business statistics;Business statistics
+og1005rs;Institutional units by ESA 2010 and economic activities as of Dececember 31,;Business statistics - Business statistics;Business statistics;Business statistics
+og1006rs;Legal units in the BR by legal form and economic activities of December 31,;Business statistics - Business statistics;Business statistics;Business statistics
+og1007rs;Legal units in the BR by legal form ad size category by employees as of December 31,;Business statistics - Business statistics;Business statistics;Business statistics
+og1008rs;Institutional units in the BR by ESA2010 and size category by employees as of December 31,;Business statistics - Business statistics;Business statistics;Business statistics
+og1803rs;Enterprises deaths in the Slovak Republic by NACE Rev. 2 and size category number of employees;Business statistics - Business statistics;Business statistics;Business statistics
+og2019qs;Economic subjects by legal forms;Business statistics - Business statistics;Business statistics;Business statistics
+og2021qs;Economic subjects by legal forms and economic activities (NACE Rev. 2);Business statistics - Business statistics;Business statistics;Business statistics
+og3001rr;Enterprises by the number of employees;Business statistics - Business statistics;Business statistics;Business statistics
+og3002rr;Self-employed persons by selected economic activities (NACE Rev. 2);Business statistics - Business statistics;Business statistics;Business statistics
+og3003rr;Enterprises by selected forms of ownership;Business statistics - Business statistics;Business statistics;Business statistics
+og3004rr;Natural persons - entrepreneurs by legal forms;Business statistics - Business statistics;Business statistics;Business statistics
+og3005rr;Enterprises by economic activities (NACE Rev. 2);Business statistics - Business statistics;Business statistics;Business statistics
+og3006rr;Legal persons by selected legal forms;Business statistics - Business statistics;Business statistics;Business statistics
+og3007rr;Natural persons - entrepreneurs by legal forms in Municipalities;Business statistics - Business statistics;Business statistics;Business statistics
+og3008rr;Legal persons in municipalities;Business statistics - Business statistics;Business statistics;Business statistics
+og3009rr;Enterprises in the BR by the number of employees;Business statistics - Business statistics;Business statistics;Business statistics
+og3010rr;Natural persons - entrepreneurs in the BR by legal forms;Business statistics - Business statistics;Business statistics;Business statistics
+og3011rr;Natural persons - entrepreneurs in the BR by legal forms in Municipalities;Business statistics - Business statistics;Business statistics;Business statistics
+om2009rs;Characteristics of population development;Demographic and social statistics - Population and migration;Demographic and social statistics;Population and migration
+om2017rs;Population by marital status, sex and five-year age groups;Demographic and social statistics - Population and migration;Demographic and social statistics;Population and migration
+om2019rs;Population;Demographic and social statistics - Population and migration;Demographic and social statistics;Population and migration
+om2020rs;Life expectancy for 5-year age-groups by sex;Demographic and social statistics - Population and migration;Demographic and social statistics;Population and migration
+om2021rs;Life expectancy for single years of age by sex;Demographic and social statistics - Population and migration;Demographic and social statistics;Population and migration
+om2024rs;Population Age status of the Slovak Republic by sex and age;Demographic and social statistics - Population and migration;Demographic and social statistics;Population and migration
+om2801ms;Selected indicators of the population change of the SR;Demographic and social statistics - Population and migration;Demographic and social statistics;Population and migration
+om3003tr;Deaths by Age Groups and Sex - SR-Area-Reg (weekly);Demographic and social statistics - Population and migration;Demographic and social statistics;Population and migration
+om3401rr;3.2.1 Under-five mortality rate;Indicators - Global indicators of Agenda 2030;Indicators;Global indicators of Agenda 2030
+om3402rr;3.2.2 Neonatal mortality rate;Indicators - Global indicators of Agenda 2030;Indicators;Global indicators of Agenda 2030
+om3405rr;3.1.1 Maternal mortality ratio;Indicators - Global indicators of Agenda 2030;Indicators;Global indicators of Agenda 2030
+om3406rr;3.7.2 Adolescent birth rate (aged 10–14 years, aged 15–19 years) per 1,000 women in that age group;Indicators - Global indicators of Agenda 2030;Indicators;Global indicators of Agenda 2030
+om3701rr;Population on the 1st of January - cities;Selected tables of Eurostat database - City statistics;Selected tables of Eurostat database;City statistics
+om3703rr;Selected age indicators on the 1st of January - Cities;Selected tables of Eurostat database - City statistics;Selected tables of Eurostat database;City statistics
+om3705rr;Population by citizenship and country of birth - cities;Selected tables of Eurostat database - City statistics;Selected tables of Eurostat database;City statistics
+om3707rr;Selected indicators of change of population - cities;Selected tables of Eurostat database - City statistics;Selected tables of Eurostat database;City statistics
+om3801mr;Deaths by Month of Death, Age, Sex and Causes of Death - SR-Area-Reg (monthly);Demographic and social statistics - Population and migration;Demographic and social statistics;Population and migration
+om3802rr;Life expectancy at birth;Demographic and social statistics - Population and migration;Demographic and social statistics;Population and migration
+om3803rr;Fertility rates by age and NUTS 2 region;;Not Specified;Not Specified
+om3804rr;Life expectancy by sex, age and NUTS 2 region;;Not Specified;Not Specified
+om7001rr;Dem. Bal. by Coun. of Bir. and Sex-SR-Area-Reg-Dis,U-R;Demographic and social statistics - Population and migration;Demographic and social statistics;Population and migration
+om7002rr;Demographic Balance by Nationality and Sex - SR-Area-Reg-District, U-R;Demographic and social statistics - Population and migration;Demographic and social statistics;Population and migration
+om7004rr;Demographic Balance by Marital Status, Sex and Age - SR, Areas, Regions;Demographic and social statistics - Population and migration;Demographic and social statistics;Population and migration
+om7005rr;Indices of the Age Structure - SR-Area-Reg-District, U-R;Demographic and social statistics - Population and migration;Demographic and social statistics;Population and migration
+om7006rr;Age Groups - Municipalities;Demographic and social statistics - Population and migration;Demographic and social statistics;Population and migration
+om7007rr;Age Groups - SR-Area-Reg-District, U-R;Demographic and social statistics - Population and migration;Demographic and social statistics;Population and migration
+om7008rr;Age Structure - Municipalities;Demographic and social statistics - Population and migration;Demographic and social statistics;Population and migration
+om7009rr;Age Structure - SR-Area-Reg-District, U-R;Demographic and social statistics - Population and migration;Demographic and social statistics;Population and migration
+om7010rr;Stock and Change of the Population - Municipalities;Demographic and social statistics - Population and migration;Demographic and social statistics;Population and migration
+om7011rr;Stock and Change of the Population-SR-Area-Reg-District, U-R;Demographic and social statistics - Population and migration;Demographic and social statistics;Population and migration
+om7012rr;Stock and Change of the Population by Sex - Municipalities;Demographic and social statistics - Population and migration;Demographic and social statistics;Population and migration
+om7013rr;Stock and Change of the Populat. by Sex-SR-Area-Reg-Dist,U-R;Demographic and social statistics - Population and migration;Demographic and social statistics;Population and migration
+om7014rr;Population Density - Municipalities;Demographic and social statistics - Population and migration;Demographic and social statistics;Population and migration
+om7015rr;Population Density - SR-Area-Reg-District, U-R;Demographic and social statistics - Population and migration;Demographic and social statistics;Population and migration
+om7017rr;Births by Sex, Birth Weight, Legitimacy and Vitality - SR-Area-Reg-District, U-R;Demographic and social statistics - Population and migration;Demographic and social statistics;Population and migration
+om7023rr;Size Groups of Municipalities - SR-Area-Reg-District, U-R;Demographic and social statistics - Population and migration;Demographic and social statistics;Population and migration
+om7025rr;Marriages by Age and Permanent Residence of Men and Women - SR-Area-Reg-District, U-R;Demographic and social statistics - Population and migration;Demographic and social statistics;Population and migration
+om7031rr;Mean Ages of Mother at Birth - SR-Area-Reg-District, U-R;Demographic and social statistics - Population and migration;Demographic and social statistics;Population and migration
+om7034rr;Deaths by Age and Sex - SR-Area-Reg-District, U-R;Demographic and social statistics - Population and migration;Demographic and social statistics;Population and migration
+om7035rr;Deaths by Causes of Death, Sex and Permanent Residence - SR-Area-Reg-District, U-R;Demographic and social statistics - Population and migration;Demographic and social statistics;Population and migration
+om7036rr;Deaths by Causes of Death Age and Sex - SR-Reg-District;Demographic and social statistics - Population and migration;Demographic and social statistics;Population and migration
+om7038rr;Mean Age of Death by Sex - SR-Area-Reg-District, U-R;Demographic and social statistics - Population and migration;Demographic and social statistics;Population and migration
+om7052rr;Indices of the Age Structure - Municipalities;Demographic and social statistics - Population and migration;Demographic and social statistics;Population and migration
+om7054rr;Demographic Balance by Education, Sex and Age Groups - SR-Area-Region-District, U-R;Demographic and social statistics - Population and migration;Demographic and social statistics;Population and migration
+om7055rr;Demographic Balance by Education, Sex and Age - SR-Area-Region-District, U-R;Demographic and social statistics - Population and migration;Demographic and social statistics;Population and migration
+om7056rs;Population by sex, age, country of birth and human development index - yearly;Demographic and social statistics - Population and migration;Demographic and social statistics;Population and migration
+om7057rs;Population by sex, age, citizenship and human development index - yearly;Demographic and social statistics - Population and migration;Demographic and social statistics;Population and migration
+om7101qr;Number of the Population by Sex - Municipalities (quarterly);Demographic and social statistics - Population and migration;Demographic and social statistics;Population and migration
+om7101rr;Number of the Population by Sex - Municipalities (yearly);Demographic and social statistics - Population and migration;Demographic and social statistics;Population and migration
+om7102rr;Number of the Population by Sex - SR-Area-Reg-District, U-R (yearly);Demographic and social statistics - Population and migration;Demographic and social statistics;Population and migration
+om7103mr;Population Change - Municipalities (monthly);Demographic and social statistics - Population and migration;Demographic and social statistics;Population and migration
+om7103rr;Population Change - Municipalities (yearly);Demographic and social statistics - Population and migration;Demographic and social statistics;Population and migration
+om7104mr;Population Change - SR-Area-Reg-District, U-R (monthly);Demographic and social statistics - Population and migration;Demographic and social statistics;Population and migration
+om7104qr;Population Change - SR-Area-Reg-District, U-R (quarterly);Demographic and social statistics - Population and migration;Demographic and social statistics;Population and migration
+om7104rr;Population Change - SR-Area-Reg-District, U-R (yearly);Demographic and social statistics - Population and migration;Demographic and social statistics;Population and migration
+om7105rr;Increase of the Population by Sex - Municipalities (yearly);Demographic and social statistics - Population and migration;Demographic and social statistics;Population and migration
+om7106mr;Increase of the Population by Sex - SR-Area-Reg-District, U-R (monthly);Demographic and social statistics - Population and migration;Demographic and social statistics;Population and migration
+pl2003rs;Yields of selected agricultural crops;Sector statistics - Agriculture, forestry, fisheries;Sector statistics;Agriculture, forestry, fisheries
+pl2004rs;Use of land;Sector statistics - Agriculture, forestry, fisheries;Sector statistics;Agriculture, forestry, fisheries
+pl2010rs;Logging and timber deliveries;Sector statistics - Agriculture, forestry, fisheries;Sector statistics;Agriculture, forestry, fisheries
+pl2015rs;Reproduction, production and liverstock yields;Sector statistics - Agriculture, forestry, fisheries;Sector statistics;Agriculture, forestry, fisheries
+pl2016rs;Livestock as of December, 31th;Sector statistics - Agriculture, forestry, fisheries;Sector statistics;Agriculture, forestry, fisheries
+pl2018rs;Gross vegetable production by commodities;Sector statistics - Agriculture, forestry, fisheries;Sector statistics;Agriculture, forestry, fisheries
+pl2020rs;Catches in inland waters;Sector statistics - Agriculture, forestry, fisheries;Sector statistics;Agriculture, forestry, fisheries
+pl2022rs;Consumption of plant protection agents;Sector statistics - Agriculture, forestry, fisheries;Sector statistics;Agriculture, forestry, fisheries
+pl3001rr;Hectare yields of selected agricultural crops;Sector statistics - Agriculture, forestry, fisheries;Sector statistics;Agriculture, forestry, fisheries
+pl3004rr;Intensity of breeding livestock;Sector statistics - Agriculture, forestry, fisheries;Sector statistics;Agriculture, forestry, fisheries
+pl3005rr;Gross agricultural production from gross turnover;Sector statistics - Agriculture, forestry, fisheries;Sector statistics;Agriculture, forestry, fisheries
+pl3006rr;Receipts from sales of farming products from primary production;Sector statistics - Agriculture, forestry, fisheries;Sector statistics;Agriculture, forestry, fisheries
+pl5001rr;Surface area, land use;Sector statistics - Agriculture, forestry, fisheries;Sector statistics;Agriculture, forestry, fisheries
+pm0038ms;Turnover in industry according to NACE Rev. 2 (year-on-year index) - monthly;Sector statistics - Industry;Sector statistics;Industry
+pm0039ms;Industrial production - development by share of individual sectors - monthly;Sector statistics - Industry;Sector statistics;Industry
+pm0040ms;Industrial production (basic index, adjusted) - monthly;Sector statistics - Industry;Sector statistics;Industry
+pm0041ms;Industrial production (basic index, not adjusted) - monthly;Sector statistics - Industry;Sector statistics;Industry
+pm0042ms;Industrial production (year-on-year index, adjusted) - monthly;Sector statistics - Industry;Sector statistics;Industry
+pm0043ms;Industrial production (year-on-year index, not adjusted) - monthly;Sector statistics - Industry;Sector statistics;Industry
+pm0045ms;Employment indices in industry according to NACE Rev. 2 (basic index) - monthly;Sector statistics - Industry;Sector statistics;Industry
+pm0046ms;Average nominal monthly wage indices in industry according to NACE Rev. 2 (basic index) - monthly;Sector statistics - Industry;Sector statistics;Industry
+pm0047ms;Hours worked indicesin industry according to NACE Rev. 2 (basic index) - monthly;Sector statistics - Industry;Sector statistics;Industry
+pm0048ms;Industrial producers prices indices domestic according to NACE Rev. 2 (basic index) - monthly;Sector statistics - Industry;Sector statistics;Industry
+pm0049ms;Turnover indices in industry according to NACE Rev. 2 (basic index) - monthly;Sector statistics - Industry;Sector statistics;Industry
+pm0050ms;Turnover indices domestic market in industry according to NACE Rev. 2 (basic index) - monthly;Sector statistics - Industry;Sector statistics;Industry
+pm0051ms;Turnover indices non-domestic market in industry according to NACE Rev. 2 (basic index) - monthly;Sector statistics - Industry;Sector statistics;Industry
+pm0052ms;Turnover indices non-domestic market Euro area in industry according to NACE Rev. 2 (basic index) - monthly;Sector statistics - Industry;Sector statistics;Industry
+pm0053ms;Turnover indices non-domestic market Non Euro area in industry according to NACE Rev. 2 (basic index) - monthly;Sector statistics - Industry;Sector statistics;Industry
+pm0054ms;New orders received indices total in industry according to NACE Rev. 2 (basic index) - monthly;Sector statistics - Industry;Sector statistics;Industry
+pm0055ms;New orders received indices domestic market in industry according to NACE Rev. 2 (basic index) - monthly;Sector statistics - Industry;Sector statistics;Industry
+pm0056ms;New orders received indices non-domestic market in industry according to NACE Rev. 2 (basic index) - monthly;Sector statistics - Industry;Sector statistics;Industry
+pm0057ms;New orders received indices non-domestic market Euro area in industry according to NACE Rev. 2 (basic index) - monthly;Sector statistics - Industry;Sector statistics;Industry
+pm0058ms;New orders received indices non-domestic market Non Euro area in industry according to NACE Rev. 2 (basic index) - monthly;Sector statistics - Industry;Sector statistics;Industry
+pm0059ms;New orders in industry according to NACE Rev. 2 - monthly;Sector statistics - Industry;Sector statistics;Industry
+pm1001rs;Selected indicators of industry enterprises according to NACE Rev. 2 - yearly;Sector statistics - Industry;Sector statistics;Industry
+pm1002rs;Employees, wage and labour productivity for enterprises with more than 20 employees according to NACE Rev. 2 - yearly;Sector statistics - Industry;Sector statistics;Industry
+pm1003rs;Selected financial indicators for enterprises with more than 20 employees according to NACE Rev. 2 - yearly;Sector statistics - Industry;Sector statistics;Industry
+pm1004rs;Selected indicators of industrial establishments for enterprises with more than 20 employees according NACE Rev. 2 - yearly;Sector statistics - Industry;Sector statistics;Industry
+pm1005qs;Average wages of employees in industry according to NACE Rev. 2 - quarterly;Sector statistics - Industry;Sector statistics;Industry
+pm1008qs;Turnover in industry according to NACE Rev. 2 - quarterly;Sector statistics - Industry;Sector statistics;Industry
+pm2015ms;Industrial Production by sections and special aggregates of the industrial branches of NACE Rev. 2 classification - monthly data;;Not Specified;Not Specified
+pm2016rs;Industrial production according to MIG - yearly;Sector statistics - Industry;Sector statistics;Industry
+pm2914rs;Production and sale of selected industrial goods according to Prodslov in the year 2018;Sector statistics - Industry;Sector statistics;Industry
+pm2917rs;Production and sale of selected industrial goods according to Prodslov in the year 2021;Sector statistics - Industry;Sector statistics;Industry
+pm2918rs;Production and sale of selected industrial goods according to Prodslov in the year 2022;Sector statistics - Industry;Sector statistics;Industry
+pm2919rs;Production under sub-contracted operations according to Prodslov in the year 2021;Sector statistics - Industry;Sector statistics;Industry
+pm2920rs;Production under sub-contracted operations according to Prodslov in the year 2022;Sector statistics - Industry;Sector statistics;Industry
+pm3001rr;Basic indicators of industry statistics - yearly;Sector statistics - Industry;Sector statistics;Industry
+po3801rr;Selected indicators of posts;Sector statistics - Transport and postal services;Sector statistics;Transport and postal services
+pr0002qs;Employed by the Labour Force Sample Survey (since 2021);Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr0101qs;Unemployment by the Labour Force Sample Survey (since 2021);Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr0203ms;Indices of real monthly wages in selected branches by months;Demographic and social statistics - Labour cost;Demographic and social statistics;Labour cost
+pr0204qs;Average monthly wages in economy of the SR;Demographic and social statistics - Labour cost;Demographic and social statistics;Labour cost
+pr0205qs;Average monthly wages by branches;Demographic and social statistics - Labour cost;Demographic and social statistics;Labour cost
+pr0901qs;Unemployment by the Labour Force Sample Survey (until 2020);Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr0902qs;Employed by the Labour Force Sample Survey (until 2020);Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr1101rs;Employees in enterprises with 20 and more employees by economic activity;Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr1801qs;Employment rate by age, education and sex - quarterly (since 2021);Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr1802qs;Unemployment rate and long-term unemployment rate by age, education and sex - quarterly (since 2021);Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr1803rs;Potential labour force by age and sex - yearly (since 2021);Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr2003qs;Job Vacancies by economic activities (SK NACE Rev.2), Indices and Job Vacancy Rate - quarterly data;Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr2007qs;Economically active population by sex - quarterly data (since 2021);Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr2009qs;Economically active population by age and sex - quarterly data (since 2021);Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr2011qs;Economically active popupation by education and sex - quarterly data (since 2021);Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr2015qs;Unemployment rate by age and sex - quarterly data (since 2021);Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr2016rs;Unemployment rate by education and sex - yearly data;Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr2017qs;Unemployment rate by education and sex - quarterly data (since 2021);Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr2018rs;Employment rate by age and sex - yearly data;Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr2019qs;Employment rate by age and sex - quarterly data (since 2021);Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr2022rs;Unemployed by duration of unemployment and sex - yearly data;Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr2023qs;Unemployed by duration of unemployment and sex - quarterly data (since 2021);Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr2025qs;Unemployed by economic activity (NACE Rev. 2) of the last occupation and sex - quarterly data (since 2021) pr2025qs];Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr2033qs;Unemployed by education and sex - quarterly data (since 2021);Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr2034rs;Employed by economic activity (NACE Rev. 2) and sex - yearly data;Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr2035qs;Employed by economic activity (NACE Rev. 2) and sex - quarterly data (since 2021);Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr2038rs;Employed by Classification of occupation (ISCO-08) and sex - yearly data;Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr2039qs;Employed by Classification of occupation (ISCO-08) and sex - quarterly data (since 2021);Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr2041qs;Employed by status in employment and sex - quarterly data (since 2021);Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr2043qs;Employed by age and sex - quarterly data (since 2021);Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr2047qs;Employees by economic activity (NACE Rev. 2) and sex - quarterly data (since 2021);Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr2049qs;Employees by working time and sex - quarterly data (since 2021);Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr2801qs;Employment rate by age and sex - quarterly data (until 2020);Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr2803qs;Employed by economic activity (NACE Rev. 2) and sex - quarterly data (until 2020);Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr2805qs;Employed by status in employment and sex - quarterly data (until 2020);Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr2806qs;Employed by age and sex - quarterly data (until 2020);Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr2808qs;Employees by economic activity (NACE Rev. 2) and sex - quarterly data (until 2020);Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr2809qs;Employees by working time and sex - quarterly data (until 2020);Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr2810qs;Unemployment rate by age and sex - quarterly data (until 2020);Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr2811qs;Unemployment rate by education and sex - quarterly data (until 2020);Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr2812qs;Unemployed by duration of unemployment and sex - quarterly data (until 2020);Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr2813qs;Unemployed by economic activity (NACE Rev. 2) of the last occupation and sex - quarterly data (until 2020);Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr2816qs;Unemployed by education and sex - quarterly data (until 2020);Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr2817qs;Economically active population by sex - quarterly data (until 2020);Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr2818qs;Economically active population by age and sex - quarterly data (until 2020);Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr2819qs;Economically active popupation by education and sex - quarterly data (until 2020);Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr3102qr;Balance of economic activity of population (since 2021);Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr3103qr;Economically active population by education (since 2021);Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr3104qr;Economically active population by age (since 2021);Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr3108rr;Registered unemployment rate;Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr3112qr;Employed persons in the economy of the SR;Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr3113rr;Employees by economic activity collected through workplace method;Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr3115qr;Employed by age (since 2021);Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr3116qr;Employed by education (since 2021);Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr3117qr;Unemployed by age (since 2021);Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr3118qr;Unemployed by education (since 2021);Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr3802qr;Balance of economic activity of population (until 2020);Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr3803qr;Economically active population by education (until 2020);Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr3804qr;Economically active population by age (until 2020);Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr3815qr;Employed by age (until 2020);Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr3817qr;Unemployed by age (until 2020);Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr3818qr;Unemployed by education (until 2020);Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr3819rr;Employment rate and percentage of part-time job by age, education and sex - yearly (since 2021);Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr3820rr;Unemployment rate and long-term unemployment rate by age, education and sex - yearly (since 2021);Demographic and social statistics - Labour;Demographic and social statistics;Labour
+pr5001rr;Number of registered job applicants;Demographic and social statistics - Labour;Demographic and social statistics;Labour
+ps1002rs;At-risk-of-poverty-rate or social exclusion by age groups and sex;Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ps1003rs;At-risk-of-poverty or social exclusion by economic activity (from 18 years old and more);Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ps1004rs;At-risk-of-poverty rate or social exclusion broke down by income quintile;Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ps1005rs;At-risk-of-poverty rate or social exclusion broke down by the highest education achieved (from 18 years old and more);Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ps1006rs;At-risk-of-poverty rate or social exclusion by citizenship (population aged 18 and over);Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ps1007rs;At-risk-of-poverty rate or social exclusion by country of birth (population aged 18 and over);Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ps1008rs;At-risk-of-poverty-rate by age groups and sex;Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ps1009rs;At-risk-of-poverty rate broken down by most frequent economic activity status and sex (population aged 18 and over);Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ps1010rs;At-risk-of-poverty rate by poverty threshold and educational attainment level (population aged 18 and over);Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ps1011rs;At-risk-of-poverty rate by group of citizenship (population aged 18 and over);Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ps1012rs;At-risk-of-poverty rate by group of country of birth (population aged 18 and over);Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ps1013rs;Severe material and social deprivation rate broke down by age groups and sex;Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ps1014rs;Severe material and social deprivation rate broke down by economic activity;Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ps1015rs;Severe material and social deprivation rate broke down by income quintile;Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ps1016rs;Severe material and social deprivation rate broke down by the highest education achieved (population aged 18 and over);Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ps1017rs;Severe material and social deprivation by group of citizenship (population aged 18 and over);Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ps1018rs;Severe material and social deprivation by group of country of birth (population aged 18 and over);Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ps1019rs;Material and social deprivation rate broke down by age groups and sex;Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ps1020rs;Material and social deprivation rate broke down by economic activity (population aged 18 and over);Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ps1021rs;Individuals living in a low work intensity rate broke down by age groups and sex (population aged 0 to 64);Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ps1022rs;Individuals living in a low work intensity rate broke down by age groups and sex (population aged 18 to 64);Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ps1023rs;Individuals living in a low work intensity rate broke down by group of citizenship (population aged 18 to 64);Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ps1024rs;Individuals living in a low work intensity rate broke down by group of country of birth (population aged 18 to 64);Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ps1025rs;Material and social deprivation rate broke down by the highest education achieved (population aged 18 and over);Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ps1026rs;Material and social deprivation rate by group of citizenship (population aged 18 and over);Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ps1027rs;Material and social deprivation rate by goup of country of birth (population aged 18 and over);Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ps1028rs;Material and social deprivation rate by income quintile;Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ps1029rs;Inequality of income distribution: S80/S20 ratio of upper and lower quintile incomes broken down by age groups and sex;Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ps1833qs;Money incomes of private households by economic activity status of person at the head of the household - quarterly;Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ps1834qs;Money incomes of private households by number of dependant children - quarterly;Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ps2001rs;Money incomes of private household by economical status of household head at work - yearly data;Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ps2002qs;Money incomes of private household by economical status of household head at work - quarterly data;Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ps2009rs;Consumption expenditures of private households by goods or services and economical status of household head at work - yearly data;Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ps2013rs;Basic structure of net money expenditures of private households by purpose and economical status of household head at work - yearly data;Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ps2017rs;Basic structure of gross money expenditures of private households by purpose and economical status of household head at work - yearly data;Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ps2032rs;At risk of poverty rate by age group and sex;Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ps2040rs;Global consumption of foodstuffs in Slovak Republic;Demographic and social statistics - Food consumption;Demographic and social statistics;Food consumption
+ps2041rs;Consumption of selected kinds of foodstuffs per capita;Demographic and social statistics - Food consumption;Demographic and social statistics;Food consumption
+ps3001rr;Income of households;Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ps3002rr;Expenditures of households;Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ps3004rr;At-risk-of-poverty rate or social exclusion by regions;Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ps3005rr;Severe material and social deprivation by NUTS region;Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ps3006rr;Individuals living in a low work intensity rate broke down by NUTS region (population aged 0 to 64);Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ps3007rr;Inequality of income distribution: Gini coeficient by regions;Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ps3008rr;Material and social deprivation rate by NUTS regions;Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ps3009rr;Inequality of income distribution S80/S20 ratio of upper and lower quintile incomes broken down by regions;Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ps3801rr;Househols and persons in households numbers and percentages by regions;Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ps3802rr;Total household income - percentage of individual income components by region;Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ps3803rr;Total income of household - average income by regions;Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ps3804rr;Equivalised household income - percentage of individual income components by regions;Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ps3805rr;Equivalised household income - average income by regions;Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ps3806rr;Income per person - percentage of individual income components by regions;Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ps3807rr;Income per person - average income by regions;Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ps3808rr;Numbers and proportions of households by intervals of monthly equivalised disposable income by region;Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ps3809rr;Numbers and proportions of persons by intervals of monthly equivalised disposable income by region;Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ps3810rr;Numbers and proportions of persons under at-risk-of poverty threshold (40 %, 50 %, 60 %, 70 % median);Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ps3811rr;At-risk-of-poverty rate or social exclusion by regions;Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ps3812rr;Very low work intensity rate by region;Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ps3813rr;At-risk-of-poverty rate by regions of SR - yearly;Demographic and social statistics - Income, expenses and living conditions;Demographic and social statistics;Income, expenses and living conditions
+ra1002rs;Population, families and households;Indicators - Indicators of equality between women and men;Indicators;Indicators of equality between women and men
+ra1003rs;Labour market;Indicators - Indicators of equality between women and men;Indicators;Indicators of equality between women and men
+ra1004rs;Social statistics and health;Indicators - Indicators of equality between women and men;Indicators;Indicators of equality between women and men
+ra1005rs;Education;Indicators - Indicators of equality between women and men;Indicators;Indicators of equality between women and men
+ra1006rs;Science and technology;Indicators - Indicators of equality between women and men;Indicators;Indicators of equality between women and men
+ra1007rs;Criminality, violence and justice;Indicators - Indicators of equality between women and men;Indicators;Indicators of equality between women and men
+ra1008rs;Public life and decision making;Indicators - Indicators of equality between women and men;Indicators;Indicators of equality between women and men
+ra1010rs;Victims of crimes;Indicators - Indicators of equality between women and men;Indicators;Indicators of equality between women and men
+sk1001rs;Number of crimes by basic groups and types;Demographic and social statistics - Justice and crime;Demographic and social statistics;Justice and crime
+sk1002rs;Perpetrators;Demographic and social statistics - Justice and crime;Demographic and social statistics;Justice and crime
+sk1003rs;Damages caused by criminality;Demographic and social statistics - Justice and crime;Demographic and social statistics;Justice and crime
+sk1004rs;Number of fires by sectors of economy;Demographic and social statistics - Justice and crime;Demographic and social statistics;Justice and crime
+sk1005rs;Convicts in penitentiary institutions;Demographic and social statistics - Justice and crime;Demographic and social statistics;Justice and crime
+sk3002rr;Crimes of violence and property crimes;Demographic and social statistics - Justice and crime;Demographic and social statistics;Justice and crime
+sk3003rr;Criminal offences by basic groups;Demographic and social statistics - Justice and crime;Demographic and social statistics;Justice and crime
+so1002rs;Tariffs of compulsory social security premium in % of the basis of assessment in current year;Demographic and social statistics - Social protection;Demographic and social statistics;Social protection
+so1003qs;Social safety funds - revenues and expenditures - comparison;Demographic and social statistics - Social protection;Demographic and social statistics;Social protection
+so3002rr;Pensions paid;Demographic and social statistics - Social protection;Demographic and social statistics;Social protection
+so3801rr;Expenditures on pensions;Demographic and social statistics - Social protection;Demographic and social statistics;Social protection
+sp0002ms;Harmonized indices of consumer prices in comparison with previous month - monthly;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp0003ms;Harmonized indices of consumer prices in comparison with the corresponding period of the previous year - monthly;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp0004ms;Indices of consumer prices in comparison with the previous month - monthly;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp0005ms;Indices of consumer prices in comparison with corresponding period of previous year - monthly;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp0006ms;Indices of consumer prices (December 2000=100) - monthly;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp0007ms;Development of core and net inflation change in comparison with previous period in % - monthly;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp0008ms;Development of core and net inflation change in comparison with corresponding period of previous year in % - monthly;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp0009ms;Development of core and net inflation change in comparison with December of previous year in % - monthly;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp0010qs;The development of consumer price indices in comparison with the corresponding period last year - quarterly;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp0011rs;The Universal Consumer Basket 2013;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp0012rs;The Universal Consumer Basket 2014;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp0013rs;The Universal Consumer Basket 2015;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp0014rs;;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp0015rs;;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp0016rs;The Universal Consumer Basket 2016;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp0017ms;Harmonized indices of consumer prices (Average of year 2015=100) - monthly;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp0018rs;;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp0019rs;The Universal Consumer Basket 2017;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp0020rs;The Universal Consumer Basket 2017;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp0021rs;The Universal Consumer Basket 2018;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp0022rs;The Universal Consumer Basket 2018;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp0023rs;The Universal Consumer Basket 2019;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp0024rs;The Universal Consumer Basket 2019;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp0027rs;The Universal Consumer Basket 2021;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp0028rs;;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp0029ms;Indices of consumer prices - detailed data - monthly;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp0031rs;The Universal Consumer Basket 2022;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp0032rs;The Universal Consumer Basket 2022;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp0101ms;Producer price indices in comparison with corresponding period of previous year - monthly;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp0102ms;Producer price indices in comparison with the basic period - monthly;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp0103ms;Producer price indices in comparison with the previous month - monthly;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp0105qs;Services producer price indices (2010=100) - quarterly;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp0107ms;Producer price indices in comparison with the basic period - monthly;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp0108qs;Services producer price indices by CPA - quarterly;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp0202ms;Average fuel prices in the Slovak Republic - monthly;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp0207ts;Average fuel prices in the Slovak Republic - weekly;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp1001ms;Development of core and net inflation (December 2006=100) - monthly;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp1002qs;Indices of Realized Prices of dwellings - quarterly;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp1015rs;Harmonized indices of consumer prices - detailed breakdown (average of year 2015=100) - yearly;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp1016rs;Annual average rate of change measured by HICP - detailed breakdown – yearly;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp1017ms;Harmonized indices of consumer prices - detailed breakdown (average of year 2015=100) - monthly;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp1018ms;Annual rate of change measured by HICP - detailed breakdown - monthly;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp1823ms;Produce prices chosen construction materials by the Classification of CPA:index december 2005=100;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp1830ms;Industrial producers price indices by Main Industrial Groupings - domestic - monthly;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp1831ms;Industrial producers price indices by Main Industrial Groupings - export - monthly;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp1832ms;Industrial producers price indices by Main Industrial Groupings - total - monthly;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp1836ms;Industrial producers price indices by NACE Rev. 2 with excise duties - domestic - monthly;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp1837ms;Import price indices by CPA divisions - monthly;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp1838ms;Export price indices by CPA divisions - monthly;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp2034ms;Average prices of agricultural products - monthly;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp2037rs;Consumer Price Indices by COICOP - yearly;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp2038ms;Consumer Price Indices by COICOP - monthly;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp2042ms;Average consumer prices of selected products - monthly (until 2023);Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp2043rs;Inflation measured by CPI (national methodology) - total, core, net - yearly;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp2046ms;Harmonized Indices of Consumer Prices - indices to different basis - monthly;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp2057ms;Industrial producers price indices by NACE Rev. 2 without excise duties (2015=100) - total - monthly;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp2061qs;Price indices of construction works by the Classification of types of construction (2015=100) - quarterly;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+sp3801qr;Indices of Realized Prices of dwellings - regional, quarterly;Macroeconomic statistics - Consumer prices and prices of production statistics;Macroeconomic statistics;Consumer prices and prices of production statistics
+st0002ms;Turnover - 41-43 Construction;Sector statistics - Construction;Sector statistics;Construction
+st0003qs;Housing construction and decrease of dwellings;Sector statistics - Construction;Sector statistics;Construction
+st0005ms;Construction production - Construction Production (company method) - monthly;Sector statistics - Construction;Sector statistics;Construction
+st0006ms;Turnover - 41-43 Construction - monthly;Sector statistics - Construction;Sector statistics;Construction
+st1004ms;Selected indicators of construction enterprises - NACE Rev. 2 - monthly;Sector statistics - Construction;Sector statistics;Construction
+st1005ms;Selected labour indicators in the construction industry - monthly;Sector statistics - Construction;Sector statistics;Construction
+st1006ms;Construction production in inland by subject structure and by orientation of construction (SK NACE Rev. 2) - monthly;Sector statistics - Construction;Sector statistics;Construction
+st1007ms;Average monthly wage of employee in construction (year-on-year index) - monthly;Sector statistics - Construction;Sector statistics;Construction
+st1008ms;Selected indicators of construction enterprises by size structure - monthly;Sector statistics - Construction;Sector statistics;Construction
+st2002qs;Dwellings by number of rooms and average area - quarterly data;Sector statistics - Construction;Sector statistics;Construction
+st2012rs;Construction production carried out by own employees by ownership sectors;Sector statistics - Construction;Sector statistics;Construction
+st2013rs;Construction production carried out by own employees - yearly (until 2022);Sector statistics - Construction;Sector statistics;Construction
+st2017rs;Construction production carried out by own employees, Labour productivity, Emloyment and Average wage by size structure of enterprises;Sector statistics - Construction;Sector statistics;Construction
+st2022qs;Started, completed and under construction dwellings by ownership - quarterly data;Sector statistics - Construction;Sector statistics;Construction
+st2024qs;Building permits - quarterly data;Sector statistics - Construction;Sector statistics;Construction
+st3002rr;Construction - enterprises with 20 and more employees (NACE Rev. 2);Sector statistics - Construction;Sector statistics;Construction
+st3004rr;Housing construction - selected indicators;Sector statistics - Construction;Sector statistics;Construction
+st3006rr;Completed dwellings by number of rooms;Sector statistics - Construction;Sector statistics;Construction
+st3701rr;Living conditions - cities;Selected tables of Eurostat database - City statistics;Selected tables of Eurostat database;City statistics
+sv1801rs;Enterprises with continuing vocational training by economic activity categories - yearly;Demographic and social statistics - Education;Demographic and social statistics;Education
+sv1802rs;Enterprises with continuing vocational training by size of the enterprise - yearly;Demographic and social statistics - Education;Demographic and social statistics;Education
+sv1803rs;Preferred skills targeted by CVT courses by economic activity categories (share of enterprises providing CVT courses in %) - yearly;Demographic and social statistics - Education;Demographic and social statistics;Education
+sv1804rs;Preferred skills targeted by CVT courses by size of the enterprise (share of enterprises providing CVT courses in %) - yearly;Demographic and social statistics - Education;Demographic and social statistics;Education
+sv1805rs;Other forms of CVT in enterprises by economic activity categories (share of enterprises providing CVT courses in %) - yearly;Demographic and social statistics - Education;Demographic and social statistics;Education
+sv1806rs;Other forms of CVT in enterprises by size of the enterprise (share of enterprises providing CVT courses in %) - yearly;Demographic and social statistics - Education;Demographic and social statistics;Education
+sv2003rs;Secondary schools;Demographic and social statistics - Education;Demographic and social statistics;Education
+sv2005rs;Higher education institutions;Demographic and social statistics - Education;Demographic and social statistics;Education
+sv2008rs;General government expenditure on education by Classification of the Functions of Government (COFOG);Demographic and social statistics - Education;Demographic and social statistics;Education
+sv3006rr;Basic schools - students;Demographic and social statistics - Education;Demographic and social statistics;Education
+sv3024rr;Universities and faculties - number of students and graduates;Demographic and social statistics - Education;Demographic and social statistics;Education
+sv3701rr;Education - cities;Selected tables of Eurostat database - City statistics;Selected tables of Eurostat database;City statistics
+sv3801rr;Enterprises with continuing vocational training by regions - yearly;Demographic and social statistics - Education;Demographic and social statistics;Education
+sv3802rr;Preferred skills targeted by CVT courses by regions (share of enterprises providing CVT courses in %) - yearly;Demographic and social statistics - Education;Demographic and social statistics;Education
+sv3803rr;Other forms of CVT in enterprises by regions (share of enterprises providing CVT courses in %) - yearly;Demographic and social statistics - Education;Demographic and social statistics;Education
+ts0003ms;Selected market services - Turnover (year-on-year index) - monthly;Sector statistics - Selected market services;Sector statistics;Selected market services
+ts1001ms;Average wages of employee in selected market services (year-on-year index) - monthly;Sector statistics - Selected market services;Sector statistics;Selected market services
+ts1002ms;Average of employed persons of selected market services (year-on-year index) - monthly;Sector statistics - Selected market services;Sector statistics;Selected market services
+ts2003ms;Average wages of employee in selected market services - monthly data;Sector statistics - Selected market services;Sector statistics;Selected market services
+vh1001rs;Biochemical oxygen demand in selected watercourses;Multi-domain statistics - Water management;Multi-domain statistics;Water management
+vh3001rr;Public water-supply and sewage systems;Multi-domain statistics - Water management;Multi-domain statistics;Water management
+vh3801rr;Distribution and purification of water;Multi-domain statistics - Water management;Multi-domain statistics;Water management
+vh3802rr;Length of systems and sewage water;Multi-domain statistics - Water management;Multi-domain statistics;Water management
+vt0001rs;Research and development (R&D) personnel;Indicators - Global indicators of Agenda 2030;Indicators;Global indicators of Agenda 2030
+vt0002rs;Gross domestic expenditures on R&D (GERD) - key indicators;Indicators - Global indicators of Agenda 2030;Indicators;Global indicators of Agenda 2030
+vt0003rs;Innovation;Multi-domain statistics - Science, technology and innovation;Multi-domain statistics;Science, technology and innovation
+vt1001rs;Share of enterprises with innovation activity by technological sectors in %;Multi-domain statistics - Science, technology and innovation;Multi-domain statistics;Science, technology and innovation
+vt1002rs;Share of expenditures on innovation activities in industry (%);Multi-domain statistics - Science, technology and innovation;Multi-domain statistics;Science, technology and innovation
+vt1003rs;Intensity of innovations by technological sectors in %;Multi-domain statistics - Science, technology and innovation;Multi-domain statistics;Science, technology and innovation
+vt1004rs;Enterprises with innovation activity and received public financial support in %;Multi-domain statistics - Science, technology and innovation;Multi-domain statistics;Science, technology and innovation
+vt1005rs;Share of the innovative enterprises cooperating in innovations with be specified type of partner in %;Multi-domain statistics - Science, technology and innovation;Multi-domain statistics;Science, technology and innovation
+vt1006rs;Share of enterprises indicated high importance of sources in %;Multi-domain statistics - Science, technology and innovation;Multi-domain statistics;Science, technology and innovation
+vt1008rs;Structure of R&D expenditures (in %);Multi-domain statistics - Science, technology and innovation;Multi-domain statistics;Science, technology and innovation
+vt1009rs;Structure of R&D employees (in %);Multi-domain statistics - Science, technology and innovation;Multi-domain statistics;Science, technology and innovation
+vt1010rs;Structure of R&D employees by sex (in %);Multi-domain statistics - Science, technology and innovation;Multi-domain statistics;Science, technology and innovation
+vt1011rs;Number of enterprises with innovation activity;Multi-domain statistics - Science, technology and innovation;Multi-domain statistics;Science, technology and innovation
+vt1012rs;Share of enterprises with innovation activity on the total number of enterprises in %;Multi-domain statistics - Science, technology and innovation;Multi-domain statistics;Science, technology and innovation
+vt1013rs;Share of turnover in enterprises with innovation activity from total turnover of all enterprises in %;Multi-domain statistics - Science, technology and innovation;Multi-domain statistics;Science, technology and innovation
+vt1014rs;Share of number employees in enterprises with innovation activity from total number of employees in %;Multi-domain statistics - Science, technology and innovation;Multi-domain statistics;Science, technology and innovation
+vt1015rs;Intensity of innovations in % (the share of expenditures on innovation activities from turnover of enterprises with innovations);Multi-domain statistics - Science, technology and innovation;Multi-domain statistics;Science, technology and innovation
+vt1016rs;Share of innovative and non-innovative enterprises indicated high importance of factors hampering innovation activity in %;Multi-domain statistics - Science, technology and innovation;Multi-domain statistics;Science, technology and innovation
+vt1802rs;Share of innovative and non-innovative enterprises that indicated a high degree of importance in selected business strategies in %;Multi-domain statistics - Science, technology and innovation;Multi-domain statistics;Science, technology and innovation
+vt1803rs;Enterprises with product innovation with novelty on the market and within the enterprise by size classes and economic activities (NACE Rev. 2);Multi-domain statistics - Science, technology and innovation;Multi-domain statistics;Science, technology and innovation
+vt1804rs;Turnover from innovative products, which are new to the market or new to the enterprise by size classes and economic activities (NACE Rev. 2);Multi-domain statistics - Science, technology and innovation;Multi-domain statistics;Science, technology and innovation
+vt1805rs;Share of innovative enterprises that introduced an innovation with a environmental benefit in %;Multi-domain statistics - Science, technology and innovation;Multi-domain statistics;Science, technology and innovation
+vt1806rs;Share of innovative enterprises that indicated a high degree of importance of factors influencing the introduction of an innovation with an environmental benefit in %;Multi-domain statistics - Science, technology and innovation;Multi-domain statistics;Science, technology and innovation
+zd1001rs;Development of selected indicators on disability to work due to disease and injury in the SR;Demographic and social statistics - Health;Demographic and social statistics;Health
+zd1002rs;Consumption of drugs;Demographic and social statistics - Health;Demographic and social statistics;Health
+zd1004rs;Working posts, beds in health facilities, pharmacies;Demographic and social statistics - Health;Demographic and social statistics;Health
+zd1006rs;Disability to work;Demographic and social statistics - Health;Demographic and social statistics;Health
+zd1007rs;Average number of people covered by sickness;Demographic and social statistics - Health;Demographic and social statistics;Health
+zd1008rs;Current expenditure on health care by financing schemes and functions of care;Demographic and social statistics - Health;Demographic and social statistics;Health
+zd1009rs;Current expenditure on health care by health care providers and functions of care;Demographic and social statistics - Health;Demographic and social statistics;Health
+zd1010rs;Current expenditure on health care by financing schemes and health care providers;Demographic and social statistics - Health;Demographic and social statistics;Health
+zd1824rs;Selected infectious diseases compulsory notified;Demographic and social statistics - Health;Demographic and social statistics;Health
+zd3002rr;Disability to work - cases;Demographic and social statistics - Health;Demographic and social statistics;Health
+zd3004rr;Health facilities;Demographic and social statistics - Health;Demographic and social statistics;Health
+zd3005rr;Contraceptive rate of women of reproductive age;Demographic and social statistics - Health;Demographic and social statistics;Health
+zo0001ms;Foreign trade by months;Macroeconomic statistics - Foreign trade;Macroeconomic statistics;Foreign trade
+zo0003rs;Foreign trade by Sections in Harmonized System;Macroeconomic statistics - Foreign trade;Macroeconomic statistics;Foreign trade
+zo0004rs;Foreign trade by countries, continents and economic groupings;Macroeconomic statistics - Foreign trade;Macroeconomic statistics;Foreign trade
+zo0005ms;Seasonally adjusted foreign trade data;Macroeconomic statistics - Foreign trade;Macroeconomic statistics;Foreign trade
+zo0006ms;Foreign trade by Sections SITC Rev. 4;Macroeconomic statistics - Foreign trade;Macroeconomic statistics;Foreign trade
+zo0007ms;Foreign Trade by Broad Economic Categories (BEC Rev. 4);Macroeconomic statistics - Foreign trade;Macroeconomic statistics;Foreign trade
+zo0009ms;Foreign Trade by the Classes (CPA 2.1);Macroeconomic statistics - Foreign trade;Macroeconomic statistics;Foreign trade
+zo0010ms;Foreign trade by Chapters in Harmonised System;Macroeconomic statistics - Foreign trade;Macroeconomic statistics;Foreign trade
+zo0011ms;Foreign trade by countries, continents and economic groupings;Macroeconomic statistics - Foreign trade;Macroeconomic statistics;Foreign trade
+zo0012ms;Foreign trade by Sections in Harmonized system;Macroeconomic statistics - Foreign trade;Macroeconomic statistics;Foreign trade
+zo0013rs;Foreign Trade by Broad Economic Categories;Macroeconomic statistics - Foreign trade;Macroeconomic statistics;Foreign trade
+zo0014rs;Foreign trade with selected Countries by Sections SITC Rev. 4;Macroeconomic statistics - Foreign trade;Macroeconomic statistics;Foreign trade
+zo0015rs;Foreign trade by Chapters in Harmonised System;Macroeconomic statistics - Foreign trade;Macroeconomic statistics;Foreign trade
+zo0016rs;Foreign trade by Sections SITC Rev. 4;Macroeconomic statistics - Foreign trade;Macroeconomic statistics;Foreign trade
+zo0017rs;Foreign Trade by the Classes of CPA;Macroeconomic statistics - Foreign trade;Macroeconomic statistics;Foreign trade
+zo0018ms;Foreign trade with selected Countries by Sections SITC Rev. 4;Macroeconomic statistics - Foreign trade;Macroeconomic statistics;Foreign trade
+zo0019rs;Foreign trade by Divisions of SITC, Rev. 4;Macroeconomic statistics - Foreign trade;Macroeconomic statistics;Foreign trade
+zo1824ms;Foreign trade by countries and subheadings of the Combined Nomenclature (CN8) for 2022 by months;Macroeconomic statistics - Foreign trade;Macroeconomic statistics;Foreign trade
+zo1825ms;Foreign trade by countries and subheadings of the Combined Nomenclature (CN8) for 2023 by months;Macroeconomic statistics - Foreign trade;Macroeconomic statistics;Foreign trade
+zo2008rs;Commodity Structure by Sections of the Nomenclature SITC Rev. 4;Macroeconomic statistics - Foreign trade;Macroeconomic statistics;Foreign trade
+zo2009rs;Commodity Structure by the Classes of CPA;Macroeconomic statistics - Foreign trade;Macroeconomic statistics;Foreign trade
+zp1001rs;Pesticides - pesticides placing on the market;Environment - Environment;Environment;Environment
+zp1002rs;Air Emissions Accounts;Environment - Environment;Environment;Environment
+zp1003rs;Material Flow Accounts - domestic extraction;Environment - Environment;Environment;Environment
+zp1004rs;Material Flow Accounts - Import end Export;Environment - Environment;Environment;Environment
+zp1005rs;Municipal waste and small construction waste from municipalities according to the waste treatment categories (in Tonnes);Environment - Environment;Environment;Environment
+zp1006rs;Expenditures and revenues in environmental protection;Environment - Environment;Environment;Environment
+zp1007rs;Environmentally related taxes;Environment - Environment;Environment;Environment
+zp1009rs;Share of energy tax revenues by the paying sectors;Environment - Environment;Environment;Environment
+zp1801rs;Quantity of generated waste;Environment - Environment;Environment;Environment
+zp1802rs;Quantity of recovered and disposed waste;Environment - Environment;Environment;Environment
+zp2001rs;Preserved territories in Slovak Republic;Environment - Environment;Environment;Environment
+zp3001rr;Quantity of municipal waste according to the waste subgroup (in Tonnes);Environment - Environment;Environment;Environment
+zp3003rr;Emissions of basic pollutants;Environment - Environment;Environment;Environment
+zp3701rr;Environment - cities;Selected tables of Eurostat database - City statistics;Selected tables of Eurostat database;City statistics
+zp3803rs;Emissions of basic pollutants;Environment - Environment;Environment;Environment
+zp5003rr;Climatic conditions;Environment - Environment;Environment;Environment
