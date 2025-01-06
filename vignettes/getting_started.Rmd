@@ -1,28 +1,19 @@
 ---
-title: "Getting Started with susR"
-author: "Arnold Kakas"
+title: "Getting started with susR"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Getting Started with susR}
+  %\VignetteIndexEntry{my-vignette}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
 
-<!--
-  Note: This .Rmd will be compiled into a vignette.
-  Place this file in your package's "vignettes/" folder, then use:
-    devtools::build_vignettes()
-  or
-    devtools::install(build_vignettes = TRUE)
-  to generate it and include it in the package.
--->
-
-```{r setup, include=FALSE}
+```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
 ```
+
 
 ## Introduction
 
@@ -38,7 +29,7 @@ This vignette guides you through a basic workflow: from installing susR to fetch
 Installation
 If you haven't already installed susR, you can do so from GitHub:
 
-```{r, eval=FALSE}
+```{r eval=FALSE}
 devtools::install_github("Arnold-Kakas/susR")
 ```
 
@@ -173,18 +164,17 @@ Each element in multi_res is a tibble for given table code.
 
 Once you have the data, use dplyr and ggplot2 (or anything else) to analyze:
 
-```{r}
-library(dplyr)
+```{r out.width="80%"}
 library(ggplot2)
 
 multi_res$as1001rs |>
-  dplyr::filter(as1001rs_ukaz == "Pre-productive population (aged 0 -14 years)",
+  filter(as1001rs_ukaz == "Pre-productive population (aged 0 -14 years)",
          as1001rs_poh == "Total") |>
-  ggplot2::ggplot() +
-  ggplot2::geom_line(ggplot2::aes(x = as1001rs_rok, y = value, group = 1)) +
-  ggplot2::labs(title = "Pre-productive population (aged 0 -14 years)",
+  ggplot() +
+  geom_line(aes(x = as1001rs_rok, y = value, group = 1)) +
+  labs(title = "Pre-productive population (aged 0 -14 years)",
        x = "Year",
        y = NULL) +
-  ggplot2::theme_minimal()
+  theme_minimal()
 
 ```

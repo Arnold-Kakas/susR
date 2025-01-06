@@ -11,7 +11,7 @@ test_that("get_dimension_values works as expected", {
   dimension_code <- "as1001rs_rok"
 
   # Call the function
-  res <- get_dimension_values(
+  res <- susr_dimension_values(
     table_code     = table_code,
     dimension_code = dimension_code,
     lang           = "en"

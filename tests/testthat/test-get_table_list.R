@@ -5,6 +5,6 @@ test_that("get_table_list returns a dataframe", {
   # Skip if offline (e.g. no internet)
   skip_if_offline()
 
-  res <- get_table_list()
+  res <- susr_tables()
   expect_s3_class(res, "tbl_df")
 })

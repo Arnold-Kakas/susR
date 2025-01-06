@@ -6,6 +6,8 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
+<img src="man/figures/susR_hex.png" align="right" width="160"/>
+
 susR is an R package providing a convenient interface to the Slovak
 Statistical Office (SUSR) open data API. It simplifies tasks such as:
 

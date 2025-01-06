@@ -5,8 +5,8 @@ test_that("Manual table list covers all codes in get_table_list()", {
   skip_on_cran()
   skip_if_offline()
 
-  manual_df <- get_domains()
-  api_df    <- get_table_list()
+  manual_df <- susr_domains()
+  api_df    <- susr_tables()
 
   # Basic check: Ensure the columns exist
   expect_true("table_code" %in% names(manual_df))
