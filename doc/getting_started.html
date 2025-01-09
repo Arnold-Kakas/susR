@@ -431,60 +431,52 @@ data in long format where each row contain only one dimension.</p>
 <p>You can map this function to <code>susr_tables()</code> output in
 long format.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a><span class="co">#&gt; Attaching package: &#39;dplyr&#39;</span></span>
-<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a><span class="co">#&gt; The following objects are masked from &#39;package:stats&#39;:</span></span>
-<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a><span class="co">#&gt;     filter, lag</span></span>
-<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a><span class="co">#&gt; The following objects are masked from &#39;package:base&#39;:</span></span>
-<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a><span class="co">#&gt;     intersect, setdiff, setequal, union</span></span>
-<span id="cb10-10"><a href="#cb10-10" tabindex="-1"></a><span class="fu">library</span>(purrr)</span>
-<span id="cb10-11"><a href="#cb10-11" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a><span class="fu">library</span>(purrr)</span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a><span class="co"># 1) Get all tables in the &quot;Energy&quot; domain, in long format</span></span>
+<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a>energy_long <span class="ot">&lt;-</span> <span class="fu">susr_tables</span>(<span class="at">domain =</span> <span class="st">&quot;Energy&quot;</span>, <span class="at">long =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a><span class="co"># Inspect the columns:</span></span>
+<span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a><span class="co"># - table_code</span></span>
+<span id="cb10-10"><a href="#cb10-10" tabindex="-1"></a><span class="co"># - dimension_code</span></span>
+<span id="cb10-11"><a href="#cb10-11" tabindex="-1"></a><span class="co"># - plus other metadata (domain, subdomain, label, href, etc.)</span></span>
 <span id="cb10-12"><a href="#cb10-12" tabindex="-1"></a></span>
-<span id="cb10-13"><a href="#cb10-13" tabindex="-1"></a><span class="co"># 1) Get all tables in the &quot;Energy&quot; domain, in long format</span></span>
-<span id="cb10-14"><a href="#cb10-14" tabindex="-1"></a>energy_long <span class="ot">&lt;-</span> <span class="fu">susr_tables</span>(<span class="at">domain =</span> <span class="st">&quot;Energy&quot;</span>, <span class="at">long =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb10-15"><a href="#cb10-15" tabindex="-1"></a></span>
-<span id="cb10-16"><a href="#cb10-16" tabindex="-1"></a><span class="co"># Inspect the columns:</span></span>
-<span id="cb10-17"><a href="#cb10-17" tabindex="-1"></a><span class="co"># - table_code</span></span>
-<span id="cb10-18"><a href="#cb10-18" tabindex="-1"></a><span class="co"># - dimension_code</span></span>
-<span id="cb10-19"><a href="#cb10-19" tabindex="-1"></a><span class="co"># - plus other metadata (domain, subdomain, label, href, etc.)</span></span>
-<span id="cb10-20"><a href="#cb10-20" tabindex="-1"></a></span>
-<span id="cb10-21"><a href="#cb10-21" tabindex="-1"></a><span class="co"># 2) Map susr_dimension_values() across each row:</span></span>
-<span id="cb10-22"><a href="#cb10-22" tabindex="-1"></a><span class="co">#    We&#39;ll create a new list-column &#39;dim_info&#39; that stores the dimension values</span></span>
-<span id="cb10-23"><a href="#cb10-23" tabindex="-1"></a>energy_long_dim <span class="ot">&lt;-</span> energy_long <span class="sc">|&gt;</span> </span>
-<span id="cb10-24"><a href="#cb10-24" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb10-25"><a href="#cb10-25" tabindex="-1"></a>    <span class="at">dim_info =</span> <span class="fu">map2</span>(table_code, dimension_code, <span class="sc">~</span> <span class="fu">susr_dimension_values</span>(.x, .y))</span>
-<span id="cb10-26"><a href="#cb10-26" tabindex="-1"></a>  )</span>
-<span id="cb10-27"><a href="#cb10-27" tabindex="-1"></a></span>
-<span id="cb10-28"><a href="#cb10-28" tabindex="-1"></a><span class="co"># Now `energy_long_dim$dim_info` is a list of tibbles/data frames (one for each dimension).</span></span>
-<span id="cb10-29"><a href="#cb10-29" tabindex="-1"></a><span class="co"># Each entry holds columns like:</span></span>
-<span id="cb10-30"><a href="#cb10-30" tabindex="-1"></a><span class="co">#   dimension_code, dimension_label, dimension_note, element_code, element_label, etc.</span></span>
-<span id="cb10-31"><a href="#cb10-31" tabindex="-1"></a></span>
-<span id="cb10-32"><a href="#cb10-32" tabindex="-1"></a><span class="co"># 3) (Optional) Unnest into a single combined data frame</span></span>
-<span id="cb10-33"><a href="#cb10-33" tabindex="-1"></a><span class="co">#    If you&#39;d like a tall data frame where each row is a unique dimension element:</span></span>
-<span id="cb10-34"><a href="#cb10-34" tabindex="-1"></a>full_dim_info <span class="ot">&lt;-</span> energy_long_dim <span class="sc">|&gt;</span> </span>
-<span id="cb10-35"><a href="#cb10-35" tabindex="-1"></a>  <span class="fu">unnest</span>(<span class="at">cols =</span> dim_info, <span class="at">names_sep =</span> <span class="st">&quot;dim_&quot;</span>)</span>
-<span id="cb10-36"><a href="#cb10-36" tabindex="-1"></a></span>
-<span id="cb10-37"><a href="#cb10-37" tabindex="-1"></a><span class="co"># `full_dim_info` now contains columns:</span></span>
-<span id="cb10-38"><a href="#cb10-38" tabindex="-1"></a><span class="co">#   class, href, table_code, label, update, dimension_code, </span></span>
-<span id="cb10-39"><a href="#cb10-39" tabindex="-1"></a><span class="co">#   (optionally) domain/subdomain, </span></span>
-<span id="cb10-40"><a href="#cb10-40" tabindex="-1"></a><span class="co">#   and the un-nested dimension columns from susr_dimension_values().</span></span>
-<span id="cb10-41"><a href="#cb10-41" tabindex="-1"></a></span>
-<span id="cb10-42"><a href="#cb10-42" tabindex="-1"></a><span class="fu">head</span>(full_dim_info)</span>
-<span id="cb10-43"><a href="#cb10-43" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 × 14</span></span>
-<span id="cb10-44"><a href="#cb10-44" tabindex="-1"></a><span class="co">#&gt;   class   href           table_code label update dimension_code domain subdomain</span></span>
-<span id="cb10-45"><a href="#cb10-45" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;          &lt;chr&gt;  &lt;chr&gt;    </span></span>
-<span id="cb10-46"><a href="#cb10-46" tabindex="-1"></a><span class="co">#&gt; 1 dataset https://data.… en1001ms   Sour… 2024-… en1001ms_rok   Multi… Energy   </span></span>
-<span id="cb10-47"><a href="#cb10-47" tabindex="-1"></a><span class="co">#&gt; 2 dataset https://data.… en1001ms   Sour… 2024-… en1001ms_rok   Multi… Energy   </span></span>
-<span id="cb10-48"><a href="#cb10-48" tabindex="-1"></a><span class="co">#&gt; 3 dataset https://data.… en1001ms   Sour… 2024-… en1001ms_rok   Multi… Energy   </span></span>
-<span id="cb10-49"><a href="#cb10-49" tabindex="-1"></a><span class="co">#&gt; 4 dataset https://data.… en1001ms   Sour… 2024-… en1001ms_rok   Multi… Energy   </span></span>
-<span id="cb10-50"><a href="#cb10-50" tabindex="-1"></a><span class="co">#&gt; 5 dataset https://data.… en1001ms   Sour… 2024-… en1001ms_rok   Multi… Energy   </span></span>
-<span id="cb10-51"><a href="#cb10-51" tabindex="-1"></a><span class="co">#&gt; 6 dataset https://data.… en1001ms   Sour… 2024-… en1001ms_rok   Multi… Energy   </span></span>
-<span id="cb10-52"><a href="#cb10-52" tabindex="-1"></a><span class="co">#&gt; # ℹ 6 more variables: dim_infodim_dimension_code &lt;chr&gt;,</span></span>
-<span id="cb10-53"><a href="#cb10-53" tabindex="-1"></a><span class="co">#&gt; #   dim_infodim_dimension_label &lt;chr&gt;, dim_infodim_dimension_note &lt;chr&gt;,</span></span>
-<span id="cb10-54"><a href="#cb10-54" tabindex="-1"></a><span class="co">#&gt; #   dim_infodim_element_index &lt;int&gt;, dim_infodim_element_value &lt;chr&gt;,</span></span>
-<span id="cb10-55"><a href="#cb10-55" tabindex="-1"></a><span class="co">#&gt; #   dim_infodim_element_label &lt;chr&gt;</span></span></code></pre></div>
+<span id="cb10-13"><a href="#cb10-13" tabindex="-1"></a><span class="co"># 2) Map susr_dimension_values() across each row:</span></span>
+<span id="cb10-14"><a href="#cb10-14" tabindex="-1"></a><span class="co">#    We&#39;ll create a new list-column &#39;dim_info&#39; that stores the dimension values</span></span>
+<span id="cb10-15"><a href="#cb10-15" tabindex="-1"></a>energy_long_dim <span class="ot">&lt;-</span> energy_long <span class="sc">|&gt;</span> </span>
+<span id="cb10-16"><a href="#cb10-16" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb10-17"><a href="#cb10-17" tabindex="-1"></a>    <span class="at">dim_info =</span> <span class="fu">map2</span>(table_code, dimension_code, <span class="sc">~</span> <span class="fu">susr_dimension_values</span>(.x, .y))</span>
+<span id="cb10-18"><a href="#cb10-18" tabindex="-1"></a>  )</span>
+<span id="cb10-19"><a href="#cb10-19" tabindex="-1"></a></span>
+<span id="cb10-20"><a href="#cb10-20" tabindex="-1"></a><span class="co"># Now `energy_long_dim$dim_info` is a list of tibbles/data frames (one for each dimension).</span></span>
+<span id="cb10-21"><a href="#cb10-21" tabindex="-1"></a><span class="co"># Each entry holds columns like:</span></span>
+<span id="cb10-22"><a href="#cb10-22" tabindex="-1"></a><span class="co">#   dimension_code, dimension_label, dimension_note, element_code, element_label, etc.</span></span>
+<span id="cb10-23"><a href="#cb10-23" tabindex="-1"></a></span>
+<span id="cb10-24"><a href="#cb10-24" tabindex="-1"></a><span class="co"># 3) (Optional) Unnest into a single combined data frame</span></span>
+<span id="cb10-25"><a href="#cb10-25" tabindex="-1"></a><span class="co">#    If you&#39;d like a tall data frame where each row is a unique dimension element:</span></span>
+<span id="cb10-26"><a href="#cb10-26" tabindex="-1"></a>full_dim_info <span class="ot">&lt;-</span> energy_long_dim <span class="sc">|&gt;</span> </span>
+<span id="cb10-27"><a href="#cb10-27" tabindex="-1"></a>  <span class="fu">unnest</span>(<span class="at">cols =</span> dim_info, <span class="at">names_sep =</span> <span class="st">&quot;dim_&quot;</span>)</span>
+<span id="cb10-28"><a href="#cb10-28" tabindex="-1"></a></span>
+<span id="cb10-29"><a href="#cb10-29" tabindex="-1"></a><span class="co"># `full_dim_info` now contains columns:</span></span>
+<span id="cb10-30"><a href="#cb10-30" tabindex="-1"></a><span class="co">#   class, href, table_code, label, update, dimension_code, </span></span>
+<span id="cb10-31"><a href="#cb10-31" tabindex="-1"></a><span class="co">#   (optionally) domain/subdomain, </span></span>
+<span id="cb10-32"><a href="#cb10-32" tabindex="-1"></a><span class="co">#   and the un-nested dimension columns from susr_dimension_values().</span></span>
+<span id="cb10-33"><a href="#cb10-33" tabindex="-1"></a></span>
+<span id="cb10-34"><a href="#cb10-34" tabindex="-1"></a><span class="fu">head</span>(full_dim_info)</span>
+<span id="cb10-35"><a href="#cb10-35" tabindex="-1"></a><span class="co">#&gt; # A tibble: 6 × 14</span></span>
+<span id="cb10-36"><a href="#cb10-36" tabindex="-1"></a><span class="co">#&gt;   class   href           table_code label update dimension_code domain subdomain</span></span>
+<span id="cb10-37"><a href="#cb10-37" tabindex="-1"></a><span class="co">#&gt;   &lt;chr&gt;   &lt;chr&gt;          &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;          &lt;chr&gt;  &lt;chr&gt;    </span></span>
+<span id="cb10-38"><a href="#cb10-38" tabindex="-1"></a><span class="co">#&gt; 1 dataset https://data.… en1001ms   Sour… 2024-… en1001ms_rok   Multi… Energy   </span></span>
+<span id="cb10-39"><a href="#cb10-39" tabindex="-1"></a><span class="co">#&gt; 2 dataset https://data.… en1001ms   Sour… 2024-… en1001ms_rok   Multi… Energy   </span></span>
+<span id="cb10-40"><a href="#cb10-40" tabindex="-1"></a><span class="co">#&gt; 3 dataset https://data.… en1001ms   Sour… 2024-… en1001ms_rok   Multi… Energy   </span></span>
+<span id="cb10-41"><a href="#cb10-41" tabindex="-1"></a><span class="co">#&gt; 4 dataset https://data.… en1001ms   Sour… 2024-… en1001ms_rok   Multi… Energy   </span></span>
+<span id="cb10-42"><a href="#cb10-42" tabindex="-1"></a><span class="co">#&gt; 5 dataset https://data.… en1001ms   Sour… 2024-… en1001ms_rok   Multi… Energy   </span></span>
+<span id="cb10-43"><a href="#cb10-43" tabindex="-1"></a><span class="co">#&gt; 6 dataset https://data.… en1001ms   Sour… 2024-… en1001ms_rok   Multi… Energy   </span></span>
+<span id="cb10-44"><a href="#cb10-44" tabindex="-1"></a><span class="co">#&gt; # ℹ 6 more variables: dim_infodim_dimension_code &lt;chr&gt;,</span></span>
+<span id="cb10-45"><a href="#cb10-45" tabindex="-1"></a><span class="co">#&gt; #   dim_infodim_dimension_label &lt;chr&gt;, dim_infodim_dimension_note &lt;chr&gt;,</span></span>
+<span id="cb10-46"><a href="#cb10-46" tabindex="-1"></a><span class="co">#&gt; #   dim_infodim_element_index &lt;int&gt;, dim_infodim_element_value &lt;chr&gt;,</span></span>
+<span id="cb10-47"><a href="#cb10-47" tabindex="-1"></a><span class="co">#&gt; #   dim_infodim_element_label &lt;chr&gt;</span></span></code></pre></div>
 </div>
 <div id="fetching-data" class="section level2">
 <h2>Fetching Data</h2>

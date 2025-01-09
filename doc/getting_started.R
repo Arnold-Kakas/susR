@@ -5,7 +5,7 @@ knitr::opts_chunk$set(
 )
 
 ## ----eval=FALSE---------------------------------------------------------------
-#  devtools::install_github("Arnold-Kakas/susR")
+# devtools::install_github("Arnold-Kakas/susR")
 
 ## -----------------------------------------------------------------------------
 library(susR)
