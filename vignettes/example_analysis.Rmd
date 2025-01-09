@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
+```{r setup, message=FALSE, warning=FALSE}
 library(susR)      
 library(dplyr)
 library(ggplot2)
@@ -58,7 +58,7 @@ For om7005rr we have 4 dimension parameters in this order:
 
 Since we are interested in 79 districts, we firstly retrieve the dimension values and use the vector of values to feed `fetch_susr_data()` function. The codes are the same for both tables, so we will do it only once.
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
 districts <- susr_dimension_values("om7013rr",
                                    "om7013rr_vuc") |> 
   filter(str_detect(element_label, "District of"))
@@ -85,7 +85,7 @@ params <- list(
 
 ## Fetch data
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
 res <- fetch_susr_data(params)
 
 # res is a named list with two entries
@@ -95,11 +95,11 @@ age_df <- res[["om7005rr"]]
 
 Let's inspect the data:
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
 summary(pop_df)
 ```
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
 summary(age_df)
 ```
 
@@ -109,7 +109,7 @@ We already see, that there are quite some differences in regions both in populat
 
 We will adjust the raw data to be more user-friendly and follow more common conventions. Afterwards we will merge both tables into one.
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
 cleaned_pop_df <- pop_df |> 
   rename( # renaming to more user-friendly names
     district = om7013rr_vuc,
@@ -138,7 +138,7 @@ merged_df <- cleaned_pop_df |>
 
 ## Analysis
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
 ggplot(merged_df |> filter(sex == 1), aes(x = year, y = mean_age, group = district, color = district)) +
   geom_line() +
   labs(title = "Mean Age Trend Over Years - Females", x = "Year", y = "Mean Age") +
@@ -146,7 +146,7 @@ ggplot(merged_df |> filter(sex == 1), aes(x = year, y = mean_age, group = distri
   guides(color = "none")
 ```
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
 ggplot(merged_df |> filter(sex == 0), aes(x = year, y = mean_age, group = district, color = district)) +
   geom_line() +
   labs(title = "Mean Age Trend Over Years - Males", x = "Year", y = "Mean Age") +
@@ -155,7 +155,7 @@ ggplot(merged_df |> filter(sex == 0), aes(x = year, y = mean_age, group = distri
 ```
 As we can see, most of district age getting older. However there are couple of flat-ish ones disrupting this pattern. 
 
-```{r, warning=F, fig.height=6, fig.width=12}
+```{r, message=FALSE, warning=FALSE, fig.height=6, fig.width=12}
 # Calculate population per district per year
 data_bubble <- merged_df |> 
   reframe(
@@ -194,3 +194,4 @@ bubble_chart <- plot_ly(
 bubble_chart
 ```
 
+From the animated chart we can see that some of the districts have very different "movement" in time. Especially district Senec moves to lower deciles of mean age - meaning that it is ageing slower than other districts. In fact it seems like the mean age is stable in last 20 years.
