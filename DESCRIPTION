@@ -15,7 +15,8 @@ Suggests:
     ggplot2,
     tidyr,
     gganimate,
-    plotly
+    plotly,
+    stringr
 Config/testthat/edition: 3
 Imports: 
     httr2,
