@@ -27,3 +27,15 @@ test_that("Manual table list covers all codes in get_table_list()", {
             paste(extra_in_api, collapse = ", "))
   }
 })
+
+test_that("susr_domains() returns a data frame with the expected columns", {
+  # This function reads a static CSV file; no external connection needed.
+  # Do not skip on CRAN for this test.
+  df <- susr_domains()
+  expect_s3_class(df, "tbl_df")
+  # Check that required columns exist
+  required_cols <- c("table_code", "domain", "subdomain")
+  expect_true(all(required_cols %in% names(df)))
+  # Optionally, check that there is at least one row
+  expect_true(nrow(df) > 0)
+})
