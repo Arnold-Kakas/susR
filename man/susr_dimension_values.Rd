@@ -18,11 +18,11 @@ Defaults to \code{"en"}.}
 \value{
 A tibble with columns:
 \describe{
-\item{dimension_code}{The provided dimension code (e.g. "as1001rs_rok")}
-\item{dimension_label}{A short label for the dimension (if available)}
-\item{dimension_note}{A more descriptive note for the dimension (if available)}
+\item{dimension_code}{The provided dimension code (e.g. "as1001rs_rok").}
+\item{dimension_label}{A short label for the dimension (if available).}
+\item{dimension_note}{A more descriptive note for the dimension (if available).}
 \item{element_index}{Index of each element.}
-\item{element_value}{Each possible value code (e.g. "2016", "SK021", etc.)}
+\item{element_value}{Each possible value code (e.g. "2016", "SK021", etc.).}
 \item{element_label}{A descriptive label for each element code (if available).}
 }
 }

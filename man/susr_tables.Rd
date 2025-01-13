@@ -24,7 +24,7 @@ A tibble. The columns differ slightly depending on \code{long} (wide vs. long).
 \item Always contains: \code{class}, \code{href}, \code{table_code}, \code{label}, \code{update}
 \item If \code{long = FALSE}: also \code{dimension_names}
 \item If \code{long = TRUE}: also \code{dimension_code}
-\item If \code{domain} was used, columns \code{domain} / \code{subdomain} from \code{susr_domains()} are also included.
+\item If \code{domains} was used, columns \code{domain} / \code{subdomain} from \code{\link[=susr_domains]{susr_domains()}} are also included.
 }
 }
 \description{
@@ -53,13 +53,13 @@ If \code{table_codes} is not NULL, we filter the final list to only those codes.
 tables_all <- susr_tables()
 
 # 2) Filter to just certain table codes:
-tables_some <- susr_tables(table_code = c("as1001rs", "as1002rs"))
+tables_some <- susr_tables(table_codes = c("as1001rs", "as1002rs"))
 
 # 3) Filter by domain or subdomain:
-#    e.g., if your CSV has domain = "Environment", "Macroeconomic statistics", etc.
-env_tables <- susr_tables(domain = "Environment")
+env_tables <- susr_tables(domains = "Environment")
 
 # 4) Combined: filter by domain + get long format
-macroeconomic_tables <- susr_tables(long = TRUE, domain = "Macroeconomic statistics")
+macroeconomic_tables <- susr_tables(long = TRUE, domains = "Macroeconomic statistics")
 }
+
 }

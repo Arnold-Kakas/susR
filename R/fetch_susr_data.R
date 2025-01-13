@@ -129,8 +129,12 @@ fetch_susr_data <- function(
       warning("rjstat::fromJSONstat() failed for table_code='", params[[i]],
               "' with the given JSON. Storing NULL.")
       results[[params[[i]]]] <- NULL
-      next
+      return(NULL)  # Return NULL to signal error
     })
+    if (is.null(df_list)) {
+      next  # skip to the next iteration if parsing failed
+    }
+
 
     df <- df_list
     # Ensure the result is a tibble

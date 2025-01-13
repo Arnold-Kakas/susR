@@ -205,4 +205,3 @@ susr_tables <- function(long = FALSE,
 
   return(tbl_long)
 }
-
