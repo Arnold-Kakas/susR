@@ -95,7 +95,7 @@ to only these table codes.</p></dd>
     <p>A tibble. The columns differ slightly depending on <code>long</code> (wide vs. long).</p><ul><li><p>Always contains: <code>class</code>, <code>href</code>, <code>table_code</code>, <code>label</code>, <code>update</code></p></li>
 <li><p>If <code>long = FALSE</code>: also <code>dimension_names</code></p></li>
 <li><p>If <code>long = TRUE</code>: also <code>dimension_code</code></p></li>
-<li><p>If <code>domain</code> was used, columns <code>domain</code> / <code>subdomain</code> from <code><a href="susr_domains.html">susr_domains()</a></code> are also included.</p></li>
+<li><p>If <code>domains</code> was used, columns <code>domain</code> / <code>subdomain</code> from <code><a href="susr_domains.html">susr_domains()</a></code> are also included.</p></li>
 </ul></div>
     <div id="details">
     <h2>Details</h2>
@@ -117,15 +117,15 @@ and filters accordingly.</p>
 <span class="r-in"><span><span class="va">tables_all</span> <span class="op">&lt;-</span> <span class="fu">susr_tables</span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># 2) Filter to just certain table codes:</span></span></span>
-<span class="r-in"><span><span class="va">tables_some</span> <span class="op">&lt;-</span> <span class="fu">susr_tables</span><span class="op">(</span>table_code <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"as1001rs"</span>, <span class="st">"as1002rs"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">tables_some</span> <span class="op">&lt;-</span> <span class="fu">susr_tables</span><span class="op">(</span>table_codes <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"as1001rs"</span>, <span class="st">"as1002rs"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># 3) Filter by domain or subdomain:</span></span></span>
-<span class="r-in"><span><span class="co">#    e.g., if your CSV has domain = "Environment", "Macroeconomic statistics", etc.</span></span></span>
-<span class="r-in"><span><span class="va">env_tables</span> <span class="op">&lt;-</span> <span class="fu">susr_tables</span><span class="op">(</span>domain <span class="op">=</span> <span class="st">"Environment"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">env_tables</span> <span class="op">&lt;-</span> <span class="fu">susr_tables</span><span class="op">(</span>domains <span class="op">=</span> <span class="st">"Environment"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># 4) Combined: filter by domain + get long format</span></span></span>
-<span class="r-in"><span><span class="va">macroeconomic_tables</span> <span class="op">&lt;-</span> <span class="fu">susr_tables</span><span class="op">(</span>long <span class="op">=</span> <span class="cn">TRUE</span>, domain <span class="op">=</span> <span class="st">"Macroeconomic statistics"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">macroeconomic_tables</span> <span class="op">&lt;-</span> <span class="fu">susr_tables</span><span class="op">(</span>long <span class="op">=</span> <span class="cn">TRUE</span>, domains <span class="op">=</span> <span class="st">"Macroeconomic statistics"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
