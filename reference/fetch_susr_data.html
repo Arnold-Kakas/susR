@@ -76,7 +76,7 @@ Internally, it fetches JSON-stat and parses it using the <span class="pkg">rjsta
 
 
 <dl><dt id="arg-params">params<a class="anchor" aria-label="anchor" href="#arg-params"></a></dt>
-<dd><p>A list structured in <strong>pairs</strong>:</p><ol><li><p>A character string with the table code (e.g. "np3106rr").</p></li>
+<dd><p>A list structured in <strong>pairs</strong>:</p><ol><li><p>A character string with the table code (e.g. "np3106rs").</p></li>
 <li><p>A list (or vector) of dimension "segments" in the order they should
 appear in the URL. Each segment can be:</p><ul><li><p>A character scalar (e.g. "SK021"), or</p></li>
 <li><p>A character vector (e.g. <code>c("2016","2017","2018")</code>)
@@ -98,16 +98,7 @@ which we join by commas (<code>"2016,2017,2018"</code>),</p></li>
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A <em>named list of data frames</em>, keyed by the table codes. If you request
-data for two tables (e.g. "np3106rr" and "as1001rs"), you get a list of two
-tibbles. For example:</p><div class="sourceCode"><pre><code>
-    $np3106rr
-      # A tibble with columns for the dimension categories and the measured value
-
-    $as1001rs
-      # Another tibble for that table
-  </code></pre></div>
-
+    <p>A <em>named list of data frames</em>, keyed by the table codes.</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -117,7 +108,7 @@ official URL pattern is:</p><div class="sourceCode"><pre><code>
 </code></pre></div><p>then pass <code>list("param1", "param2", "param3")</code> in that <em>exact</em> order.</p>
 <p>Internally, each JSON-stat response is converted to a data frame (tibble)
 using <code><a href="https://rdrr.io/pkg/rjstat/man/fromJSONstat.html" class="external-link">rjstat::fromJSONstat()</a></code>. If the JSON structure is invalid or
-the API call fails, we store <code>NULL</code> and emit a warning for that table.</p>
+the API call fails, the corresponding table is stored as <code>NULL</code> (with a warning).</p>
     </div>
 
     <div id="ref-examples">
@@ -125,18 +116,18 @@ the API call fails, we store <code>NULL</code> and emit a warning for that table
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
 <span class="r-in"><span><span class="co"># Example: retrieve data from two tables</span></span></span>
 <span class="r-in"><span><span class="va">params</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>  <span class="st">"np3106rr"</span>,</span></span>
+<span class="r-in"><span>  <span class="st">"np3106rs"</span>,</span></span>
 <span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="st">"SK021"</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"2016"</span>,<span class="st">"2017"</span>,<span class="st">"2018"</span><span class="op">)</span>, <span class="st">"E_PRIEM_HR_MZDA"</span>, <span class="st">"7"</span><span class="op">)</span>,</span></span>
 <span class="r-in"><span>  <span class="st">"as1001rs"</span>,</span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="st">"all"</span>, <span class="st">"all"</span>, <span class="st">"all"</span><span class="op">)</span>  <span class="co"># e.g. get all years, all other dims</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="st">"all"</span>, <span class="st">"all"</span>, <span class="st">"all"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">res</span> <span class="op">&lt;-</span> <span class="fu">fetch_susr_data</span><span class="op">(</span><span class="va">params</span>, lang <span class="op">=</span> <span class="st">"en"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">res</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="co">#&gt; [1] "np3106rr" "as1001rs"</span></span></span>
+<span class="r-in"><span><span class="co">#&gt; [1] "np3106rs" "as1001rs"</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Each element is a data frame. For example:</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">res</span><span class="op">[[</span><span class="st">"np3106rr"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">res</span><span class="op">[[</span><span class="st">"np3106rs"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
