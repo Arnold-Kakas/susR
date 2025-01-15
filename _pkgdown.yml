@@ -1,5 +1,5 @@
 url: https://arnold-kakas.github.io/susR/
 template:
   params:
-    bootswatch: cerulean
+    bootswatch: flatly
 
