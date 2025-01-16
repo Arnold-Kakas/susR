@@ -11,71 +11,37 @@ fetch_susr_data(
 )
 }
 \arguments{
-\item{params}{A list structured in \strong{pairs}:
+\item{params}{A list structured in pairs:
 \enumerate{
-\item A character string with the table code (e.g. "np3106rr").
-\item A list (or vector) of dimension "segments" in the order they should
-appear in the URL. Each segment can be:
-\itemize{
-\item A character scalar (e.g. "SK021"), or
-\item A character vector (e.g. \code{c("2016","2017","2018")})
-which we join by commas (\code{"2016,2017,2018"}),
-\item Special keywords like \code{"all"}, \code{"last5"}, etc.
-(passed as-is).
-}
-}
-For multiple tables, just keep repeating those pairs in the same list.}
+\item Table code (character string), e.g. "np3106rs"
+\item Dimension specification (list/vector)
+}}
 
-\item{lang}{The language code. Defaults to \code{"en"}. Can also be \code{"sk"}.}
+\item{lang}{The language code, "en" or "sk". Defaults to "en".}
 
 \item{base_url}{The base SUSR dataset endpoint. Defaults to
-\code{"https://data.statistics.sk/api/v2/dataset"}.}
+"https://data.statistics.sk/api/v2/dataset".}
 }
 \value{
-A \emph{named list of data frames}, keyed by the table codes. If you request
-data for two tables (e.g. "np3106rr" and "as1001rs"), you get a list of two
-tibbles. For example:
-\preformatted{
-    $np3106rr
-      # A tibble with columns for the dimension categories and the measured value
-
-    $as1001rs
-      # Another tibble for that table
-  }
+A named list of data frames, keyed by the table code
 }
 \description{
 This function constructs and calls the dataset endpoint for one or more tables,
 including their dimension selections, and returns each as a data frame (tibble).
-Internally, it fetches JSON-stat and parses it using the \pkg{rjstat} package.
 }
 \details{
-The \strong{order} of dimension segments is crucial. For example, if the
-official URL pattern is:
-\preformatted{
-  https://data.statistics.sk/api/v2/dataset/<table_code>/<param1>/<param2>/<param3>?lang=en&type=json
-}
-then pass \code{list("param1", "param2", "param3")} in that \emph{exact} order.
+This function is designed to handle dimension queries that might include
+special keywords (e.g., \code{"all"}, \code{"last5"}, or region shortcuts like \code{"Districts"}).
 
-Internally, each JSON-stat response is converted to a data frame (tibble)
-using \code{rjstat::fromJSONstat()}. If the JSON structure is invalid or
-the API call fails, we store \code{NULL} and emit a warning for that table.
-}
-\examples{
-\dontrun{
-# Example: retrieve data from two tables
-params <- list(
-  "np3106rr",
-  list("SK021", c("2016","2017","2018"), "E_PRIEM_HR_MZDA", "7"),
-  "as1001rs",
-  list("all", "all", "all")  # e.g. get all years, all other dims
-)
+\strong{Error & Warning Handling}
+We use \code{tryCatch()} blocks around both network calls and JSON parsing.
+While we know some specific issues that could occur (like an invalid URL, or
+invalid JSON structure), there may be other rare/unexpected problems.
+If an error occurs, we issue a warning and store \code{NULL} for that table.
 
-res <- fetch_susr_data(params, lang = "en")
-names(res)
-#> [1] "np3106rr" "as1001rs"
-
-# Each element is a data frame. For example:
-head(res[["np3106rr"]])
-}
-
+\strong{Dimension Count Check}
+Before constructing the URL, we call \code{\link[=susr_tables]{susr_tables()}} (in "long" format) to retrieve
+a list of the dimension codes for the table. We then check if the user-supplied
+dimension specs have the same length as the \strong{number of distinct dimension_code}.
+If not, we warn the user. (This ensures at least the total dimension count is valid.)
 }

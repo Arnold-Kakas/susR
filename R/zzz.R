@@ -3,5 +3,7 @@ utils::globalVariables(c(
   "subdomain",
   "table_code",
   "domain_subdomain",
-  ".data"
+  ".data",
+  "element_label",
+  "element_value"
 ))
