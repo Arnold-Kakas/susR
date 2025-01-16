@@ -4,9 +4,10 @@ test_that("susr_dimension_values() fails for an invalid dimension code", {
   skip_on_cran()
   skip_if_offline()
 
-  expect_error(
-    susr_dimension_values("as1001rs", "invalid_dimension", lang = "en"),
+  expect_warning(
+    expect_null(susr_dimension_values("as1001rs", "invalid_dimension", lang = "en"),
     "Failed to retrieve dimension info for invalid_dimension"
+    )
   )
 })
 

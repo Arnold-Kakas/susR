@@ -67,3 +67,35 @@ test_that("susr_tables() filters correctly by domains", {
     succeed("No domain info available to test domain filtering")
   }
 })
+
+
+test_that("susr_tables() filters correctly by domains in long format", {
+  skip_on_cran()
+  skip_if_offline()
+
+  # susr_domains() should return a tibble with columns 'table_code', 'domain', 'subdomain'
+  domains_df <- susr_domains()
+  if(nrow(domains_df) > 0) {
+    # Select one or two domains from the static CSV
+    selected_domains <- unique(domains_df$domain)[1:2]
+    tbl_filtered <- susr_tables(long = TRUE, domains = selected_domains)
+    # For each row, at least one of the 'domain' or 'subdomain' should be in selected_domains
+    # (If the join fails to add these columns, this condition could be skipped)
+    expect_true(all(tbl_filtered$domain %in% selected_domains | tbl_filtered$subdomain %in% selected_domains))
+  } else {
+    succeed("No domain info available to test domain filtering")
+  }
+})
+
+
+test_that("susr_tables() returns NULL and warning if incorrect table code is provided", {
+  skip_on_cran()
+  skip_if_offline()
+
+  # susr_domains() should return a tibble with columns 'table_code', 'domain', 'subdomain'
+  expect_warning(
+    expect_null(
+      susr_tables(long = TRUE, table_codes = "abcdefgh")
+    )
+  )
+})

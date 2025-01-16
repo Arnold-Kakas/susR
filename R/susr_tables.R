@@ -13,7 +13,8 @@
 #'   [susr_domains()].
 #' @param table_codes Character vector or NULL (default). If provided, we filter
 #'   to only these table codes.
-#'
+#' @param lang The language code. Defaults to \code{"en"}. Can also be \code{"sk"}.
+
 #' @details
 #' If \code{long = FALSE} (default), each row corresponds to a single dataset
 #' and the dimension codes are concatenated in the \code{dimension_names} column,
@@ -52,20 +53,18 @@
 #' @export
 susr_tables <- function(long = FALSE,
                         domains = NULL,
-                        table_codes = NULL) {
+                        table_codes = NULL,
+                        lang = "en") {
   base_url <- "https://data.statistics.sk/api/v2/collection"
 
   # 1) Perform the API request with error handling
-  resp <- tryCatch({
-    httr2::request(base_url) |>
-      httr2::req_url_query(lang = "en") |>
+  resp <- httr2::request(base_url) |>
+      httr2::req_url_query(lang = lang) |>
       httr2::req_perform()
-  }, error = function(e) {
-    stop("Failed to retrieve data from SUSR: ", e$message)
-  })
 
   if (httr2::resp_is_error(resp)) {
-    stop("Failed to retrieve data from SUSR: ", httr2::resp_status_desc(resp))
+    warning("Failed to retrieve data from SUSR: ", httr2::resp_status_desc(resp))
+    return(NULL)
   }
 
   # 2) Extract raw JSON text and parse with jsonlite::fromJSON() to preserve JSON-stat structure
@@ -73,7 +72,8 @@ susr_tables <- function(long = FALSE,
   parsed <- tryCatch({
     jsonlite::fromJSON(raw_text, simplifyVector = FALSE)
   }, error = function(e) {
-    stop("Failed to parse JSON response from SUSR API: ", e$message)
+    warning("Failed to parse JSON response from SUSR API: ", e$message)
+    return(NULL)
   })
 
   # 3) Identify items: try using "item" first; if not available, try "items"
@@ -84,23 +84,6 @@ susr_tables <- function(long = FALSE,
   } else {
     warning("No datasets found in the SUSR API response.")
     items <- list()
-  }
-
-  # 4) If there are no items, return an empty tibble with the expected columns.
-  if (length(items) == 0) {
-    out_empty <- dplyr::tibble(
-      class = character(0),
-      href = character(0),
-      table_code = character(0),
-      label = character(0),
-      update = character(0),
-      dimension_names = character(0)
-    )
-    if (long) {
-      out_empty$dimension_code <- character(0)
-      out_empty$dimension_names <- NULL
-    }
-    return(out_empty)
   }
 
   # 5) Build the wide tibble from the items
@@ -139,16 +122,7 @@ susr_tables <- function(long = FALSE,
 
   # 6) If user provided domains, join with susr_domains() and filter rows accordingly.
   if (!is.null(domains)) {
-    domain_df <- tryCatch({
-      susr_domains()
-    }, error = function(e) {
-      stop("Failed to retrieve domain information: ", e$message)
-    })
-
-    required_cols <- c("table_code", "domain", "subdomain")
-    if (!all(required_cols %in% names(domain_df))) {
-      stop("Domain data must contain the following columns: ", paste(required_cols, collapse = ", "))
-    }
+    domain_df <- susr_domains()
 
     tbl_wide <- dplyr::left_join(tbl_wide, domain_df, by = "table_code")
     tbl_wide <- dplyr::filter(
@@ -162,6 +136,12 @@ susr_tables <- function(long = FALSE,
     tbl_wide <- dplyr::filter(tbl_wide, .data$table_code %in% table_codes)
   }
 
+  if (nrow(tbl_wide) == 0) {
+    warning("Incorrect table code provided")
+    return(NULL)
+  }
+
+
   # 8) If long format is not requested, return the wide tibble.
   if (!long) {
     return(tbl_wide)
@@ -171,18 +151,6 @@ susr_tables <- function(long = FALSE,
   tbl_long <- dplyr::bind_rows(
     lapply(seq_len(nrow(tbl_wide)), function(i) {
       dnames <- tbl_wide$dimension_names[i]
-      if (is.na(dnames) || !nzchar(dnames)) {
-        return(dplyr::tibble(
-          class = tbl_wide$class[i],
-          href = tbl_wide$href[i],
-          table_code = tbl_wide$table_code[i],
-          label = tbl_wide$label[i],
-          update = tbl_wide$update[i],
-          dimension_code = NA_character_,
-          domain = if ("domain" %in% names(tbl_wide)) tbl_wide$domain[i] else NA_character_,
-          subdomain = if ("subdomain" %in% names(tbl_wide)) tbl_wide$subdomain[i] else NA_character_
-        ))
-      }
 
       dim_vec <- strsplit(dnames, ":", fixed = TRUE)[[1]]
       out_i <- dplyr::tibble(

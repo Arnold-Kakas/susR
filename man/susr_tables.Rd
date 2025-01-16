@@ -4,7 +4,7 @@
 \alias{susr_tables}
 \title{Get the list of all available datasets (tables) from the Slovak Statistical Office}
 \usage{
-susr_tables(long = FALSE, domains = NULL, table_codes = NULL)
+susr_tables(long = FALSE, domains = NULL, table_codes = NULL, lang = "en")
 }
 \arguments{
 \item{long}{Logical (default \code{FALSE}). If \code{TRUE}, the result is
@@ -17,6 +17,8 @@ any of these values. Domain info is taken from the static CSV loaded via
 
 \item{table_codes}{Character vector or NULL (default). If provided, we filter
 to only these table codes.}
+
+\item{lang}{The language code. Defaults to \code{"en"}. Can also be \code{"sk"}.}
 }
 \value{
 A tibble. The columns differ slightly depending on \code{long} (wide vs. long).

@@ -75,22 +75,11 @@ fetch_susr_data <- function(
     #----------------------------------------------------------------
     # Safely retrieve the table_code and check it's a valid string
     #----------------------------------------------------------------
-    valid_table <- tryCatch({
-      table_code <- params[[i]]
+    table_code <- params[[i]]
       if (!is.character(table_code) || length(table_code) != 1 || nchar(table_code) != 8) {
         warning("In `params`, each table code must be a single 8-character string. Problem at position ", i)
         return(NULL)  # We'll return NULL here, so this table is skipped
       }
-      TRUE
-    }, error = function(e) {
-      # If anything goes unexpectedly wrong, we warn and skip
-      warning("Error while checking table_code at position ", i, ": ", e$message)
-      return(FALSE)
-    })
-    if (!isTRUE(valid_table)) {
-      # If the check failed, skip this table and move on
-      next
-    }
 
     # Extract the table code and dimension specs
     table_code <- params[[i]]
@@ -102,13 +91,16 @@ fetch_susr_data <- function(
     # Retrieve the metadata for this table and count how many
     # distinct dimensions it has. This helps ensure the user didn't pass
     # the wrong number of segments for the table in question.
-    table_info_long <- tryCatch({
-      susr_tables(long = TRUE, table_codes = table_code)
-    }, error = function(e) {
+    table_info_long <- if (is.null(susr_tables(long = TRUE, table_codes = table_code))) {
       warning("Failed to retrieve or parse table metadata for table_code='", table_code,
               "'. Skipping. Error was: ", e$message)
       return(NULL)
-    })
+    } else {
+      susr_tables(long = TRUE, table_codes = table_code)
+    }
+
+
+
     # The distinct dimension codes in the table's metadata:
     tbl_dim_codes <- unique(table_info_long$dimension_code)
     # Check if user-supplied dimension specs have the same length

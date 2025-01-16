@@ -43,13 +43,14 @@ susr_dimension_values <- function(table_code, dimension_code, lang = "en") {
       httr2::req_url_query(lang = lang) |>
       httr2::req_perform()
   }, error = function(e) {
-    stop("Failed to retrieve dimension info for ", dimension_code, ": ", e$message)
+    warning("Failed to retrieve dimension info for ", dimension_code, ": ", e$message,
+            " Check the provided table and dimension codes.")
+    return(NULL)
   })
 
-  # Check if the response indicates an HTTP error
-  if (httr2::resp_is_error(resp)) {
-    stop("Failed to retrieve dimension info for ", dimension_code, ": ",
-         httr2::resp_status_desc(resp))
+  # If the request returned NULL, end the function here
+  if (is.null(resp)) {
+    return(NULL)
   }
 
   # Parse the JSON response
@@ -61,18 +62,6 @@ susr_dimension_values <- function(table_code, dimension_code, lang = "en") {
 
   # Extract element values, indexes, and labels (if any)
   element_idx <- parsed$category$index
-
-  # If this dimension has no elements, return an empty tibble
-  if (is.null(element_idx) || length(element_idx) == 0) {
-    return(dplyr::tibble(
-      dimension_code  = dimension_code,
-      dimension_label = dim_label,
-      dimension_note  = dim_note,
-      element_index   = character(0),
-      element_value   = character(0),
-      element_label   = character(0)
-    ))
-  }
 
   # Process the returned indexes and labels
   element_index <- unlist(element_idx)
