@@ -55,6 +55,16 @@
     </div>
 
     <div class="section level2">
+<h2 class="page-header" data-toc-text="0.0.2" id="susr-002">susR 0.0.2<a class="anchor" aria-label="anchor" href="#susr-002"></a></h2>
+<p>Improved dimension handling by refactoring into a single function that expands special codes, validates inputs, and gracefully falls back (with warnings) when invalid codes are provided.</p>
+<ul><li>Major changes:
+<ul><li>resolve_href() internally expands special keywords (e.g., “lastX”, region shortcuts like “districs”).</li>
+<li>Added validation and fallback logic: user-supplied codes are now checked against available values (via susr_dimension_values()), and warnings are issued for any invalid codes.</li>
+<li>If no valid codes remain, a fallback to “all” or the first available code is used with a warning.</li>
+<li>Updated fetch_susr_data() to use the new resolve_href() function for cleaner dimension path construction.</li>
+</ul></li>
+</ul></div>
+    <div class="section level2">
 <h2 class="page-header" data-toc-text="0.0.1" id="susr-001">susR 0.0.1<a class="anchor" aria-label="anchor" href="#susr-001"></a></h2>
 <p>This is the first release version of susR! 🎉</p>
 <ul><li>Added a <code>NEWS.md</code> file to track changes to the package.</li>
@@ -67,16 +77,6 @@
 <li>New vignettes:
 <ul><li><a href="https://arnold-kakas.github.io/susR/articles/getting_started.html">Getting started with susR</a></li>
 <li><a href="https://arnold-kakas.github.io/susR/articles/example_analysis.html">Example Analysis</a></li>
-</ul></li>
-</ul></div>
-    <div class="section level2">
-<h2 class="page-header" data-toc-text="0.0.2" id="susr-002">susR 0.0.2<a class="anchor" aria-label="anchor" href="#susr-002"></a></h2>
-<p>Improved dimension handling by refactoring into a single function that expands special codes, validates inputs, and gracefully falls back (with warnings) when invalid codes are provided.</p>
-<ul><li>Major changes:
-<ul><li>resolve_href() internally expands special keywords (e.g., “lastX”, region shortcuts like “districs”).</li>
-<li>Added validation and fallback logic: user-supplied codes are now checked against available values (via susr_dimension_values()), and warnings are issued for any invalid codes.</li>
-<li>If no valid codes remain, a fallback to “all” or the first available code is used with a warning.</li>
-<li>Updated fetch_susr_data() to use the new resolve_href() function for cleaner dimension path construction.</li>
 </ul></li>
 </ul></div>
   </div>
