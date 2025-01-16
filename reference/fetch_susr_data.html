@@ -99,6 +99,16 @@ which we join by commas (<code>"2016,2017,2018"</code>),</p></li>
     <div id="value">
     <h2>Value</h2>
     <p>A <em>named list of data frames</em>, keyed by the table codes.</p>
+<p><strong>Error &amp; Warning Handling</strong>
+We use <code><a href="https://rdrr.io/r/base/conditions.html" class="external-link">tryCatch()</a></code> blocks around both network calls and JSON parsing.
+While we know some specific issues that could occur (like an invalid URL, or
+invalid JSON structure), there may be other rare/unexpected problems.
+If an error occurs, we issue a warning and store <code>NULL</code> for that table.</p>
+<p><strong>Dimension Count Check</strong>
+Before constructing the URL, we call <code><a href="susr_tables.html">susr_tables()</a></code> (in "long" format) to retrieve
+a list of the dimension codes for the table. We then check if the user-supplied
+dimension specs have the same length as the <strong>number of distinct dimension_code</strong>.
+If not, we warn the user. (This ensures at least the total dimension count is valid.)</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -111,10 +121,6 @@ using <code><a href="https://rdrr.io/pkg/rjstat/man/fromJSONstat.html" class="ex
 the API call fails, the corresponding table is stored as <code>NULL</code> (with a warning).</p>
     </div>
 
-    <div id="ref-examples">
-    <h2>Examples</h2>
-
-    </div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top"><h2 data-toc-skip>Contents</h2>
