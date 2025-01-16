@@ -2,6 +2,7 @@
 #'
 #' This function constructs and calls the dataset endpoint for one or more tables,
 #' including their dimension selections, and returns each as a data frame (tibble).
+#' Internally, it fetches JSON-stat and parses it using the \pkg{rjstat} package.
 #'
 #' @param params A list structured in **pairs**:
 #'   \enumerate{
@@ -20,13 +21,38 @@
 #'
 #' @param lang The language code. Defaults to \code{"en"}. Can also be \code{"sk"}.
 #' @param base_url The base SUSR dataset endpoint. Defaults to
-#'   "https://data.statistics.sk/api/v2/dataset".
-#'
-#' @return A named list of data frames, keyed by the table code
+#'   \code{"https://data.statistics.sk/api/v2/dataset"}.
 #'
 #' @details
-#' This function is designed to handle dimension queries that might include
-#' special keywords (e.g., `"all"`, `"last5"`, or region shortcuts like `"Districts"`).
+#' The **order** of dimension segments is crucial. For example, if the
+#' official URL pattern is:
+#' \preformatted{
+#'   https://data.statistics.sk/api/v2/dataset/<table_code>/<param1>/<param2>/<param3>?lang=en&type=json
+#' }
+#' then pass \code{list("param1", "param2", "param3")} in that *exact* order.
+#'
+#' Internally, each JSON-stat response is converted to a data frame (tibble)
+#' using \code{rjstat::fromJSONstat()}. If the JSON structure is invalid or
+#' the API call fails, we store \code{NULL} and emit a warning for that table.
+#'
+#' @return A named list of data frames, keyed by the table code
+#' @examples
+#' \dontrun{
+#' # Example: retrieve data from two tables
+#' params <- list(
+#'   "np3106rr",
+#'   list("SK021", c("2016","2017","2018"), "E_PRIEM_HR_MZDA", "7"),
+#'   "as1001rs",
+#'   list("districts", "last5", "all")
+#' )
+#'
+#' res <- fetch_susr_data(params, lang = "en")
+#' names(res)
+#' #> [1] "np3106rr" "as1001rs"
+#'
+#' # Each element is a data frame. For example:
+#' head(res[["np3106rr"]])
+#' }
 #'
 #' **Error & Warning Handling**
 #' We use `tryCatch()` blocks around both network calls and JSON parsing.
