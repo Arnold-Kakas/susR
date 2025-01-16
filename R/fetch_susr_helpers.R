@@ -38,8 +38,7 @@ resolve_href <- function(
   # 1) Get the dimension codes in the correct order
   #    (table_info_long might have repeated rows per dimension -> use unique)
   # -----------------------------------------------------------------------
-  # Ensure we preserve the order they appear in table_info_long
-  # One way is to do something like this:
+
   dimension_codes <- unique(table_info_long$dimension_code)
 
   n_dims <- length(dimension_codes)

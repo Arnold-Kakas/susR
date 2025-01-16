@@ -37,24 +37,6 @@
 #'
 #' @return A *named list of data frames*, keyed by the table codes.
 #'
-#' @examples
-#' \dontrun{
-#' # Example: retrieve data from two tables
-#' params <- list(
-#'   "np3106rs",
-#'   list("SK021", c("2016","2017","2018"), "E_PRIEM_HR_MZDA", "7"),
-#'   "as1001rs",
-#'   list("districts", "last5", "all")
-#' )
-#'
-#' res <- fetch_susr_data(params, lang = "en")
-#' names(res)
-#' #> [1] "np3106rs" "as1001rs"
-#'
-#' # Each element is a data frame. For example:
-#' head(res[["np3106rs"]])
-#' }
-#'
 #' **Error & Warning Handling**
 #' We use `tryCatch()` blocks around both network calls and JSON parsing.
 #' While we know some specific issues that could occur (like an invalid URL, or

@@ -33,6 +33,18 @@ For multiple tables, just keep repeating those pairs in the same list.}
 }
 \value{
 A \emph{named list of data frames}, keyed by the table codes.
+
+\strong{Error & Warning Handling}
+We use \code{tryCatch()} blocks around both network calls and JSON parsing.
+While we know some specific issues that could occur (like an invalid URL, or
+invalid JSON structure), there may be other rare/unexpected problems.
+If an error occurs, we issue a warning and store \code{NULL} for that table.
+
+\strong{Dimension Count Check}
+Before constructing the URL, we call \code{\link[=susr_tables]{susr_tables()}} (in "long" format) to retrieve
+a list of the dimension codes for the table. We then check if the user-supplied
+dimension specs have the same length as the \strong{number of distinct dimension_code}.
+If not, we warn the user. (This ensures at least the total dimension count is valid.)
 }
 \description{
 This function constructs and calls the dataset endpoint for one or more tables,
@@ -50,35 +62,4 @@ then pass \code{list("param1", "param2", "param3")} in that \emph{exact} order.
 Internally, each JSON-stat response is converted to a data frame (tibble)
 using \code{rjstat::fromJSONstat()}. If the JSON structure is invalid or
 the API call fails, the corresponding table is stored as \code{NULL} (with a warning).
-}
-\examples{
-\dontrun{
-# Example: retrieve data from two tables
-params <- list(
-  "np3106rs",
-  list("SK021", c("2016","2017","2018"), "E_PRIEM_HR_MZDA", "7"),
-  "as1001rs",
-  list("districts", "last5", "all")
-)
-
-res <- fetch_susr_data(params, lang = "en")
-names(res)
-#> [1] "np3106rs" "as1001rs"
-
-# Each element is a data frame. For example:
-head(res[["np3106rs"]])
-}
-
-**Error & Warning Handling**
-We use `tryCatch()` blocks around both network calls and JSON parsing.
-While we know some specific issues that could occur (like an invalid URL, or
-invalid JSON structure), there may be other rare/unexpected problems.
-If an error occurs, we issue a warning and store `NULL` for that table.
-
-**Dimension Count Check**
-Before constructing the URL, we call [susr_tables()] (in "long" format) to retrieve
-a list of the dimension codes for the table. We then check if the user-supplied
-dimension specs have the same length as the **number of distinct dimension_code**.
-If not, we warn the user. (This ensures at least the total dimension count is valid.)
-
 }
