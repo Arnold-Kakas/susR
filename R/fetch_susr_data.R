@@ -3,10 +3,22 @@
 #' This function constructs and calls the dataset endpoint for one or more tables,
 #' including their dimension selections, and returns each as a data frame (tibble).
 #'
-#' @param params A list structured in pairs:
-#'   1) Table code (character string), e.g. "np3106rs"
-#'   2) Dimension specification (list/vector)
-#' @param lang The language code, "en" or "sk". Defaults to "en".
+#' @param params A list structured in **pairs**:
+#'   \enumerate{
+#'     \item A character string with the table code (e.g. "np3106rr").
+#'     \item A list (or vector) of dimension "segments" in the order they should
+#'           appear in the URL. Each segment can be:
+#'           \itemize{
+#'             \item A character scalar (e.g. "SK021"), or
+#'             \item A character vector (e.g. \code{c("2016","2017","2018")})
+#'                   which we join by commas (\code{"2016,2017,2018"}),
+#'             \item Special keywords like \code{"all"}, \code{"last5"}, \code{"LAU1"}, etc.
+#'                   (passed as-is).
+#'           }
+#'   }
+#'   For multiple tables, just keep repeating those pairs in the same list.
+#'
+#' @param lang The language code. Defaults to \code{"en"}. Can also be \code{"sk"}.
 #' @param base_url The base SUSR dataset endpoint. Defaults to
 #'   "https://data.statistics.sk/api/v2/dataset".
 #'
