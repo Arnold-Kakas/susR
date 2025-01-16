@@ -81,7 +81,7 @@ Internally, it fetches JSON-stat and parses it using the <span class="pkg">rjsta
 appear in the URL. Each segment can be:</p><ul><li><p>A character scalar (e.g. "SK021"), or</p></li>
 <li><p>A character vector (e.g. <code>c("2016","2017","2018")</code>)
 which we join by commas (<code>"2016,2017,2018"</code>),</p></li>
-<li><p>Special keywords like <code>"all"</code>, <code>"last5"</code>, etc.
+<li><p>Special keywords like <code>"all"</code>, <code>"last5"</code>, <code>"LAU1"</code>, etc.
 (passed as-is).</p></li>
 </ul></li>
 </ol><p>For multiple tables, just keep repeating those pairs in the same list.</p></dd>
@@ -113,24 +113,7 @@ the API call fails, the corresponding table is stored as <code>NULL</code> (with
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
-<span class="r-in"><span><span class="co"># Example: retrieve data from two tables</span></span></span>
-<span class="r-in"><span><span class="va">params</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
-<span class="r-in"><span>  <span class="st">"np3106rs"</span>,</span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="st">"SK021"</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"2016"</span>,<span class="st">"2017"</span>,<span class="st">"2018"</span><span class="op">)</span>, <span class="st">"E_PRIEM_HR_MZDA"</span>, <span class="st">"7"</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>  <span class="st">"as1001rs"</span>,</span></span>
-<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="st">"all"</span>, <span class="st">"all"</span>, <span class="st">"all"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">)</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">res</span> <span class="op">&lt;-</span> <span class="fu">fetch_susr_data</span><span class="op">(</span><span class="va">params</span>, lang <span class="op">=</span> <span class="st">"en"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">res</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="co">#&gt; [1] "np3106rs" "as1001rs"</span></span></span>
-<span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="co"># Each element is a data frame. For example:</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">res</span><span class="op">[[</span><span class="st">"np3106rs"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
-<span class="r-in"><span></span></span>
-</code></pre></div>
+
     </div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
