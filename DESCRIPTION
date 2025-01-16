@@ -1,6 +1,6 @@
 Package: susR
 Title: Interface for Accessing the Open Data of Slovak Statistical Office via API
-Version: 0.0.0.9000
+Version: 0.0.1
 Authors@R: 
     person("Arnold", "Kakas", , "kakas@cleandata.sk", role = c("aut", "cre"))
 Description: This package provides an R interface to the Slovak Statistical Office (Statisticky Urad Slovenskej Republiky - SUSR) open data API, enabling users to effortlessly search for, retrieve, and parse publicly available statistical datasets and their metadata. By combining convenient helper functions and robust request handling, the package simplifies the tasks of discovering available tables, retrieving dimension codes, extracting valid dimension elements, and ultimately querying custom data selections. This ensures a reproducible, streamlined workflow for analyzing official Slovak statistical data right within R.
