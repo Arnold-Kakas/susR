@@ -20,7 +20,7 @@ appear in the URL. Each segment can be:
 \item A character scalar (e.g. "SK021"), or
 \item A character vector (e.g. \code{c("2016","2017","2018")})
 which we join by commas (\code{"2016,2017,2018"}),
-\item Special keywords like \code{"all"}, \code{"last5"}, etc.
+\item Special keywords like \code{"all"}, \code{"last5"}, \code{"LAU1"}, etc.
 (passed as-is).
 }
 }
@@ -58,7 +58,7 @@ params <- list(
   "np3106rs",
   list("SK021", c("2016","2017","2018"), "E_PRIEM_HR_MZDA", "7"),
   "as1001rs",
-  list("all", "all", "all")
+  list("districts", "last5", "all")
 )
 
 res <- fetch_susr_data(params, lang = "en")
@@ -68,5 +68,17 @@ names(res)
 # Each element is a data frame. For example:
 head(res[["np3106rs"]])
 }
+
+**Error & Warning Handling**
+We use `tryCatch()` blocks around both network calls and JSON parsing.
+While we know some specific issues that could occur (like an invalid URL, or
+invalid JSON structure), there may be other rare/unexpected problems.
+If an error occurs, we issue a warning and store `NULL` for that table.
+
+**Dimension Count Check**
+Before constructing the URL, we call [susr_tables()] (in "long" format) to retrieve
+a list of the dimension codes for the table. We then check if the user-supplied
+dimension specs have the same length as the **number of distinct dimension_code**.
+If not, we warn the user. (This ensures at least the total dimension count is valid.)
 
 }

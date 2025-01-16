@@ -24,6 +24,7 @@ Imports:
     purrr,
     readr,
     rjstat,
+    utils,
     tibble,
     jsonlite
 VignetteBuilder: knitr
