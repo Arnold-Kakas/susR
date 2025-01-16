@@ -13,7 +13,7 @@ fetch_susr_data(
 \arguments{
 \item{params}{A list structured in \strong{pairs}:
 \enumerate{
-\item A character string with the table code (e.g. "np3106rr").
+\item A character string with the table code (e.g. "np3106rs").
 \item A list (or vector) of dimension "segments" in the order they should
 appear in the URL. Each segment can be:
 \itemize{
@@ -32,7 +32,7 @@ For multiple tables, just keep repeating those pairs in the same list.}
 \code{"https://data.statistics.sk/api/v2/dataset"}.}
 }
 \value{
-A named list of data frames, keyed by the table code
+A \emph{named list of data frames}, keyed by the table codes.
 }
 \description{
 This function constructs and calls the dataset endpoint for one or more tables,
@@ -49,13 +49,13 @@ then pass \code{list("param1", "param2", "param3")} in that \emph{exact} order.
 
 Internally, each JSON-stat response is converted to a data frame (tibble)
 using \code{rjstat::fromJSONstat()}. If the JSON structure is invalid or
-the API call fails, we store \code{NULL} and emit a warning for that table.
+the API call fails, the corresponding table is stored as \code{NULL} (with a warning).
 }
 \examples{
 \dontrun{
 # Example: retrieve data from two tables
 params <- list(
-  "np3106rr",
+  "np3106rs",
   list("SK021", c("2016","2017","2018"), "E_PRIEM_HR_MZDA", "7"),
   "as1001rs",
   list("districts", "last5", "all")
@@ -63,10 +63,10 @@ params <- list(
 
 res <- fetch_susr_data(params, lang = "en")
 names(res)
-#> [1] "np3106rr" "as1001rs"
+#> [1] "np3106rs" "as1001rs"
 
 # Each element is a data frame. For example:
-head(res[["np3106rr"]])
+head(res[["np3106rs"]])
 }
 
 **Error & Warning Handling**

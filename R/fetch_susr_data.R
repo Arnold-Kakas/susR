@@ -6,7 +6,7 @@
 #'
 #' @param params A list structured in **pairs**:
 #'   \enumerate{
-#'     \item A character string with the table code (e.g. "np3106rr").
+#'     \item A character string with the table code (e.g. "np3106rs").
 #'     \item A list (or vector) of dimension "segments" in the order they should
 #'           appear in the URL. Each segment can be:
 #'           \itemize{
@@ -33,14 +33,15 @@
 #'
 #' Internally, each JSON-stat response is converted to a data frame (tibble)
 #' using \code{rjstat::fromJSONstat()}. If the JSON structure is invalid or
-#' the API call fails, we store \code{NULL} and emit a warning for that table.
+#' the API call fails, the corresponding table is stored as \code{NULL} (with a warning).
 #'
-#' @return A named list of data frames, keyed by the table code
+#' @return A *named list of data frames*, keyed by the table codes.
+#'
 #' @examples
 #' \dontrun{
 #' # Example: retrieve data from two tables
 #' params <- list(
-#'   "np3106rr",
+#'   "np3106rs",
 #'   list("SK021", c("2016","2017","2018"), "E_PRIEM_HR_MZDA", "7"),
 #'   "as1001rs",
 #'   list("districts", "last5", "all")
@@ -48,10 +49,10 @@
 #'
 #' res <- fetch_susr_data(params, lang = "en")
 #' names(res)
-#' #> [1] "np3106rr" "as1001rs"
+#' #> [1] "np3106rs" "as1001rs"
 #'
 #' # Each element is a data frame. For example:
-#' head(res[["np3106rr"]])
+#' head(res[["np3106rs"]])
 #' }
 #'
 #' **Error & Warning Handling**
@@ -89,7 +90,6 @@ fetch_susr_data <- function(
   idx <- seq(1, n_par, by = 2)
 
   for (i in idx) {
-
     #----------------------------------------------------------------
     # Safely retrieve the table_code and check it's a valid string
     #----------------------------------------------------------------
@@ -198,6 +198,7 @@ fetch_susr_data <- function(
 
     # Store the tibble in our results list, keyed by table_code
     results[[table_code]] <- df
+
   }
 
   # Return the final list of data frames

@@ -17,18 +17,20 @@
 #' }
 #' @export
 susr_domains <- function() {
-  # Build path to CSV
-  csv_path <- system.file("extdata", "domains.csv", package = "susR")
 
-  if (csv_path == "") {
-    stop("CSV file not found. Please re-install or check your package structure.")
-  }
+  result <- tryCatch({
+    # Build path to CSV
+    csv_path <- system.file("extdata", "domains.csv", package = "susR")
 
-  # Use readr or base R
-  # Example with readr:
-  df <- readr::read_delim(csv_path, show_col_types = FALSE, delim = ";") |>
-    dplyr::select(-domain_subdomain)
+    # Use readr to read the CSV and dplyr to drop the unnecessary column
+    df <- readr::read_delim(csv_path, show_col_types = FALSE, delim = ";") |>
+      dplyr::select(-domain_subdomain)
 
-  # Return
-  df
+    df
+  }, error = function(e) {
+    # Print a message and return NULL if an error occurs
+    message("CSV file not found. Please re-install or contact package authors.")
+  })
+
+  result
 }

@@ -13,11 +13,11 @@
 #'
 #' @return A tibble with columns:
 #' \describe{
-#'   \item{dimension_code}{The provided dimension code (e.g. "as1001rs_rok")}
-#'   \item{dimension_label}{A short label for the dimension (if available)}
-#'   \item{dimension_note}{A more descriptive note for the dimension (if available)}
+#'   \item{dimension_code}{The provided dimension code (e.g. "as1001rs_rok").}
+#'   \item{dimension_label}{A short label for the dimension (if available).}
+#'   \item{dimension_note}{A more descriptive note for the dimension (if available).}
 #'   \item{element_index}{Index of each element.}
-#'   \item{element_value}{Each possible value code (e.g. "2016", "SK021", etc.)}
+#'   \item{element_value}{Each possible value code (e.g. "2016", "SK021", etc.).}
 #'   \item{element_label}{A descriptive label for each element code (if available).}
 #' }
 #'
@@ -30,7 +30,6 @@
 #'
 #' @export
 susr_dimension_values <- function(table_code, dimension_code, lang = "en") {
-
   # Build the dimension API URL
   dim_url <- paste0(
     "https://data.statistics.sk/api/v2/dimension/",
@@ -38,12 +37,16 @@ susr_dimension_values <- function(table_code, dimension_code, lang = "en") {
     dimension_code
   )
 
-  # Perform the request with httr2
-  resp <- httr2::request(dim_url) |>
-    httr2::req_url_query(lang = lang) |>
-    httr2::req_perform()
+  # Perform the request with a tryCatch wrapper to catch HTTP errors gracefully
+  resp <- tryCatch({
+    httr2::request(dim_url) |>
+      httr2::req_url_query(lang = lang) |>
+      httr2::req_perform()
+  }, error = function(e) {
+    stop("Failed to retrieve dimension info for ", dimension_code, ": ", e$message)
+  })
 
-  # Check for HTTP errors
+  # Check if the response indicates an HTTP error
   if (httr2::resp_is_error(resp)) {
     stop("Failed to retrieve dimension info for ", dimension_code, ": ",
          httr2::resp_status_desc(resp))
@@ -56,14 +59,11 @@ susr_dimension_values <- function(table_code, dimension_code, lang = "en") {
   dim_label <- if (!is.null(parsed$label)) parsed$label else NA_character_
   dim_note  <- if (!is.null(parsed$note))  parsed$note  else NA_character_
 
-  # Extract element values, indexes and labels (if any)
-  element_idx  <- parsed$category$index
-  element_index <- element_idx |> unlist()
-  element_values <- element_idx |> unlist() |> names()
-  element_labels <- parsed$category$label |> unlist()
+  # Extract element values, indexes, and labels (if any)
+  element_idx <- parsed$category$index
 
   # If this dimension has no elements, return an empty tibble
-  if (length(element_idx) == 0) {
+  if (is.null(element_idx) || length(element_idx) == 0) {
     return(dplyr::tibble(
       dimension_code  = dimension_code,
       dimension_label = dim_label,
@@ -74,8 +74,11 @@ susr_dimension_values <- function(table_code, dimension_code, lang = "en") {
     ))
   }
 
+  # Process the returned indexes and labels
+  element_index <- unlist(element_idx)
+  element_values <- names(element_idx)
+  element_labels <- unlist(parsed$category$label)
 
-  # Return a tibble
   dplyr::tibble(
     dimension_code  = dimension_code,
     dimension_label = dim_label,
@@ -85,4 +88,3 @@ susr_dimension_values <- function(table_code, dimension_code, lang = "en") {
     element_label   = element_labels
   )
 }
-

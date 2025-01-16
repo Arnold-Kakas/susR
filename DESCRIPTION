@@ -25,6 +25,7 @@ Imports:
     readr,
     rjstat,
     utils,
-    tibble
+    tibble,
+    jsonlite
 VignetteBuilder: knitr
 URL: https://arnold-kakas.github.io/susR/

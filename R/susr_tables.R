@@ -32,7 +32,7 @@
 #'   - Always contains: \code{class}, \code{href}, \code{table_code}, \code{label}, \code{update}
 #'   - If \code{long = FALSE}: also \code{dimension_names}
 #'   - If \code{long = TRUE}: also \code{dimension_code}
-#'   - If \code{domain} was used, columns \code{domain} / \code{subdomain} from \code{susr_domains()} are also included.
+#'   - If \code{domains} was used, columns \code{domain} / \code{subdomain} from [susr_domains()] are also included.
 #'
 #' @examples
 #' \dontrun{
@@ -40,35 +40,54 @@
 #' tables_all <- susr_tables()
 #'
 #' # 2) Filter to just certain table codes:
-#' tables_some <- susr_tables(table_code = c("as1001rs", "as1002rs"))
+#' tables_some <- susr_tables(table_codes = c("as1001rs", "as1002rs"))
 #'
 #' # 3) Filter by domain or subdomain:
-#' #    e.g., if your CSV has domain = "Environment", "Macroeconomic statistics", etc.
-#' env_tables <- susr_tables(domain = "Environment")
+#' env_tables <- susr_tables(domains = "Environment")
 #'
 #' # 4) Combined: filter by domain + get long format
-#' macroeconomic_tables <- susr_tables(long = TRUE, domain = "Macroeconomic statistics")
+#' macroeconomic_tables <- susr_tables(long = TRUE, domains = "Macroeconomic statistics")
 #' }
+#'
 #' @export
 susr_tables <- function(long = FALSE,
-                           domains = NULL,
-                           table_codes = NULL) {
+                        domains = NULL,
+                        table_codes = NULL) {
   base_url <- "https://data.statistics.sk/api/v2/collection"
 
-  # 1) Perform the request to the API
-  resp <- httr2::request(base_url) |>
-    httr2::req_url_query(lang = "en") |>
-    httr2::req_perform()
+  # 1) Perform the API request with error handling
+  resp <- tryCatch({
+    httr2::request(base_url) |>
+      httr2::req_url_query(lang = "en") |>
+      httr2::req_perform()
+  }, error = function(e) {
+    stop("Failed to retrieve data from SUSR: ", e$message)
+  })
 
   if (httr2::resp_is_error(resp)) {
     stop("Failed to retrieve data from SUSR: ", httr2::resp_status_desc(resp))
   }
 
-  # 2) Parse JSON
-  parsed <- httr2::resp_body_json(resp)
+  # 2) Extract raw JSON text and parse with jsonlite::fromJSON() to preserve JSON-stat structure
+  raw_text <- httr2::resp_body_string(resp)
+  parsed <- tryCatch({
+    jsonlite::fromJSON(raw_text, simplifyVector = FALSE)
+  }, error = function(e) {
+    stop("Failed to parse JSON response from SUSR API: ", e$message)
+  })
 
-  # 3) Safety check: if no items returned
-  if (is.null(parsed$link$item) || length(parsed$link$item) == 0) {
+  # 3) Identify items: try using "item" first; if not available, try "items"
+  items <- if (!is.null(parsed$link$item)) {
+    parsed$link$item
+  } else if (!is.null(parsed$link$items)) {
+    parsed$link$items
+  } else {
+    warning("No datasets found in the SUSR API response.")
+    items <- list()
+  }
+
+  # 4) If there are no items, return an empty tibble with the expected columns.
+  if (length(items) == 0) {
     out_empty <- dplyr::tibble(
       class = character(0),
       href = character(0),
@@ -81,72 +100,78 @@ susr_tables <- function(long = FALSE,
       out_empty$dimension_code <- character(0)
       out_empty$dimension_names <- NULL
     }
-    # if we plan to add domain info columns in the future, we'd do so here
     return(out_empty)
   }
 
-  items <- parsed$link$item
-
-  # 4) Build the 'wide' tibble first
+  # 5) Build the wide tibble from the items
   tbl_wide <- purrr::map_dfr(items, function(x) {
     dims <- x$dimension
 
-    # Combine dimension codes with ':'
-    dim_names <- if (!is.null(dims) && length(dims) > 0) {
-      paste(names(dims), collapse = ":")
-    } else {
+    # Combine dimension codes with ':' if present
+    dim_names <- tryCatch({
+      if (!is.null(dims) && length(dims) > 0) {
+        paste(names(dims), collapse = ":")
+      } else {
+        NA_character_
+      }
+    }, error = function(e) {
       NA_character_
-    }
+    })
 
-    # Extract table_code from x$href
-    href_no_leading <- sub("^.*?/dataset/", "", x$href)
-    code <- sub("/.*$", "", href_no_leading)
-    code <- sub("\\?.*$", "", code)
+    # Extract table code from x$href with robust error handling
+    code <- tryCatch({
+      href_no_leading <- sub("^.*?/dataset/", "", x$href)
+      code <- sub("/.*$", "", href_no_leading)
+      sub("\\?.*$", "", code)
+    }, error = function(e) {
+      NA_character_
+    })
 
     dplyr::tibble(
-      class = x$class,
-      href = x$href,
+      class = if (!is.null(x$class)) x$class else NA_character_,
+      href = if (!is.null(x$href)) x$href else NA_character_,
       table_code = code,
-      label = x$label,
-      update = x$update,
+      label = if (!is.null(x$label)) x$label else NA_character_,
+      update = if (!is.null(x$update)) x$update else NA_character_,
       dimension_names = dim_names
     )
   })
 
-  # 5) If user provided domain(s), we join with the static domain data
+  # 6) If user provided domains, join with susr_domains() and filter rows accordingly.
   if (!is.null(domains)) {
-    # susr_domains() must exist in your package, returning e.g.:
-    #   table_code, domain, subdomain
-    domain_df <- susr_domains()
+    domain_df <- tryCatch({
+      susr_domains()
+    }, error = function(e) {
+      stop("Failed to retrieve domain information: ", e$message)
+    })
 
-    # Left join so we add domain/subdomain columns
+    required_cols <- c("table_code", "domain", "subdomain")
+    if (!all(required_cols %in% names(domain_df))) {
+      stop("Domain data must contain the following columns: ", paste(required_cols, collapse = ", "))
+    }
+
     tbl_wide <- dplyr::left_join(tbl_wide, domain_df, by = "table_code")
-
-    # Filter rows: keep only if domain or subdomain matches any of user param
-    # ( domain can be a vector, e.g. c("Education","Population") )
-    # If there's no match for domain/subdomain, row is dropped.
     tbl_wide <- dplyr::filter(
       tbl_wide,
-      .data$domain %in% domains | .data$subdomain %in% domains
+      (.data$domain %in% domains) | (.data$subdomain %in% domains)
     )
   }
 
-  # 6) If user provided table_code(s), filter
+  # 7) If user provided table_codes, filter accordingly.
   if (!is.null(table_codes)) {
     tbl_wide <- dplyr::filter(tbl_wide, .data$table_code %in% table_codes)
   }
 
-  # 7) If user wants 'long' format, pivot dimension_names
+  # 8) If long format is not requested, return the wide tibble.
   if (!long) {
     return(tbl_wide)
   }
 
-  # Pivot to "long": one dimension_code per row
+  # 9) Pivot to "long" format: one row per dimension_code.
   tbl_long <- dplyr::bind_rows(
     lapply(seq_len(nrow(tbl_wide)), function(i) {
       dnames <- tbl_wide$dimension_names[i]
       if (is.na(dnames) || !nzchar(dnames)) {
-        # No dimension codes
         return(dplyr::tibble(
           class = tbl_wide$class[i],
           href = tbl_wide$href[i],
@@ -154,15 +179,12 @@ susr_tables <- function(long = FALSE,
           label = tbl_wide$label[i],
           update = tbl_wide$update[i],
           dimension_code = NA_character_,
-          # If domain/subdomain columns exist, carry them over
-          domain = tbl_wide$domain[i],
-          subdomain = tbl_wide$subdomain[i]
+          domain = if ("domain" %in% names(tbl_wide)) tbl_wide$domain[i] else NA_character_,
+          subdomain = if ("subdomain" %in% names(tbl_wide)) tbl_wide$subdomain[i] else NA_character_
         ))
       }
-      # Split the dimension names by ':'
-      dim_vec <- strsplit(dnames, ":", fixed = TRUE)[[1]]
 
-      # Build multiple rows
+      dim_vec <- strsplit(dnames, ":", fixed = TRUE)[[1]]
       out_i <- dplyr::tibble(
         class = tbl_wide$class[i],
         href = tbl_wide$href[i],
@@ -171,7 +193,6 @@ susr_tables <- function(long = FALSE,
         update = tbl_wide$update[i],
         dimension_code = dim_vec
       )
-      # If domain columns exist, add them
       if ("domain" %in% names(tbl_wide)) {
         out_i$domain <- tbl_wide$domain[i]
       }
@@ -182,5 +203,5 @@ susr_tables <- function(long = FALSE,
     })
   )
 
-  tbl_long
+  return(tbl_long)
 }
