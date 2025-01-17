@@ -4,7 +4,7 @@ pkgdown_sha: ~
 articles:
   example_analysis: example_analysis.html
   getting_started: getting_started.html
-last_built: 2025-01-17T08:41Z
+last_built: 2025-01-17T08:49Z
 urls:
   reference: https://arnold-kakas.github.io/susR/reference
   article: https://arnold-kakas.github.io/susR/articles
