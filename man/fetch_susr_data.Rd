@@ -6,6 +6,7 @@
 \usage{
 fetch_susr_data(
   params,
+  geocode = FALSE,
   lang = "en",
   base_url = "https://data.statistics.sk/api/v2/dataset"
 )
@@ -26,6 +27,8 @@ which we join by commas (\code{"2016,2017,2018"}),
 }
 For multiple tables, just keep repeating those pairs in the same list.}
 
+\item{geocode}{Binary TRUE/FALSE. If TRUE, result will contain geometry. Default is FALSE.}
+
 \item{lang}{The language code. Defaults to \code{"en"}. Can also be \code{"sk"}.}
 
 \item{base_url}{The base SUSR dataset endpoint. Defaults to
@@ -33,18 +36,6 @@ For multiple tables, just keep repeating those pairs in the same list.}
 }
 \value{
 A \emph{named list of data frames}, keyed by the table codes.
-
-\strong{Error & Warning Handling}
-We use \code{tryCatch()} blocks around both network calls and JSON parsing.
-While we know some specific issues that could occur (like an invalid URL, or
-invalid JSON structure), there may be other rare/unexpected problems.
-If an error occurs, we issue a warning and store \code{NULL} for that table.
-
-\strong{Dimension Count Check}
-Before constructing the URL, we call \code{\link[=susr_tables]{susr_tables()}} (in "long" format) to retrieve
-a list of the dimension codes for the table. We then check if the user-supplied
-dimension specs have the same length as the \strong{number of distinct dimension_code}.
-If not, we warn the user. (This ensures at least the total dimension count is valid.)
 }
 \description{
 This function constructs and calls the dataset endpoint for one or more tables,

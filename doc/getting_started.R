@@ -96,7 +96,7 @@ names(multi_res)
 
 class(multi_res$np3106rr)
 
-## ----out.width="100%", fig.width=12, fig.height=6-----------------------------
+## ----out.width="100%", fig.width=8, fig.height=6------------------------------
 library(ggplot2)
 
 p <- multi_res$as1001rs |>

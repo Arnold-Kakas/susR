@@ -19,7 +19,6 @@ library(susR)
 library(dplyr)
 library(ggplot2)
 library(stringr)
-library(gganimate)
 library(plotly)
 ```
 
@@ -138,24 +137,7 @@ merged_df <- cleaned_pop_df |>
 
 ## Analysis
 
-```{r, message=FALSE, warning=FALSE}
-ggplot(merged_df |> filter(sex == 1), aes(x = year, y = mean_age, group = district, color = district)) +
-  geom_line() +
-  labs(title = "Mean Age Trend Over Years - Females", x = "Year", y = "Mean Age") +
-  theme_minimal() +
-  guides(color = "none")
-```
-
-```{r, message=FALSE, warning=FALSE}
-ggplot(merged_df |> filter(sex == 0), aes(x = year, y = mean_age, group = district, color = district)) +
-  geom_line() +
-  labs(title = "Mean Age Trend Over Years - Males", x = "Year", y = "Mean Age") +
-  theme_minimal() +
-  guides(color = "none")
-```
-As we can see, most of district age getting older. However there are couple of flat-ish ones disrupting this pattern. 
-
-```{r, message=FALSE, warning=FALSE, fig.height=6, fig.width=12}
+```{r, message=FALSE, warning=FALSE, fig.height=5, fig.width=6}
 # Calculate population per district per year
 data_bubble <- merged_df |> 
   reframe(
@@ -167,7 +149,8 @@ data_bubble <- merged_df |>
   mutate(
     age_decile = ntile(mean_age, 10)  # Divide districts into deciles by mean age
   ) |> 
-  ungroup()
+  ungroup() |> 
+  filter(year %in% c(2000, 2005, 2010, 2015, 2020))
   
 
 # Animated interactive bubble chart
@@ -182,7 +165,7 @@ bubble_chart <- plot_ly(
   text = ~district,
   type = 'scatter',
   mode = 'markers'
-) %>%
+)  |> 
   layout(
     title = "Change over Time",
     xaxis = list(title = "Total Population"),

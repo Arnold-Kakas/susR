@@ -73,6 +73,7 @@ resolve_href <- function(
     region_keywords <- c(
       "district", "districts", "nuts4", "nuts 4", "lau1", "lau 1", "okres", "okresy",
       "nuts2", "nuts 2",
+      "nuts3", "nuts 3",
       "country", "sr", "slovakia", "slovak republic", "slovensko", "slovenska republika",
       "city", "cities", "town", "towns", "mesto", "mesta",
       "bratislava", "capital", "cap", ".cap", "capital city", "cap city", "cap. city", "hlavne mesto", "hlm", "hl.m.", "hl.m", "hlm."
@@ -90,10 +91,8 @@ resolve_href <- function(
 
     if (keyword %in% c("district", "districts", "nuts4", "nuts 4", "lau1", "lau 1", "okres", "okresy")) {
       selected <- subset(selected, grepl("District of", element_label))
-    } else if (keyword == "nuts3") {
-      # standard 8 NUTS3 codes
-      selected <- subset(selected, element_value %in%
-                           c("SK010","SK021","SK022","SK023","SK031","SK032","SK041","SK042"))
+    } else if (keyword %in% c("nuts3", "nuts 3")) {
+      selected <- subset(selected, element_value %in% c("SK010","SK021","SK022","SK023","SK031","SK032","SK041","SK042"))
     } else if (keyword %in% c("nuts2", "nuts 2")) {
       selected <- subset(selected, element_value %in% c("SK01","SK02","SK03","SK04"))
     } else if (keyword %in% c("country", "sr", "slovakia", "slovak republic", "slovensko", "slovenska republika")) {

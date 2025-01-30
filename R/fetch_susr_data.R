@@ -18,7 +18,7 @@
 #'           }
 #'   }
 #'   For multiple tables, just keep repeating those pairs in the same list.
-#'
+#' @param geocode Binary TRUE/FALSE. If TRUE, result will contain geometry. Default is FALSE.
 #' @param lang The language code. Defaults to \code{"en"}. Can also be \code{"sk"}.
 #' @param base_url The base SUSR dataset endpoint. Defaults to
 #'   \code{"https://data.statistics.sk/api/v2/dataset"}.
@@ -37,22 +37,11 @@
 #'
 #' @return A *named list of data frames*, keyed by the table codes.
 #'
-#' **Error & Warning Handling**
-#' We use `tryCatch()` blocks around both network calls and JSON parsing.
-#' While we know some specific issues that could occur (like an invalid URL, or
-#' invalid JSON structure), there may be other rare/unexpected problems.
-#' If an error occurs, we issue a warning and store `NULL` for that table.
-#'
-#' **Dimension Count Check**
-#' Before constructing the URL, we call [susr_tables()] (in "long" format) to retrieve
-#' a list of the dimension codes for the table. We then check if the user-supplied
-#' dimension specs have the same length as the **number of distinct dimension_code**.
-#' If not, we warn the user. (This ensures at least the total dimension count is valid.)
-#'
 #' @importFrom rjstat fromJSONstat
 #' @export
 fetch_susr_data <- function(
     params,
+    geocode = FALSE,
     lang     = "en",
     base_url = "https://data.statistics.sk/api/v2/dataset"
 ) {
@@ -92,8 +81,7 @@ fetch_susr_data <- function(
     # distinct dimensions it has. This helps ensure the user didn't pass
     # the wrong number of segments for the table in question.
     table_info_long <- if (is.null(susr_tables(long = TRUE, table_codes = table_code))) {
-      warning("Failed to retrieve or parse table metadata for table_code='", table_code,
-              "'. Skipping. Error was: ", e$message)
+      warning("Failed to retrieve or parse table metadata for table_code='", table_code,"'. Skipping.")
       return(NULL)
     } else {
       susr_tables(long = TRUE, table_codes = table_code)
@@ -108,7 +96,7 @@ fetch_susr_data <- function(
     if (length(dim_specs) != length(tbl_dim_codes)) {
       warning("You provided ", length(dim_specs), " dimension segments for table_code='", table_code,
               "', but the table metadata shows ", length(tbl_dim_codes), " dimension(s).",
-              "\nDimension names in metadata: ", paste(tbl_dim_codes, collapse=", "))
+              "\nDimension names in metadata: ", paste(tbl_dim_codes, collapse = ", "))
       return(NULL)
     }
 
@@ -131,14 +119,14 @@ fetch_susr_data <- function(
                        lang, "&type=json")
 
     #----------------------------------------------------------------
-    # Perform the API request via httr2 within tryCatch
+    # Perform the API request via httr2
     #----------------------------------------------------------------
     resp <- tryCatch({
       httr2::request(full_url) |> httr2::req_perform()
     }, error = function(e) {
       # If there's a network issue, DNS error, etc., we catch it here
       warning("Failed to retrieve data for table_code='", table_code,
-              "'. URL: ", full_url, "\nError: ", e$message)
+              "'. URL: ", full_url)
       return(NULL)
     })
     if (is.null(resp)) {
@@ -170,6 +158,22 @@ fetch_susr_data <- function(
     # Convert the parsed object to a tibble
     df <- tibble::as_tibble(df_list)
 
+    if (geocode) {
+      reg_col <- names(df)[grep("vuc|obc|nuts|kraj|vuc|obec|kra", names(df))]
+
+      regions <- susr_dimension_values(table_code,
+                                       reg_col) |>
+        dplyr::select(dimension_code, code = element_value, element_label) |>
+        dplyr::mutate(code = dplyr::if_else(grepl("obc", dimension_code),
+                                                     substr(code, nchar(code) - 5, nchar(code)),
+                                                     code)) |>
+        dplyr::select(-dimension_code)
+
+      df <- df |>
+        dplyr::left_join(regions, by = dplyr::join_by(!!reg_col == element_label), keep = FALSE) |>
+        dplyr::left_join(regions_geometry |> dplyr::select(-name) |> sf::st_as_sf(), by = "code", keep = FALSE)
+    }
+
     # Store the tibble in our results list, keyed by table_code
     results[[table_code]] <- df
 
@@ -178,3 +182,4 @@ fetch_susr_data <- function(
   # Return the final list of data frames
   results
 }
+

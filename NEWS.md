@@ -1,3 +1,11 @@
+# susR 0.0.3
+
+New geocoding functionality
+
+- Major changes:
+    - Added support for the `geocode` parameter in `fetch_susr_data()`, enabling spatial analysis by appending geometry to the retrieved data.
+    - Updated internal logic to ensure robust input validation and better user feedback when invalid codes are detected.
+
 # susR 0.0.2
 
 Improved dimension handling by refactoring into a single function that expands special codes, validates inputs, and gracefully falls back (with warnings) when invalid codes are provided.

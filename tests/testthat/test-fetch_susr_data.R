@@ -1,4 +1,4 @@
-# Test 1: Error if number of elements in params is odd.
+# Test 1:
 test_that("fetch_susr_data() throws error when params length is odd", {
   # Create a params list with three elements (odd length)
   odd_params <- list("np3106rr", list("SK021", "2016"), "extra_item")
@@ -9,7 +9,7 @@ test_that("fetch_susr_data() throws error when params length is odd", {
   expect_null(result)
 })
 
-# Test 2: Incomplete parameters (likely to trigger HTTP 400)
+# Test 2:
 test_that("fetch_susr_data() returns warning and NULL for incomplete parameters", {
   skip_on_cran()
   skip_if_offline()
@@ -22,7 +22,7 @@ test_that("fetch_susr_data() returns warning and NULL for incomplete parameters"
   )
 })
 
-# Test 3: Invalid table code should produce a warning and return NULL
+# Test 3:
 test_that("fetch_susr_data() returns warning and NULL for an invalid table code", {
   skip_on_cran()
   skip_if_offline()
@@ -36,7 +36,7 @@ test_that("fetch_susr_data() returns warning and NULL for an invalid table code"
 
 })
 
-# Test 4: Valid API call should return a named list with a tibble for the table code
+# Test 4:
 test_that("fetch_susr_data() returns a named list with a tibble for valid parameters", {
   skip_on_cran()
   skip_if_offline()
@@ -58,4 +58,20 @@ test_that("fetch_susr_data() returns a named list with a tibble for valid parame
     # Optionally, ensure the tibble has at least one column
     expect_true(ncol(res[["np3106rr"]]) >= 1)
   }
+})
+
+
+# Test 5:
+test_that("fetch_susr_data() if geocode = TRUE, dataframe contains geometry", {
+  skip_on_cran()
+  skip_if_offline()
+
+  params <- list(
+    "np3106rr",
+    list("SK021", c("2016", "2017", "2018"), "E_PRIEM_HR_MZDA", "all")
+  )
+
+  res <- fetch_susr_data(params, geocode = TRUE, lang = "en")
+
+  expect_true("geometry" %in% colnames(res[[1]]))
 })

@@ -164,7 +164,7 @@ Each element in multi_res is a tibble for given table code.
 
 Once you have the data, use dplyr and ggplot2 (or anything else) to analyze:
 
-```{r out.width="100%", fig.width=12, fig.height=6}
+```{r out.width="100%", fig.width=8, fig.height=6}
 library(ggplot2)
 
 p <- multi_res$as1001rs |>
