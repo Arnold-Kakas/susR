@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">susR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.3</span>
       </span>
     </div>
 
@@ -37,6 +37,9 @@
     <li>
       <a href="../articles/getting_started.html">Getting started with susR</a>
     </li>
+    <li>
+      <a href="../articles/using_geocode_parameter.html">Using the geocode Parameter for Spatial Analysis</a>
+    </li>
   </ul></li>
 <li>
   <a href="../news/index.html">Changelog</a>
@@ -54,6 +57,14 @@
 
     </div>
 
+    <div class="section level2">
+<h2 class="page-header" data-toc-text="0.0.3" id="susr-003">susR 0.0.3<a class="anchor" aria-label="anchor" href="#susr-003"></a></h2>
+<p>New geocoding functionality</p>
+<ul><li>Major changes:
+<ul><li>Added support for the <code>geocode</code> parameter in <code><a href="../reference/fetch_susr_data.html">fetch_susr_data()</a></code>, enabling spatial analysis by appending geometry to the retrieved data.</li>
+<li>Updated internal logic to ensure robust input validation and better user feedback when invalid codes are detected.</li>
+</ul></li>
+</ul></div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.0.2" id="susr-002">susR 0.0.2<a class="anchor" aria-label="anchor" href="#susr-002"></a></h2>
 <p>Improved dimension handling by refactoring into a single function that expands special codes, validates inputs, and gracefully falls back (with warnings) when invalid codes are provided.</p>

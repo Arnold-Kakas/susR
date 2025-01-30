@@ -19,7 +19,7 @@ Internally, it fetches JSON-stat and parses it using the rjstat package."><!-- m
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">susR</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.3</span>
       </span>
     </div>
 
@@ -38,6 +38,9 @@ Internally, it fetches JSON-stat and parses it using the rjstat package."><!-- m
     </li>
     <li>
       <a href="../articles/getting_started.html">Getting started with susR</a>
+    </li>
+    <li>
+      <a href="../articles/using_geocode_parameter.html">Using the geocode Parameter for Spatial Analysis</a>
     </li>
   </ul></li>
 <li>
@@ -66,6 +69,7 @@ Internally, it fetches JSON-stat and parses it using the <span class="pkg">rjsta
     <div id="ref-usage">
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">fetch_susr_data</span><span class="op">(</span></span>
 <span>  <span class="va">params</span>,</span>
+<span>  geocode <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  lang <span class="op">=</span> <span class="st">"en"</span>,</span>
 <span>  base_url <span class="op">=</span> <span class="st">"https://data.statistics.sk/api/v2/dataset"</span></span>
 <span><span class="op">)</span></span></code></pre></div>
@@ -87,6 +91,10 @@ which we join by commas (<code>"2016,2017,2018"</code>),</p></li>
 </ol><p>For multiple tables, just keep repeating those pairs in the same list.</p></dd>
 
 
+<dt id="arg-geocode">geocode<a class="anchor" aria-label="anchor" href="#arg-geocode"></a></dt>
+<dd><p>Binary TRUE/FALSE. If TRUE, result will contain geometry. Default is FALSE.</p></dd>
+
+
 <dt id="arg-lang">lang<a class="anchor" aria-label="anchor" href="#arg-lang"></a></dt>
 <dd><p>The language code. Defaults to <code>"en"</code>. Can also be <code>"sk"</code>.</p></dd>
 
@@ -99,16 +107,6 @@ which we join by commas (<code>"2016,2017,2018"</code>),</p></li>
     <div id="value">
     <h2>Value</h2>
     <p>A <em>named list of data frames</em>, keyed by the table codes.</p>
-<p><strong>Error &amp; Warning Handling</strong>
-We use <code><a href="https://rdrr.io/r/base/conditions.html" class="external-link">tryCatch()</a></code> blocks around both network calls and JSON parsing.
-While we know some specific issues that could occur (like an invalid URL, or
-invalid JSON structure), there may be other rare/unexpected problems.
-If an error occurs, we issue a warning and store <code>NULL</code> for that table.</p>
-<p><strong>Dimension Count Check</strong>
-Before constructing the URL, we call <code><a href="susr_tables.html">susr_tables()</a></code> (in "long" format) to retrieve
-a list of the dimension codes for the table. We then check if the user-supplied
-dimension specs have the same length as the <strong>number of distinct dimension_code</strong>.
-If not, we warn the user. (This ensures at least the total dimension count is valid.)</p>
     </div>
     <div id="details">
     <h2>Details</h2>
