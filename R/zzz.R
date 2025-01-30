@@ -5,5 +5,8 @@ utils::globalVariables(c(
   "domain_subdomain",
   ".data",
   "element_label",
-  "element_value"
+  "element_value",
+  "dimension_code",
+  "code",
+  "name"
 ))
